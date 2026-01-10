@@ -15,22 +15,23 @@ export const ui = {
 
 export type Lang = keyof typeof languages;
 
-const BASE_URL = import.meta.env.BASE_URL;
+// Explicitly define base URL logic to be robust in both dev and prod
+const REPO_NAME = '/skilled-trade-manpower';
+const BASE_URL = import.meta.env.PROD ? REPO_NAME : (import.meta.env.BASE_URL === '/' ? '/' : import.meta.env.BASE_URL);
 
 function removeBase(path: string): string {
-  if (path.startsWith(BASE_URL)) {
-    // If BASE_URL is "/" it matches everything, but slice(1) would be wrong if we want to keep the root slash.
-    // However, if BASE_URL is "/", we generally don't need to do anything special unless we want to remove the leading slash.
-    // Let's assume standard behavior:
-    if (BASE_URL === '/') return path;
-    
-    // If path matches base exactly
-    if (path === BASE_URL) return '/';
-    
-    // If path starts with base, remove it.
-    // Example: base='/app', path='/app/home' -> '/home'
-    return path.slice(BASE_URL.length);
+  // If we are in prod and path starts with repo name, strip it
+  if (import.meta.env.PROD && path.startsWith(REPO_NAME)) {
+    const stripped = path.slice(REPO_NAME.length);
+    // Ensure we return a path starting with /
+    return stripped.startsWith('/') ? stripped : (stripped === '' ? '/' : '/' + stripped);
   }
+  
+  if (path.startsWith(BASE_URL) && BASE_URL !== '/') {
+    const stripped = path.slice(BASE_URL.length);
+    return stripped.startsWith('/') ? stripped : (stripped === '' ? '/' : '/' + stripped);
+  }
+  
   return path;
 }
 
@@ -92,14 +93,16 @@ export function getTranslatedPath(routeName: string, lang: Lang): string {
     const route = routes[routeName as keyof typeof routes];
     const path = route ? route[lang] : routes.home[lang];
     
+    // In production, always prepend the repo name if not present
+    if (import.meta.env.PROD) {
+       // Avoid double slash issues
+       const prefix = REPO_NAME;
+       const cleanPath = path === '/' ? '' : path;
+       return `${prefix}${cleanPath}`;
+    }
+    
     if (BASE_URL === '/') return path;
     
-    // Ensure we don't end up with // if base ends with / (though astro config says it shouldn't)
-    // and path starts with /.
-    // If base is /app and path is /home -> /app/home
-    // If base is /app and path is / -> /app/
-    
-    // Construct full path
     const fullPath = `${BASE_URL}${path === '/' ? '' : path}`;
     return fullPath.endsWith('/') && fullPath.length > 1 ? fullPath.slice(0, -1) : fullPath;
 }

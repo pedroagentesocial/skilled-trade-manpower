@@ -1,0 +1,57 @@
+---
+import { getLangFromUrl, useTranslations, getTranslatedPath } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const industries = [
+  { 
+    id: 'healthcare',
+    key: 'healthcare', 
+    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=Healthcare',
+    link: getTranslatedPath('industries/healthcare', lang)
+  },
+  { 
+    id: 'construction',
+    key: 'construction', 
+    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=Construction',
+    link: getTranslatedPath('industries/construction', lang)
+  },
+  { 
+    id: 'technology',
+    key: 'technology', 
+    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=Technology',
+    link: getTranslatedPath('industries/technology', lang)
+  },
+  { 
+    id: 'generalLabor',
+    key: 'generalLabor', 
+    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=General+Labor',
+    link: getTranslatedPath('industries/general-labor', lang)
+  },
+];
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('industries.title')}</h2>
+      <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {industries.map(ind => (
+        <a href={ind.link} class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1">
+          <div class="h-48 overflow-hidden">
+            <img src={ind.image} alt={t(`industries.${ind.key}`)} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+              {t(`industries.${ind.key}`)}
+            </h3>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

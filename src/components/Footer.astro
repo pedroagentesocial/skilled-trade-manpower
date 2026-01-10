@@ -1,0 +1,58 @@
+---
+import { getLangFromUrl, useTranslations, getTranslatedPath } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer class="bg-gray-900 text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">Skilled Trade Manpower</h3>
+        <p class="text-gray-400 mb-4">
+          {t('home.hero.subtitle')}
+        </p>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-semibold mb-4">{t('nav.services')}</h4>
+        <ul class="space-y-2">
+          <li><a href={getTranslatedPath('services', lang)} class="text-gray-400 hover:text-white transition-colors">{t('services.recruiting.title')}</a></li>
+          <li><a href={getTranslatedPath('services', lang)} class="text-gray-400 hover:text-white transition-colors">{t('services.skilledTrades.title')}</a></li>
+          <li><a href={getTranslatedPath('services', lang)} class="text-gray-400 hover:text-white transition-colors">{t('services.construction.title')}</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold mb-4">{t('nav.industries')}</h4>
+        <ul class="space-y-2">
+          <li><a href={getTranslatedPath('industries/healthcare', lang)} class="text-gray-400 hover:text-white transition-colors">{t('industries.healthcare')}</a></li>
+          <li><a href={getTranslatedPath('industries/construction', lang)} class="text-gray-400 hover:text-white transition-colors">{t('industries.construction')}</a></li>
+          <li><a href={getTranslatedPath('industries/technology', lang)} class="text-gray-400 hover:text-white transition-colors">{t('industries.technology')}</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold mb-4">{t('nav.contact')}</h4>
+        <address class="text-gray-400 not-italic">
+          <p>123 Main Street</p>
+          <p>Salt Lake City, UT 84101</p>
+          <p class="mt-2"><a href="tel:5551234567" class="hover:text-white">(555) 123-4567</a></p>
+          <p><a href="mailto:info@skilledtrademanpower.com" class="hover:text-white">info@skilledtrademanpower.com</a></p>
+        </address>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-500 text-sm">
+        &copy; {new Date().getFullYear()} Skilled Trade Manpower. {t('footer.rights')}
+      </p>
+      <div class="mt-4 md:mt-0">
+        <a href={getTranslatedPath('privacy', lang)} class="text-gray-500 hover:text-white text-sm transition-colors">
+          {t('footer.privacy')}
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,109 @@
+{
+  "site": {
+    "title": "Skilled Trade Manpower",
+    "description": "Agencia de personal y reclutamiento en Utah para construcción, salud y tecnología."
+  },
+  "nav": {
+    "home": "Inicio",
+    "employers": "Empleadores",
+    "jobSeekers": "Candidatos",
+    "services": "Servicios",
+    "industries": "Industrias",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "call": "Llamar"
+  },
+  "buttons": {
+    "contactUs": "Contáctenos",
+    "applyNow": "Aplicar Ahora",
+    "findWorkers": "Buscar Personal",
+    "learnMore": "Más Información",
+    "submit": "Enviar"
+  },
+  "home": {
+    "hero": {
+      "title": "Conectando Talento Calificado con Grandes Empleadores",
+      "subtitle": "Su socio de confianza para soluciones de personal en Utah. Nos especializamos en Construcción, Salud, Tecnología y Labor General.",
+      "ctaPrimary": "Buscar Personal",
+      "ctaSecondary": "Buscar Trabajo"
+    }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "recruiting": {
+      "title": "Reclutamiento de Personal",
+      "desc": "Reclutamiento de ciclo completo para encontrar la combinación perfecta para la cultura y necesidades de su empresa."
+    },
+    "skilledTrades": {
+      "title": "Personal de Oficios Calificados",
+      "desc": "Profesionales calificados listos para comenzar a trabajar en sus proyectos de inmediato."
+    },
+    "construction": {
+      "title": "Mano de Obra para Construcción",
+      "desc": "Personal general y calificado confiable para obras de construcción de todos los tamaños."
+    },
+    "healthcare": {
+      "title": "Personal de Salud",
+      "desc": "Profesionales certificados para hospitales, clínicas e instalaciones de cuidado."
+    },
+    "technology": {
+      "title": "Personal de Tecnología",
+      "desc": "Desarrolladores, ingenieros y especialistas en TI para la era digital."
+    },
+    "generalLabor": {
+      "title": "Labor General",
+      "desc": "Fuerza laboral flexible para almacenamiento, manufactura y logística."
+    },
+    "sales": {
+      "title": "Equipos de Ventas",
+      "desc": "Profesionales de ventas de alto rendimiento para impulsar el crecimiento de sus ingresos."
+    },
+    "socialMedia": {
+      "title": "Reclutamiento en Redes Sociales",
+      "desc": "Aprovechamiento de plataformas modernas para atraer candidatos pasivos."
+    }
+  },
+  "industries": {
+    "title": "Industrias que Servimos",
+    "healthcare": "Salud",
+    "construction": "Construcción",
+    "technology": "Tecnología",
+    "generalLabor": "Labor General"
+  },
+  "forms": {
+    "employers": {
+      "title": "Solicitar Personal",
+      "company": "Nombre de la Empresa",
+      "name": "Nombre de Contacto",
+      "email": "Correo Electrónico",
+      "phone": "Número de Teléfono",
+      "industry": "Industria",
+      "roles": "Roles Necesarios",
+      "urgency": "Urgencia",
+      "urgencyOptions": {
+        "immediate": "Inmediata",
+        "soon": "En 2 semanas",
+        "planning": "Fase de planificación"
+      }
+    },
+    "jobSeekers": {
+      "title": "Aplicar a Empleos",
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Número de Teléfono",
+      "preferredIndustry": "Industria Preferida",
+      "role": "Puesto Deseado",
+      "experience": "Nivel de Experiencia",
+      "experienceOptions": {
+        "entry": "Nivel Inicial",
+        "mid": "Nivel Medio",
+        "senior": "Nivel Senior"
+      },
+      "resume": "Enlace al Currículum (Opcional)"
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de Privacidad"
+  }
+}

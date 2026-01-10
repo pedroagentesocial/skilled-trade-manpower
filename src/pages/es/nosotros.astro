@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { useTranslations } from '../../utils/i18n';
+
+const t = useTranslations('es');
+---
+
+<Layout title="Nosotros">
+  <div class="bg-blue-900 py-16 text-white text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Sobre Skilled Trade Manpower</h1>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+        Su socio de confianza en soluciones de fuerza laboral desde 2010.
+      </p>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Nuestra Misión</h2>
+      <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+        En Skilled Trade Manpower, nuestra misión es simple: conectar a personas trabajadoras con grandes empresas.
+        Creemos que el trabajo adecuado puede cambiar una vida, y el empleado adecuado puede transformar un negocio.
+        Estamos dedicados a cerrar la brecha entre el talento y la oportunidad en la creciente economía de Utah.
+      </p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Nuestros Valores</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-blue-900 mb-2">Integridad</h3>
+          <p class="text-gray-600">Hacemos lo que decimos que haremos. La transparencia y la honestidad son el núcleo de nuestro negocio.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-blue-900 mb-2">Confiabilidad</h3>
+          <p class="text-gray-600">Nos presentamos. Ya sea cubriendo un turno de último minuto o ayudando a un candidato con su currículum, estamos ahí.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-blue-900 mb-2">Seguridad</h3>
+          <p class="text-gray-600">Estamos comprometidos con entornos de trabajo seguros. Nunca tomamos atajos cuando se trata del bienestar de nuestros trabajadores.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-blue-900 mb-2">Respeto</h3>
+          <p class="text-gray-600">Tratamos a todos con dignidad y respeto, desde el CEO hasta el jornalero.</p>
+        </div>
+      </div>
+      
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Nuestra Historia</h2>
+      <p class="text-lg text-gray-600 mb-4 leading-relaxed">
+        Fundada en Salt Lake City, Skilled Trade Manpower comenzó como una pequeña agencia de personal de construcción.
+        Reconociendo la necesidad de personal de calidad en otros sectores, nos expandimos a la atención médica, la tecnología y la labor general.
+      </p>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Hoy, estamos orgullosos de ser una de las principales agencias de personal de Utah, sirviendo a cientos de empleadores y miles de solicitantes de empleo cada año.
+      </p>
+    </div>
+  </div>
+
+  <CTASection 
+    title="Únase a Nuestro Equipo"
+    subtitle="Experimente la diferencia de trabajar con un socio que se preocupa."
+    primaryText="Contáctenos"
+    primaryHref="/es/contacto"
+  />
+</Layout>

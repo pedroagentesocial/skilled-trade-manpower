@@ -1,0 +1,40 @@
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+interface Props {
+  title: string;
+  subtitle: string;
+  primaryCta: { text: string; href: string };
+  secondaryCta: { text: string; href: string };
+  imageSrc?: string;
+}
+
+const { title, subtitle, primaryCta, secondaryCta, imageSrc = "https://placehold.co/600x400" } = Astro.props;
+---
+
+<section class="bg-gray-50 py-16 md:py-24">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+    <div class="md:w-1/2">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+        {title}
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+        {subtitle}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href={primaryCta.href} class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg transition-colors">
+          {primaryCta.text}
+        </a>
+        <a href={secondaryCta.href} class="inline-flex justify-center items-center px-8 py-3 border border-blue-600 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 md:text-lg transition-colors">
+          {secondaryCta.text}
+        </a>
+      </div>
+    </div>
+    <div class="md:w-1/2">
+      <img src={imageSrc} alt="Skilled workers" class="rounded-lg shadow-xl w-full object-cover h-64 md:h-96" />
+    </div>
+  </div>
+</section>

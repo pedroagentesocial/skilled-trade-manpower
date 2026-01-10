@@ -1,0 +1,90 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, useTranslations, routes } from '../utils/i18n';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const siteTitle = title ? `${title} | Skilled Trade Manpower` : t('site.title');
+const siteDescription = description || t('site.description');
+
+// Generate hreflang tags
+const currentPath = Astro.url.pathname;
+// A simplified way to find the alternate link. 
+// In a real scenario we'd reverse-lookup the current route name and get the path for the other language.
+// I'll assume we can use the route mapping logic from i18n utils.
+import { getRouteFromUrl, getTranslatedPath, type Lang } from '../utils/i18n';
+const currentRoute = getRouteFromUrl(Astro.url);
+
+let alternateUrl = '';
+let alternateLang: Lang | '' = '';
+
+if (currentRoute) {
+    alternateLang = lang === 'en' ? 'es' : 'en';
+    const altPath = getTranslatedPath(currentRoute, alternateLang);
+    alternateUrl = new URL(altPath, Astro.site || Astro.url.origin).toString();
+}
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site || Astro.url.origin).toString();
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "EmploymentAgency",
+  "name": "Skilled Trade Manpower",
+  "image": "", 
+  "@id": "",
+  "url": "https://www.skilledtrademanpower.com",
+  "telephone": "(555) 123-4567",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Main Street",
+    "addressLocality": "Salt Lake City",
+    "addressRegion": "UT",
+    "postalCode": "84101",
+    "addressCountry": "US"
+  },
+  "description": siteDescription
+});
+
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{siteTitle}</title>
+    <meta name="description" content={siteDescription} />
+    
+    <link rel="canonical" href={canonicalUrl} />
+    {alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
+    <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={siteDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'es_US'} />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={schema} />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

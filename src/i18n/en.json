@@ -1,0 +1,109 @@
+{
+  "site": {
+    "title": "Skilled Trade Manpower",
+    "description": "Utah-based staffing and recruiting agency for construction, healthcare, and technology."
+  },
+  "nav": {
+    "home": "Home",
+    "employers": "Employers",
+    "jobSeekers": "Job Seekers",
+    "services": "Services",
+    "industries": "Industries",
+    "about": "About Us",
+    "contact": "Contact",
+    "call": "Call Us"
+  },
+  "buttons": {
+    "contactUs": "Contact Us",
+    "applyNow": "Apply Now",
+    "findWorkers": "Find Workers",
+    "learnMore": "Learn More",
+    "submit": "Submit"
+  },
+  "home": {
+    "hero": {
+      "title": "Connecting Skilled Talent with Top Employers",
+      "subtitle": "Your trusted partner for staffing solutions in Utah. We specialize in Construction, Healthcare, Technology, and General Labor.",
+      "ctaPrimary": "Find Workers",
+      "ctaSecondary": "Find a Job"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "recruiting": {
+      "title": "Employment Recruiting",
+      "desc": "Full-cycle recruiting to find the perfect match for your company culture and needs."
+    },
+    "skilledTrades": {
+      "title": "Skilled Trades Staffing",
+      "desc": "Qualified tradespeople ready to hit the ground running on your projects."
+    },
+    "construction": {
+      "title": "Construction Labor",
+      "desc": "Reliable general and skilled labor for construction sites of all sizes."
+    },
+    "healthcare": {
+      "title": "Healthcare Staffing",
+      "desc": "Certified professionals for hospitals, clinics, and care facilities."
+    },
+    "technology": {
+      "title": "Technology Staffing",
+      "desc": "Developers, engineers, and IT specialists for the digital age."
+    },
+    "generalLabor": {
+      "title": "General Labor",
+      "desc": "Flexible workforce for warehousing, manufacturing, and logistics."
+    },
+    "sales": {
+      "title": "Sales Teams",
+      "desc": "High-performing sales professionals to drive your revenue growth."
+    },
+    "socialMedia": {
+      "title": "Social Media Recruiting",
+      "desc": "Leveraging modern platforms to attract passive candidates."
+    }
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "healthcare": "Healthcare",
+    "construction": "Construction",
+    "technology": "Technology",
+    "generalLabor": "General Labor"
+  },
+  "forms": {
+    "employers": {
+      "title": "Request Staff",
+      "company": "Company Name",
+      "name": "Contact Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "industry": "Industry",
+      "roles": "Roles Needed",
+      "urgency": "Urgency",
+      "urgencyOptions": {
+        "immediate": "Immediate",
+        "soon": "Within 2 weeks",
+        "planning": "Planning phase"
+      }
+    },
+    "jobSeekers": {
+      "title": "Apply for Jobs",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "preferredIndustry": "Preferred Industry",
+      "role": "Role Desired",
+      "experience": "Experience Level",
+      "experienceOptions": {
+        "entry": "Entry Level",
+        "mid": "Mid Level",
+        "senior": "Senior Level"
+      },
+      "resume": "Link to Resume (Optional)"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy"
+  }
+}

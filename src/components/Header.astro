@@ -1,0 +1,82 @@
+---
+import { getLangFromUrl, useTranslations, getRouteFromUrl, getTranslatedPath, languages } from '../utils/i18n';
+import { icons } from '../utils/icons';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentRoute = getRouteFromUrl(Astro.url);
+
+// Determine the path for the language toggle
+const otherLang = lang === 'en' ? 'es' : 'en';
+const togglePath = currentRoute ? getTranslatedPath(currentRoute, otherLang) : (lang === 'en' ? '/es' : '/');
+
+const navItems = [
+  { href: getTranslatedPath('home', lang), label: t('nav.home') },
+  { href: getTranslatedPath('services', lang), label: t('nav.services') },
+  { href: getTranslatedPath('industries', lang), label: t('nav.industries') },
+  { href: getTranslatedPath('employers', lang), label: t('nav.employers') },
+  { href: getTranslatedPath('jobSeekers', lang), label: t('nav.jobSeekers') },
+  { href: getTranslatedPath('about', lang), label: t('nav.about') },
+  { href: getTranslatedPath('contact', lang), label: t('nav.contact') },
+];
+---
+
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href={getTranslatedPath('home', lang)} class="text-2xl font-bold text-blue-900">
+      Skilled Trade Manpower
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex space-x-6 items-center">
+      {navItems.map(item => (
+        <a href={item.href} class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+          {item.label}
+        </a>
+      ))}
+      <a href={togglePath} class="ml-4 px-3 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 transition-colors">
+        {lang === 'en' ? 'ES' : 'EN'}
+      </a>
+      <a href="tel:5551234567" class="ml-4 px-4 py-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700 transition-colors flex items-center gap-2">
+        <span set:html={icons.phone}></span>
+        {t('nav.call')}
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button (Simple implementation) -->
+    <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+    <nav class="flex flex-col px-4 py-2 space-y-2">
+      {navItems.map(item => (
+        <a href={item.href} class="block py-2 text-gray-700 hover:text-blue-600 font-medium">
+          {item.label}
+        </a>
+      ))}
+      <a href={togglePath} class="block py-2 text-blue-600 font-bold">
+        {lang === 'en' ? 'Español' : 'English'}
+      </a>
+      <a href="tel:5551234567" class="block py-2 text-blue-600 font-medium flex items-center gap-2">
+         <span class="w-5 h-5" set:html={icons.phone}></span>
+         {t('nav.call')}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

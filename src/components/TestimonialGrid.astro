@@ -1,0 +1,34 @@
+---
+const testimonials = [
+  {
+    quote: "Skilled Trade Manpower provided us with excellent workers exactly when we needed them. Their vetting process is top-notch.",
+    author: "John D.",
+    role: "Construction Manager"
+  },
+  {
+    quote: "I found a great job within days of applying. The team was supportive and helped me find a role that matched my skills.",
+    author: "Maria S.",
+    role: "Healthcare Assistant"
+  },
+  {
+    quote: "Professional, reliable, and quick. They understand the tech industry's needs.",
+    author: "Tech Solutions Inc.",
+    role: "HR Director"
+  }
+];
+---
+
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">What People Say</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map(t => (
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+          <p class="text-gray-600 italic mb-4">"{t.quote}"</p>
+          <div class="font-bold text-gray-900">{t.author}</div>
+          <div class="text-sm text-gray-500">{t.role}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

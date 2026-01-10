@@ -1,0 +1,30 @@
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  primaryHref: string;
+  primaryText: string;
+}
+
+const { 
+  title = t('home.hero.title'), 
+  subtitle = t('home.hero.subtitle'),
+  primaryHref,
+  primaryText
+} = Astro.props;
+---
+
+<section class="py-20 bg-blue-900 text-white text-center">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">{title}</h2>
+    <p class="text-xl text-blue-100 mb-8">{subtitle}</p>
+    <a href={primaryHref} class="inline-block bg-white text-blue-900 font-bold py-3 px-8 rounded-md hover:bg-blue-50 transition-colors text-lg">
+      {primaryText}
+    </a>
+  </div>
+</section>

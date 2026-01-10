@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { useTranslations } from '../utils/i18n';
+
+const t = useTranslations('en');
+---
+
+<Layout title="Employers - Find Staff">
+  <div class="bg-blue-900 py-16 text-white text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">{t('forms.employers.title')}</h1>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+        We provide reliable, skilled workers to keep your projects on track. Fill out the form below to get started.
+      </p>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row gap-12">
+    <div class="md:w-1/2">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Why Partner With Us?</h2>
+      <ul class="space-y-4 text-lg text-gray-700">
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span><strong>Speed:</strong> We can often fill positions within 24-48 hours.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span><strong>Quality:</strong> All candidates are pre-screened and vetted.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span><strong>Flexibility:</strong> Temporary, temp-to-hire, and direct hire options.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span><strong>Support:</strong> Dedicated account managers for your business.</span>
+        </li>
+      </ul>
+      
+      <div class="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <h3 class="font-bold text-gray-900 mb-2">Industries We Serve</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-white text-blue-800 rounded-full text-sm font-medium shadow-sm">Construction</span>
+          <span class="px-3 py-1 bg-white text-blue-800 rounded-full text-sm font-medium shadow-sm">Healthcare</span>
+          <span class="px-3 py-1 bg-white text-blue-800 rounded-full text-sm font-medium shadow-sm">Technology</span>
+          <span class="px-3 py-1 bg-white text-blue-800 rounded-full text-sm font-medium shadow-sm">General Labor</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="md:w-1/2">
+      <LeadForm type="employers" />
+    </div>
+  </div>
+</Layout>

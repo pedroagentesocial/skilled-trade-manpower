@@ -1,0 +1,64 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { useTranslations } from '../../../utils/i18n';
+
+const t = useTranslations('es');
+
+const roles = [
+  "Trabajadores Generales",
+  "Carpinteros",
+  "Electricistas",
+  "Plomeros",
+  "Operadores de Maquinaria Pesada"
+];
+---
+
+<Layout title="Personal de Construcción">
+  <div class="bg-blue-900 py-16 text-white text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Personal de {t('industries.construction')}</h1>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+        Construyendo el futuro con trabajadores calificados y confiables.
+      </p>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Desafíos de Personal en Construcción</h2>
+        <p class="text-lg text-gray-600 mb-4">
+          Los proyectos de construcción operan con cronogramas y presupuestos ajustados. Los retrasos por falta de mano de obra pueden ser catastróficos.
+          Además, encontrar trabajadores con la capacitación de seguridad adecuada y habilidades comerciales específicas es cada vez más difícil.
+        </p>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Cómo los Resolvemos</h3>
+        <p class="text-lg text-gray-600">
+          Nos especializamos en mano de obra para la construcción. Verificamos certificaciones de seguridad y habilidades del oficio.
+          Ya sea que necesite un equipo por una semana o un capataz por un año, tenemos la red para cumplir.
+        </p>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sitio de construcción" class="rounded-lg shadow-xl" />
+      </div>
+    </div>
+
+    <div class="bg-gray-50 rounded-lg p-8 border border-gray-100">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Roles Típicos que Cubrimos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {roles.map(role => (
+          <div class="bg-white p-4 rounded shadow text-center font-medium text-blue-900">
+            {role}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <CTASection 
+    title="¿Necesita Trabajadores de Construcción?"
+    subtitle="Mantenga su proyecto a tiempo."
+    primaryText="Solicitar Personal"
+    primaryHref="/es/empleadores"
+  />
+</Layout>

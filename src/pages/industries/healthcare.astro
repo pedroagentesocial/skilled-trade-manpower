@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { useTranslations } from '../../utils/i18n';
+
+const t = useTranslations('en');
+
+const roles = [
+  "Registered Nurses (RN)",
+  "Certified Nursing Assistants (CNA)",
+  "Medical Assistants",
+  "Phlebotomists",
+  "Administrative Staff"
+];
+---
+
+<Layout title="Healthcare Staffing">
+  <div class="bg-blue-900 py-16 text-white text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">{t('industries.healthcare')} Staffing</h1>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+        Compassionate care starts with the right people.
+      </p>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Staffing Challenges in Healthcare</h2>
+        <p class="text-lg text-gray-600 mb-4">
+          The healthcare industry faces high turnover rates, burnout, and strict compliance requirements. 
+          Finding qualified professionals who are available immediately is a constant struggle for hospitals and clinics.
+        </p>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4 mt-8">How We Solve Them</h3>
+        <p class="text-lg text-gray-600">
+          Skilled Trade Manpower maintains a deep pool of credentialed healthcare professionals. 
+          We verify all licenses and certifications before placement, ensuring you get compliance-ready staff 
+          who can provide excellent patient care from day one.
+        </p>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Healthcare professionals" class="rounded-lg shadow-xl" />
+      </div>
+    </div>
+
+    <div class="bg-gray-50 rounded-lg p-8 border border-gray-100">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Typical Roles We Fill</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {roles.map(role => (
+          <div class="bg-white p-4 rounded shadow text-center font-medium text-blue-900">
+            {role}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <CTASection 
+    title="Need Healthcare Professionals?"
+    subtitle="We have qualified staff ready to work."
+    primaryText="Request Staff"
+    primaryHref="/employers"
+  />
+</Layout>

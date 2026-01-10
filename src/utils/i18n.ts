@@ -15,8 +15,28 @@ export const ui = {
 
 export type Lang = keyof typeof languages;
 
+const BASE_URL = import.meta.env.BASE_URL;
+
+function removeBase(path: string): string {
+  if (path.startsWith(BASE_URL)) {
+    // If BASE_URL is "/" it matches everything, but slice(1) would be wrong if we want to keep the root slash.
+    // However, if BASE_URL is "/", we generally don't need to do anything special unless we want to remove the leading slash.
+    // Let's assume standard behavior:
+    if (BASE_URL === '/') return path;
+    
+    // If path matches base exactly
+    if (path === BASE_URL) return '/';
+    
+    // If path starts with base, remove it.
+    // Example: base='/app', path='/app/home' -> '/home'
+    return path.slice(BASE_URL.length);
+  }
+  return path;
+}
+
 export function getLangFromUrl(url: URL): Lang {
-  const [, lang] = url.pathname.split('/');
+  const path = removeBase(url.pathname);
+  const [, lang] = path.split('/');
   if (lang in languages) return lang as Lang;
   return defaultLang;
 }
@@ -54,7 +74,7 @@ export const routes = {
 };
 
 export function getRouteFromUrl(url: URL): string | undefined {
-  const pathname = url.pathname;
+  const pathname = removeBase(url.pathname);
   const currentLang = getLangFromUrl(url);
 
   // Normalize path (remove trailing slash unless it's root)
@@ -70,5 +90,16 @@ export function getRouteFromUrl(url: URL): string | undefined {
 
 export function getTranslatedPath(routeName: string, lang: Lang): string {
     const route = routes[routeName as keyof typeof routes];
-    return route ? route[lang] : routes.home[lang];
+    const path = route ? route[lang] : routes.home[lang];
+    
+    if (BASE_URL === '/') return path;
+    
+    // Ensure we don't end up with // if base ends with / (though astro config says it shouldn't)
+    // and path starts with /.
+    // If base is /app and path is /home -> /app/home
+    // If base is /app and path is / -> /app/
+    
+    // Construct full path
+    const fullPath = `${BASE_URL}${path === '/' ? '' : path}`;
+    return fullPath.endsWith('/') && fullPath.length > 1 ? fullPath.slice(0, -1) : fullPath;
 }

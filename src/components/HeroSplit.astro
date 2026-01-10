@@ -24,11 +24,11 @@ const { title, subtitle, primaryCta, secondaryCta, imageSrc = "https://placehold
       <p class="text-xl text-gray-600 mb-8 leading-relaxed">
         {subtitle}
       </p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href={import.meta.env.BASE_URL === '/' ? primaryCta.href : `${import.meta.env.BASE_URL}${primaryCta.href.startsWith('/') ? primaryCta.href.slice(1) : primaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg transition-colors">
+      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <a href={import.meta.env.BASE_URL === '/' ? primaryCta.href : `${import.meta.env.BASE_URL}${primaryCta.href.startsWith('/') ? primaryCta.href.slice(1) : primaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg transition-colors w-full sm:w-auto">
           {primaryCta.text}
         </a>
-        <a href={import.meta.env.BASE_URL === '/' ? secondaryCta.href : `${import.meta.env.BASE_URL}${secondaryCta.href.startsWith('/') ? secondaryCta.href.slice(1) : secondaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border border-blue-600 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 md:text-lg transition-colors">
+        <a href={import.meta.env.BASE_URL === '/' ? secondaryCta.href : `${import.meta.env.BASE_URL}${secondaryCta.href.startsWith('/') ? secondaryCta.href.slice(1) : secondaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border border-blue-600 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 md:text-lg transition-colors w-full sm:w-auto">
           {secondaryCta.text}
         </a>
       </div>

@@ -44,28 +44,30 @@ const navItems = [
     </nav>
 
     <!-- Mobile Menu Button (Simple implementation) -->
-    <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none p-2">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
     </button>
   </div>
 
   <!-- Mobile Nav -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-    <nav class="flex flex-col px-4 py-2 space-y-2">
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full left-0 top-full shadow-lg z-50">
+    <nav class="flex flex-col px-4 py-4 space-y-4">
       {navItems.map(item => (
-        <a href={item.href} class="block py-2 text-gray-700 hover:text-blue-600 font-medium">
+        <a href={item.href} class="block py-2 text-lg text-gray-700 hover:text-blue-600 font-medium border-b border-gray-100 last:border-0">
           {item.label}
         </a>
       ))}
-      <a href={togglePath} class="block py-2 text-blue-600 font-bold">
-        {lang === 'en' ? 'Español' : 'English'}
-      </a>
-      <a href="tel:5551234567" class="block py-2 text-blue-600 font-medium flex items-center gap-2">
-         <span class="w-5 h-5" set:html={icons.phone}></span>
-         {t('nav.call')}
-      </a>
+      <div class="flex flex-col gap-4 mt-4 pt-4 border-t border-gray-100">
+        <a href={togglePath} class="inline-flex items-center justify-center py-2 px-4 border border-blue-600 text-blue-600 rounded-md font-bold hover:bg-blue-50">
+          {lang === 'en' ? 'Español' : 'English'}
+        </a>
+        <a href="tel:5551234567" class="inline-flex items-center justify-center py-2 px-4 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 gap-2">
+           <span class="w-5 h-5" set:html={icons.phone}></span>
+           {t('nav.call')}
+        </a>
+      </div>
     </nav>
   </div>
 </header>

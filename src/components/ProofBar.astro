@@ -11,9 +11,9 @@ const stats = [
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
       {stats.map(stat => (
-        <div>
-          <div class="text-4xl font-bold text-blue-400 mb-2">{stat.value}</div>
-          <div class="text-gray-300 uppercase tracking-wide text-sm">{stat.label}</div>
+        <div class="p-4">
+          <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2">{stat.value}</div>
+          <div class="text-gray-300 uppercase tracking-wide text-xs md:text-sm">{stat.label}</div>
         </div>
       ))}
     </div>

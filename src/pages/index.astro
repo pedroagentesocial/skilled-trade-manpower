@@ -6,6 +6,7 @@ import ProofBar from '../components/ProofBar.astro';
 import TestimonialGrid from '../components/TestimonialGrid.astro';
 import CTASection from '../components/CTASection.astro';
 import { useTranslations } from '../utils/i18n';
+import { icons } from '../utils/icons';
 
 const t = useTranslations('en');
 ---
@@ -26,17 +27,17 @@ const t = useTranslations('en');
       <h2 class="text-3xl font-bold text-gray-900 mb-8">Why Choose Us?</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="text-blue-600 text-4xl mb-4">⚡</div>
+          <div class="flex justify-center mb-4" set:html={icons.bolt}></div>
           <h3 class="text-xl font-bold mb-2">Fast Deployment</h3>
           <p class="text-gray-600">We can mobilize teams within 24-48 hours for urgent projects.</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="text-blue-600 text-4xl mb-4">🛡️</div>
+          <div class="flex justify-center mb-4" set:html={icons['shield-check']}></div>
           <h3 class="text-xl font-bold mb-2">Zero Liability</h3>
           <p class="text-gray-600">We handle all insurance, workers' comp, and payroll taxes.</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="text-blue-600 text-4xl mb-4">✅</div>
+          <div class="flex justify-center mb-4" set:html={icons['check-badge']}></div>
           <h3 class="text-xl font-bold mb-2">Quality Guaranteed</h3>
           <p class="text-gray-600">Our on-site supervisors ensure work meets your standards.</p>
         </div>

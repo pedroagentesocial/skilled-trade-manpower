@@ -6,6 +6,7 @@ import ProofBar from '../../components/ProofBar.astro';
 import TestimonialGrid from '../../components/TestimonialGrid.astro';
 import CTASection from '../../components/CTASection.astro';
 import { useTranslations } from '../../utils/i18n';
+import { icons } from '../../utils/icons';
 
 const t = useTranslations('es');
 ---
@@ -26,17 +27,17 @@ const t = useTranslations('es');
       <h2 class="text-3xl font-bold text-gray-900 mb-8">¿Por Qué Elegirnos?</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="text-blue-600 text-4xl mb-4">⚡</div>
+          <div class="flex justify-center mb-4" set:html={icons.bolt}></div>
           <h3 class="text-xl font-bold mb-2">Despliegue Rápido</h3>
           <p class="text-gray-600">Podemos movilizar equipos en 24-48 horas para proyectos urgentes.</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="text-blue-600 text-4xl mb-4">🛡️</div>
+          <div class="flex justify-center mb-4" set:html={icons['shield-check']}></div>
           <h3 class="text-xl font-bold mb-2">Cero Responsabilidad</h3>
           <p class="text-gray-600">Manejamos todos los seguros, compensación laboral e impuestos de nómina.</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="text-blue-600 text-4xl mb-4">✅</div>
+          <div class="flex justify-center mb-4" set:html={icons['check-badge']}></div>
           <h3 class="text-xl font-bold mb-2">Calidad Garantizada</h3>
           <p class="text-gray-600">Nuestros supervisores en el sitio aseguran que el trabajo cumpla con sus estándares.</p>
         </div>

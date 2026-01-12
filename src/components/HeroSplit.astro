@@ -64,14 +64,14 @@ const hasVideo = slides || (videoSrcs && videoSrcs.length > 0);
   <div class="container mx-auto px-4 relative z-20">
     <div class="max-w-3xl">
       {activeSlides.map((slide, index) => (
-        <div class={`transition-opacity duration-1000 absolute top-1/2 -translate-y-1/2 left-4 right-4 md:left-auto md:right-auto md:w-full flex flex-col justify-center ${index === 0 ? 'opacity-100 relative pointer-events-auto' : 'opacity-0 absolute pointer-events-none'} slide-text`} data-index={index}>
+        <div class={`transition-opacity duration-1000 absolute top-1/2 -translate-y-1/2 left-4 right-4 md:left-auto md:right-auto md:w-full flex flex-col justify-center items-center text-center ${index === 0 ? 'opacity-100 relative pointer-events-auto' : 'opacity-0 absolute pointer-events-none'} slide-text`} data-index={index}>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
             {slide.title}
           </h1>
-          <p class="text-xl text-gray-200 mb-8 leading-relaxed drop-shadow-md max-w-2xl">
+          <p class="text-xl text-gray-200 mb-8 leading-relaxed drop-shadow-md max-w-2xl mx-auto">
             {slide.subtitle}
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
             <a href={import.meta.env.BASE_URL === '/' ? slide.primaryCta.href : `${import.meta.env.BASE_URL}${slide.primaryCta.href.startsWith('/') ? slide.primaryCta.href.slice(1) : slide.primaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-bold rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg transition-colors w-full sm:w-auto shadow-lg">
               {slide.primaryCta.text}
             </a>

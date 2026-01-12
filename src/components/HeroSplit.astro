@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl } from '../utils/i18n';
+import { icons } from '../utils/icons';
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -83,7 +84,32 @@ const hasVideo = slides || (videoSrcs && videoSrcs.length > 0);
     </div>
   </div>
 
-  <!-- Slider Indicators -->
+  <!-- Slider Controls (Arrows) -->
+  {activeSlides.length > 1 && (
+    <>
+      <button 
+        class="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-colors border border-white/20 hidden md:block"
+        aria-label="Previous slide"
+        onclick="document.dispatchEvent(new CustomEvent('prevSlide'))"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      
+      <button 
+        class="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-colors border border-white/20 hidden md:block"
+        aria-label="Next slide"
+        onclick="document.dispatchEvent(new CustomEvent('nextSlide'))"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+    </>
+  )}
+
+  <!-- Slider Indicators (Dots) -->
   {activeSlides.length > 1 && (
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3 z-30">
       {activeSlides.map((_, index) => (
@@ -109,7 +135,7 @@ const hasVideo = slides || (videoSrcs && videoSrcs.length > 0);
     if (textSlides.length <= 1) return;
 
     let currentIndex = 0;
-    const intervalTime = 6000; // 6 seconds per slide
+    const intervalTime = 12000; // 12 seconds per slide
     let intervalId: any;
 
     // Ensure all videos are muted
@@ -156,13 +182,32 @@ const hasVideo = slides || (videoSrcs && videoSrcs.length > 0);
       showSlide(nextIndex);
     };
 
+    const prevSlide = () => {
+      const prevIndex = (currentIndex - 1 + textSlides.length) % textSlides.length;
+      showSlide(prevIndex);
+    };
+
     intervalId = setInterval(nextSlide, intervalTime);
+
+    const resetInterval = () => {
+      clearInterval(intervalId);
+      intervalId = setInterval(nextSlide, intervalTime);
+    };
 
     // Allow manual control if needed via custom event (from indicator clicks)
     document.addEventListener('changeSlide', ((e: CustomEvent) => {
-      clearInterval(intervalId);
+      resetInterval();
       showSlide(e.detail);
-      intervalId = setInterval(nextSlide, intervalTime);
+    }) as EventListener);
+
+    document.addEventListener('nextSlide', (() => {
+      resetInterval();
+      nextSlide();
+    }) as EventListener);
+
+    document.addEventListener('prevSlide', (() => {
+      resetInterval();
+      prevSlide();
     }) as EventListener);
   }
 

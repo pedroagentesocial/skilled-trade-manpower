@@ -10,14 +10,15 @@ interface Props {
   primaryCta: { text: string; href: string };
   secondaryCta: { text: string; href: string };
   imageSrc?: string;
+  videoSrcs?: string[];
 }
 
-const { title, subtitle, primaryCta, secondaryCta, imageSrc = "https://placehold.co/600x400" } = Astro.props;
+const { title, subtitle, primaryCta, secondaryCta, imageSrc = "https://placehold.co/600x400", videoSrcs } = Astro.props;
 ---
 
 <section class="bg-gray-50 py-16 md:py-24">
   <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-    <div class="md:w-1/2">
+    <div class="md:w-1/2 z-10">
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
         {title}
       </h1>
@@ -33,8 +34,80 @@ const { title, subtitle, primaryCta, secondaryCta, imageSrc = "https://placehold
         </a>
       </div>
     </div>
-    <div class="md:w-1/2">
-      <img src={imageSrc} alt="Skilled workers" class="rounded-lg shadow-xl w-full object-cover h-64 md:h-96" />
+    <div class="md:w-1/2 w-full">
+      {videoSrcs && videoSrcs.length > 0 ? (
+        <div class="relative w-full h-64 md:h-96 rounded-lg shadow-xl overflow-hidden bg-gray-200 group">
+          {videoSrcs.map((src, index) => (
+            <video
+              src={src}
+              class={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out hero-video ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+              autoplay={index === 0}
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          ))}
+          
+          <!-- Slider Indicators -->
+          <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+            {videoSrcs.map((_, index) => (
+              <button 
+                class={`w-2 h-2 rounded-full transition-colors duration-300 video-indicator ${index === 0 ? 'bg-white' : 'bg-white/50'}`}
+                aria-label={`Go to slide ${index + 1}`}
+              ></button>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <img src={imageSrc} alt="Skilled workers" class="rounded-lg shadow-xl w-full object-cover h-64 md:h-96" />
+      )}
     </div>
   </div>
 </section>
+
+<script>
+  function initVideoSlider() {
+    const containers = document.querySelectorAll('.group'); // Usamos una clase contenedora
+    
+    containers.forEach(container => {
+      const videos = container.querySelectorAll('.hero-video');
+      const indicators = container.querySelectorAll('.video-indicator');
+      
+      if (videos.length <= 1) return;
+
+      let currentIndex = 0;
+      const intervalTime = 5000; // 5 segundos por video
+
+      // Asegurar que todos los videos estén muteados y listos
+      videos.forEach(v => {
+        (v as HTMLVideoElement).muted = true;
+      });
+
+      const nextSlide = () => {
+        // Ocultar video actual
+        videos[currentIndex].classList.remove('opacity-100');
+        videos[currentIndex].classList.add('opacity-0');
+        (videos[currentIndex] as HTMLVideoElement).pause();
+        indicators[currentIndex].classList.remove('bg-white');
+        indicators[currentIndex].classList.add('bg-white/50');
+
+        // Avanzar índice
+        currentIndex = (currentIndex + 1) % videos.length;
+
+        // Mostrar siguiente video
+        videos[currentIndex].classList.remove('opacity-0');
+        videos[currentIndex].classList.add('opacity-100');
+        (videos[currentIndex] as HTMLVideoElement).play().catch(e => console.log('Autoplay prevented:', e));
+        indicators[currentIndex].classList.remove('bg-white/50');
+        indicators[currentIndex].classList.add('bg-white');
+      };
+
+      setInterval(nextSlide, intervalTime);
+    });
+  }
+
+  // Ejecutar en carga inicial y en transiciones de vista (si se usa View Transitions)
+  document.addEventListener('astro:page-load', initVideoSlider);
+  document.addEventListener('DOMContentLoaded', initVideoSlider);
+</script>

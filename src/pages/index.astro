@@ -17,7 +17,11 @@ const t = useTranslations('en');
     subtitle={t('home.hero.subtitle')}
     primaryCta={{ text: t('home.hero.ctaPrimary'), href: '/contact' }}
     secondaryCta={{ text: t('home.hero.ctaSecondary'), href: '/how-it-works' }}
-    imageSrc="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+    videoSrcs={[
+      "https://cdn.pixabay.com/video/2020/05/25/40103-424930030_large.mp4",
+      "https://cdn.pixabay.com/video/2016/09/21/5186-183768262_large.mp4",
+      "https://cdn.pixabay.com/video/2021/04/12/70830-536127295_large.mp4"
+    ]}
   />
   
   <ProofBar />

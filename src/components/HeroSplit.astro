@@ -1,45 +1,74 @@
 ---
-import { getLangFromUrl, useTranslations } from '../utils/i18n';
+import { getLangFromUrl } from '../utils/i18n';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 
-interface Props {
+interface Slide {
   title: string;
   subtitle: string;
   primaryCta: { text: string; href: string };
   secondaryCta: { text: string; href: string };
+  videoSrc: string;
+}
+
+interface Props {
+  slides?: Slide[];
+  // Legacy props for backward compatibility
+  title?: string;
+  subtitle?: string;
+  primaryCta?: { text: string; href: string };
+  secondaryCta?: { text: string; href: string };
   imageSrc?: string;
   videoSrcs?: string[];
 }
 
-const { title, subtitle, primaryCta, secondaryCta, imageSrc = "https://placehold.co/600x400", videoSrcs } = Astro.props;
+const { 
+  slides, 
+  // Fallback to legacy props if slides not provided
+  title, subtitle, primaryCta, secondaryCta, imageSrc = "https://placehold.co/600x400", videoSrcs 
+} = Astro.props;
+
+// Normalize input to slides array
+const activeSlides: Slide[] = slides || (videoSrcs && videoSrcs.length > 0 && title && subtitle && primaryCta && secondaryCta ? 
+  videoSrcs.map(src => ({ title, subtitle, primaryCta, secondaryCta, videoSrc: src })) : 
+  [{ title: title!, subtitle: subtitle!, primaryCta: primaryCta!, secondaryCta: secondaryCta!, videoSrc: '' }] // Fallback for single image/video legacy
+);
+
+const hasVideo = slides || (videoSrcs && videoSrcs.length > 0);
 ---
 
-<section class="bg-gray-50 py-16 md:py-24">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-    <div class="md:w-1/2 z-10">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-        {title}
-      </h1>
-      <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-        {subtitle}
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-        <a href={import.meta.env.BASE_URL === '/' ? primaryCta.href : `${import.meta.env.BASE_URL}${primaryCta.href.startsWith('/') ? primaryCta.href.slice(1) : primaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg transition-colors w-full sm:w-auto">
-          {primaryCta.text}
-        </a>
-        <a href={import.meta.env.BASE_URL === '/' ? secondaryCta.href : `${import.meta.env.BASE_URL}${secondaryCta.href.startsWith('/') ? secondaryCta.href.slice(1) : secondaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border border-blue-600 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 md:text-lg transition-colors w-full sm:w-auto">
-          {secondaryCta.text}
-        </a>
+<section class="bg-gray-50 py-16 md:py-24 relative overflow-hidden" id="hero-slider">
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="flex flex-col md:flex-row items-center gap-12 min-h-[500px]">
+      
+      <!-- Text Content Side -->
+      <div class="md:w-1/2 z-10 relative">
+        {activeSlides.map((slide, index) => (
+          <div class={`transition-opacity duration-1000 absolute top-0 left-0 w-full h-full flex flex-col justify-center ${index === 0 ? 'opacity-100 relative' : 'opacity-0 absolute pointer-events-none'} slide-text`} data-index={index}>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+              {slide.title}
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+              {slide.subtitle}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <a href={import.meta.env.BASE_URL === '/' ? slide.primaryCta.href : `${import.meta.env.BASE_URL}${slide.primaryCta.href.startsWith('/') ? slide.primaryCta.href.slice(1) : slide.primaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg transition-colors w-full sm:w-auto">
+                {slide.primaryCta.text}
+              </a>
+              <a href={import.meta.env.BASE_URL === '/' ? slide.secondaryCta.href : `${import.meta.env.BASE_URL}${slide.secondaryCta.href.startsWith('/') ? slide.secondaryCta.href.slice(1) : slide.secondaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border border-blue-600 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 md:text-lg transition-colors w-full sm:w-auto">
+                {slide.secondaryCta.text}
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-    <div class="md:w-1/2 w-full">
-      {videoSrcs && videoSrcs.length > 0 ? (
-        <div class="relative w-full h-64 md:h-96 rounded-lg shadow-xl overflow-hidden bg-gray-200 group">
-          {videoSrcs.map((src, index) => (
+
+      <!-- Media Side -->
+      <div class="md:w-1/2 w-full h-[400px] md:h-[500px] relative rounded-lg shadow-xl overflow-hidden bg-gray-200 group">
+        {hasVideo ? (
+          activeSlides.map((slide, index) => (
             <video
-              src={src}
+              src={slide.videoSrc}
               class={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out hero-video ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
               autoplay={index === 0}
               muted
@@ -47,67 +76,98 @@ const { title, subtitle, primaryCta, secondaryCta, imageSrc = "https://placehold
               playsinline
               preload="metadata"
             ></video>
-          ))}
-          
-          <!-- Slider Indicators -->
+          ))
+        ) : (
+           <img src={imageSrc} alt="Hero" class="absolute top-0 left-0 w-full h-full object-cover" />
+        )}
+        
+        <!-- Slider Indicators -->
+        {activeSlides.length > 1 && (
           <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-            {videoSrcs.map((_, index) => (
+            {activeSlides.map((_, index) => (
               <button 
                 class={`w-2 h-2 rounded-full transition-colors duration-300 video-indicator ${index === 0 ? 'bg-white' : 'bg-white/50'}`}
                 aria-label={`Go to slide ${index + 1}`}
+                onclick={`document.dispatchEvent(new CustomEvent('changeSlide', { detail: ${index} }))`}
               ></button>
             ))}
           </div>
-        </div>
-      ) : (
-        <img src={imageSrc} alt="Skilled workers" class="rounded-lg shadow-xl w-full object-cover h-64 md:h-96" />
-      )}
+        )}
+      </div>
     </div>
   </div>
 </section>
 
 <script>
-  function initVideoSlider() {
-    const containers = document.querySelectorAll('.group'); // Usamos una clase contenedora
+  function initHeroSlider() {
+    const section = document.getElementById('hero-slider');
+    if (!section) return;
+
+    const textSlides = section.querySelectorAll('.slide-text');
+    const videoSlides = section.querySelectorAll('.hero-video');
+    const indicators = section.querySelectorAll('.video-indicator');
     
-    containers.forEach(container => {
-      const videos = container.querySelectorAll('.hero-video');
-      const indicators = container.querySelectorAll('.video-indicator');
+    if (textSlides.length <= 1) return;
+
+    let currentIndex = 0;
+    const intervalTime = 6000; // 6 seconds per slide
+    let intervalId: any;
+
+    // Ensure all videos are muted
+    videoSlides.forEach(v => {
+      (v as HTMLVideoElement).muted = true;
+    });
+
+    const showSlide = (index: number) => {
+      // Hide current
+      textSlides[currentIndex].classList.remove('opacity-100', 'relative');
+      textSlides[currentIndex].classList.add('opacity-0', 'absolute', 'pointer-events-none');
       
-      if (videos.length <= 1) return;
+      videoSlides[currentIndex].classList.remove('opacity-100');
+      videoSlides[currentIndex].classList.add('opacity-0');
+      (videoSlides[currentIndex] as HTMLVideoElement).pause();
 
-      let currentIndex = 0;
-      const intervalTime = 5000; // 5 segundos por video
-
-      // Asegurar que todos los videos estén muteados y listos
-      videos.forEach(v => {
-        (v as HTMLVideoElement).muted = true;
-      });
-
-      const nextSlide = () => {
-        // Ocultar video actual
-        videos[currentIndex].classList.remove('opacity-100');
-        videos[currentIndex].classList.add('opacity-0');
-        (videos[currentIndex] as HTMLVideoElement).pause();
+      if (indicators[currentIndex]) {
         indicators[currentIndex].classList.remove('bg-white');
         indicators[currentIndex].classList.add('bg-white/50');
+      }
 
-        // Avanzar índice
-        currentIndex = (currentIndex + 1) % videos.length;
+      // Update index
+      currentIndex = index;
 
-        // Mostrar siguiente video
-        videos[currentIndex].classList.remove('opacity-0');
-        videos[currentIndex].classList.add('opacity-100');
-        (videos[currentIndex] as HTMLVideoElement).play().catch(e => console.log('Autoplay prevented:', e));
+      // Show new
+      textSlides[currentIndex].classList.remove('opacity-0', 'absolute', 'pointer-events-none');
+      textSlides[currentIndex].classList.add('opacity-100', 'relative');
+      
+      videoSlides[currentIndex].classList.remove('opacity-0');
+      videoSlides[currentIndex].classList.add('opacity-100');
+      const playPromise = (videoSlides[currentIndex] as HTMLVideoElement).play();
+      if (playPromise !== undefined) {
+          playPromise.catch(e => console.log('Autoplay prevented:', e));
+      }
+
+      if (indicators[currentIndex]) {
         indicators[currentIndex].classList.remove('bg-white/50');
         indicators[currentIndex].classList.add('bg-white');
-      };
+      }
+    };
 
-      setInterval(nextSlide, intervalTime);
-    });
+    const nextSlide = () => {
+      const nextIndex = (currentIndex + 1) % textSlides.length;
+      showSlide(nextIndex);
+    };
+
+    intervalId = setInterval(nextSlide, intervalTime);
+
+    // Allow manual control if needed via custom event (from indicator clicks)
+    document.addEventListener('changeSlide', ((e: CustomEvent) => {
+      clearInterval(intervalId);
+      showSlide(e.detail);
+      intervalId = setInterval(nextSlide, intervalTime);
+    }) as EventListener);
   }
 
-  // Ejecutar en carga inicial y en transiciones de vista (si se usa View Transitions)
-  document.addEventListener('astro:page-load', initVideoSlider);
-  document.addEventListener('DOMContentLoaded', initVideoSlider);
+  // Run on load and view transitions
+  document.addEventListener('astro:page-load', initHeroSlider);
+  document.addEventListener('DOMContentLoaded', initHeroSlider);
 </script>

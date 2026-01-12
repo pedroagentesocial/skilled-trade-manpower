@@ -13,14 +13,28 @@ const t = useTranslations('es');
 
 <Layout title="Inicio">
   <HeroSplit
-    title={t('home.hero.title')}
-    subtitle={t('home.hero.subtitle')}
-    primaryCta={{ text: t('home.hero.ctaPrimary'), href: '/es/contacto' }}
-    secondaryCta={{ text: t('home.hero.ctaSecondary'), href: '/es/como-funciona' }}
-    videoSrcs={[
-      "https://cdn.pixabay.com/video/2020/05/25/40103-424930030_large.mp4",
-      "https://cdn.pixabay.com/video/2016/09/21/5186-183768262_large.mp4",
-      "https://cdn.pixabay.com/video/2021/04/12/70830-536127295_large.mp4"
+    slides={[
+      {
+        title: "Una Llamada. Proyecto Listo.",
+        subtitle: "Definimos el alcance, desplegamos el equipo y gestionamos la ejecución. Vea lo simple que es.",
+        primaryCta: { text: "Llámenos Ahora", href: "tel:5551234567" },
+        secondaryCta: { text: "Cómo Funciona", href: "/es/como-funciona" },
+        videoSrc: "https://cdn.pixabay.com/video/2020/05/25/40103-424930030_large.mp4"
+      },
+      {
+        title: "Instalación y Mantenimiento Especializado",
+        subtitle: "Desde HVAC hasta montaje industrial, nuestros equipos gestionados ejecutan con precisión.",
+        primaryCta: { text: "Ver Servicios", href: "/es/servicios" },
+        secondaryCta: { text: "Cotizar", href: "/es/contacto" },
+        videoSrc: "https://cdn.pixabay.com/video/2016/09/21/5186-183768262_large.mp4"
+      },
+      {
+        title: "Somos su Socio de Ejecución",
+        subtitle: "Escale su fuerza laboral sin los dolores de cabeza de RR.HH. Asumimos la responsabilidad total.",
+        primaryCta: { text: "Explorar Servicios", href: "/es/servicios" },
+        secondaryCta: { text: "Nosotros", href: "/es/nosotros" },
+        videoSrc: "https://cdn.pixabay.com/video/2021/04/12/70830-536127295_large.mp4"
+      }
     ]}
   />
   

@@ -6,14 +6,12 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const services = [
-  { key: 'recruiting', icon: 'magnifying-glass' },
-  { key: 'skilledTrades', icon: 'tools' },
-  { key: 'construction', icon: 'building-office' },
-  { key: 'healthcare', icon: 'heart' },
-  { key: 'technology', icon: 'computer-desktop' },
-  { key: 'generalLabor', icon: 'cube' },
-  { key: 'sales', icon: 'chart-bar' },
-  { key: 'socialMedia', icon: 'device-phone-mobile' },
+  { key: 'projectExecution', icon: 'clipboard-document-check' },
+  { key: 'fieldOps', icon: 'truck' },
+  { key: 'installation', icon: 'tools' },
+  { key: 'maintenance', icon: 'cog-6-tooth' },
+  { key: 'workforce', icon: 'chart-bar' },
+  { key: 'specialProjects', icon: 'sparkles' },
 ];
 ---
 
@@ -24,9 +22,9 @@ const services = [
       <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {services.map(service => (
-        <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow border border-gray-100">
+        <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow border border-gray-100 flex flex-col items-center text-center">
           <div class="mb-4" set:html={icons[service.icon as keyof typeof icons]}></div>
           <h3 class="text-xl font-bold text-gray-900 mb-2">{t(`services.${service.key}.title`)}</h3>
           <p class="text-gray-600">{t(`services.${service.key}.desc`)}</p>

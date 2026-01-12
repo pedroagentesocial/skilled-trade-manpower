@@ -1,105 +1,91 @@
 {
   "site": {
     "title": "Skilled Trade Manpower",
-    "description": "Utah-based staffing and recruiting agency for construction, healthcare, and technology."
+    "description": "Your Done-For-You services partner. We provide the labor, manage the workforce, and deliver completed projects in construction, installation, and maintenance."
   },
   "nav": {
     "home": "Home",
-    "employers": "Employers",
-    "jobSeekers": "Job Seekers",
     "services": "Services",
-    "industries": "Industries",
+    "howItWorks": "How It Works",
     "about": "About Us",
     "contact": "Contact",
     "call": "Call Us"
   },
   "buttons": {
     "contactUs": "Contact Us",
-    "applyNow": "Apply Now",
-    "findWorkers": "Find Workers",
+    "getQuote": "Get a Quote",
+    "startProject": "Start Your Project",
     "learnMore": "Learn More",
-    "submit": "Submit"
+    "submit": "Submit Request"
   },
   "home": {
     "hero": {
-      "title": "Connecting Skilled Talent with Top Employers",
-      "subtitle": "Your trusted partner for staffing solutions in Utah. We specialize in Construction, Healthcare, Technology, and General Labor.",
-      "ctaPrimary": "Find Workers",
-      "ctaSecondary": "Find a Job"
+      "title": "You Don't Manage People. We Deliver Results.",
+      "subtitle": "We are not a staffing agency. We are a Done-For-You services company. We hire, manage, and supervise the workforce to execute your projects from start to finish.",
+      "ctaPrimary": "Start Your Project",
+      "ctaSecondary": "How It Works"
     }
   },
   "services": {
-    "title": "Our Services",
-    "recruiting": {
-      "title": "Employment Recruiting",
-      "desc": "Full-cycle recruiting to find the perfect match for your company culture and needs."
+    "title": "Our Execution Services",
+    "projectExecution": {
+      "title": "Project Execution",
+      "desc": "We take full responsibility for labor-intensive projects, ensuring they are completed on time and to spec."
     },
-    "skilledTrades": {
-      "title": "Skilled Trades Staffing",
-      "desc": "Qualified tradespeople ready to hit the ground running on your projects."
+    "fieldOps": {
+      "title": "Field Operations",
+      "desc": "Deploying managed teams to handle on-site operations, logistics, and manual tasks."
     },
-    "construction": {
-      "title": "Construction Labor",
-      "desc": "Reliable general and skilled labor for construction sites of all sizes."
+    "installation": {
+      "title": "Installation & Setup",
+      "desc": "Complete installation services for equipment, fixtures, and systems. We handle the entire process."
     },
-    "healthcare": {
-      "title": "Healthcare Staffing",
-      "desc": "Certified professionals for hospitals, clinics, and care facilities."
+    "maintenance": {
+      "title": "Maintenance & Support",
+      "desc": "Ongoing maintenance crews to keep your facilities and assets in top condition."
     },
-    "technology": {
-      "title": "Technology Staffing",
-      "desc": "Developers, engineers, and IT specialists for the digital age."
+    "workforce": {
+      "title": "On-Demand Workforce Execution",
+      "desc": "Need a job done? We provide the managed labor force to execute it immediately."
     },
-    "generalLabor": {
-      "title": "General Labor",
-      "desc": "Flexible workforce for warehousing, manufacturing, and logistics."
-    },
-    "sales": {
-      "title": "Sales Teams",
-      "desc": "High-performing sales professionals to drive your revenue growth."
-    },
-    "socialMedia": {
-      "title": "Social Media Recruiting",
-      "desc": "Leveraging modern platforms to attract passive candidates."
+    "specialProjects": {
+      "title": "Special Projects",
+      "desc": "Custom labor solutions for one-off, complex, or large-scale operational challenges."
     }
   },
-  "industries": {
-    "title": "Industries We Serve",
-    "healthcare": "Healthcare",
-    "construction": "Construction",
-    "technology": "Technology",
-    "generalLabor": "General Labor"
+  "howItWorks": {
+    "title": "How We Work",
+    "step1": {
+      "title": "Define the Scope",
+      "desc": "Tell us what needs to be done, the timeline, and the expected outcome."
+    },
+    "step2": {
+      "title": "We Deploy & Manage",
+      "desc": "We assign a dedicated team and supervisor. We handle all scheduling, management, and QC."
+    },
+    "step3": {
+      "title": "Job Completed",
+      "desc": "You receive the finished work. No HR headaches, no payroll issues, no supervision required."
+    }
   },
   "forms": {
-    "employers": {
-      "title": "Request Staff",
-      "company": "Company Name",
-      "name": "Contact Name",
-      "email": "Email Address",
-      "phone": "Phone Number",
-      "industry": "Industry",
-      "roles": "Roles Needed",
-      "urgency": "Urgency",
-      "urgencyOptions": {
-        "immediate": "Immediate",
-        "soon": "Within 2 weeks",
-        "planning": "Planning phase"
+    "contact": {
+      "title": "Discuss Your Project",
+      "subtitle": "Tell us about the work you need done. We'll handle the execution.",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "projectType": "Project Type",
+      "scope": "Project Scope / Details",
+      "timeline": "Timeline / Deadline",
+      "projectTypeOptions": {
+        "construction": "Construction / Renovation",
+        "installation": "Installation / Assembly",
+        "maintenance": "Maintenance / Repair",
+        "logistics": "Logistics / Moving",
+        "other": "Other"
       }
-    },
-    "jobSeekers": {
-      "title": "Apply for Jobs",
-      "name": "Full Name",
-      "email": "Email Address",
-      "phone": "Phone Number",
-      "preferredIndustry": "Preferred Industry",
-      "role": "Role Desired",
-      "experience": "Experience Level",
-      "experienceOptions": {
-        "entry": "Entry Level",
-        "mid": "Mid Level",
-        "senior": "Senior Level"
-      },
-      "resume": "Link to Resume (Optional)"
     }
   },
   "footer": {

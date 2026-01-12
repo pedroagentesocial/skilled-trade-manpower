@@ -1,105 +1,91 @@
 {
   "site": {
     "title": "Skilled Trade Manpower",
-    "description": "Agencia de personal y reclutamiento en Utah para construcción, salud y tecnología."
+    "description": "Su socio de servicios de ejecución. Proporcionamos la mano de obra, gestionamos el personal y entregamos proyectos terminados en construcción, instalación y mantenimiento."
   },
   "nav": {
     "home": "Inicio",
-    "employers": "Empleadores",
-    "jobSeekers": "Candidatos",
     "services": "Servicios",
-    "industries": "Industrias",
+    "howItWorks": "Cómo Funciona",
     "about": "Nosotros",
     "contact": "Contacto",
     "call": "Llamar"
   },
   "buttons": {
     "contactUs": "Contáctenos",
-    "applyNow": "Aplicar Ahora",
-    "findWorkers": "Buscar Personal",
+    "getQuote": "Solicitar Cotización",
+    "startProject": "Iniciar Proyecto",
     "learnMore": "Más Información",
-    "submit": "Enviar"
+    "submit": "Enviar Solicitud"
   },
   "home": {
     "hero": {
-      "title": "Conectando Talento Calificado con Grandes Empleadores",
-      "subtitle": "Su socio de confianza para soluciones de personal en Utah. Nos especializamos en Construcción, Salud, Tecnología y Labor General.",
-      "ctaPrimary": "Buscar Personal",
-      "ctaSecondary": "Buscar Trabajo"
+      "title": "Usted No Gestiona Personal. Nosotros Entregamos Resultados.",
+      "subtitle": "No somos una agencia de empleo. Somos una empresa de servicios de ejecución. Contratamos, gestionamos y supervisamos la fuerza laboral para ejecutar sus proyectos de principio a fin.",
+      "ctaPrimary": "Iniciar Proyecto",
+      "ctaSecondary": "Cómo Funciona"
     }
   },
   "services": {
-    "title": "Nuestros Servicios",
-    "recruiting": {
-      "title": "Reclutamiento de Personal",
-      "desc": "Reclutamiento de ciclo completo para encontrar la combinación perfecta para la cultura y necesidades de su empresa."
+    "title": "Nuestros Servicios de Ejecución",
+    "projectExecution": {
+      "title": "Ejecución de Proyectos",
+      "desc": "Asumimos la responsabilidad total de proyectos intensivos en mano de obra, asegurando que se completen a tiempo y según las especificaciones."
     },
-    "skilledTrades": {
-      "title": "Personal de Oficios Calificados",
-      "desc": "Profesionales calificados listos para comenzar a trabajar en sus proyectos de inmediato."
+    "fieldOps": {
+      "title": "Operaciones de Campo",
+      "desc": "Despliegue de equipos gestionados para manejar operaciones en sitio, logística y tareas manuales."
     },
-    "construction": {
-      "title": "Mano de Obra para Construcción",
-      "desc": "Personal general y calificado confiable para obras de construcción de todos los tamaños."
+    "installation": {
+      "title": "Instalación y Montaje",
+      "desc": "Servicios completos de instalación para equipos, mobiliario y sistemas. Manejamos todo el proceso."
     },
-    "healthcare": {
-      "title": "Personal de Salud",
-      "desc": "Profesionales certificados para hospitales, clínicas e instalaciones de cuidado."
+    "maintenance": {
+      "title": "Mantenimiento y Soporte",
+      "desc": "Cuadrillas de mantenimiento continuo para mantener sus instalaciones y activos en óptimas condiciones."
     },
-    "technology": {
-      "title": "Personal de Tecnología",
-      "desc": "Desarrolladores, ingenieros y especialistas en TI para la era digital."
+    "workforce": {
+      "title": "Ejecución de Fuerza Laboral",
+      "desc": "¿Necesita realizar un trabajo? Proporcionamos la fuerza laboral gestionada para ejecutarlo de inmediato."
     },
-    "generalLabor": {
-      "title": "Labor General",
-      "desc": "Fuerza laboral flexible para almacenamiento, manufactura y logística."
-    },
-    "sales": {
-      "title": "Equipos de Ventas",
-      "desc": "Profesionales de ventas de alto rendimiento para impulsar el crecimiento de sus ingresos."
-    },
-    "socialMedia": {
-      "title": "Reclutamiento en Redes Sociales",
-      "desc": "Aprovechamiento de plataformas modernas para atraer candidatos pasivos."
+    "specialProjects": {
+      "title": "Proyectos Especiales",
+      "desc": "Soluciones laborales personalizadas para desafíos operativos únicos, complejos o a gran escala."
     }
   },
-  "industries": {
-    "title": "Industrias que Servimos",
-    "healthcare": "Salud",
-    "construction": "Construcción",
-    "technology": "Tecnología",
-    "generalLabor": "Labor General"
+  "howItWorks": {
+    "title": "Cómo Trabajamos",
+    "step1": {
+      "title": "Defina el Alcance",
+      "desc": "Díganos qué necesita hacer, el cronograma y el resultado esperado."
+    },
+    "step2": {
+      "title": "Desplegamos y Gestionamos",
+      "desc": "Asignamos un equipo dedicado y un supervisor. Manejamos toda la programación, gestión y control de calidad."
+    },
+    "step3": {
+      "title": "Trabajo Terminado",
+      "desc": "Usted recibe el trabajo terminado. Sin dolores de cabeza de RR.HH., sin nómina, sin necesidad de supervisión."
+    }
   },
   "forms": {
-    "employers": {
-      "title": "Solicitar Personal",
-      "company": "Nombre de la Empresa",
-      "name": "Nombre de Contacto",
+    "contact": {
+      "title": "Hablemos de su Proyecto",
+      "subtitle": "Cuéntenos sobre el trabajo que necesita realizar. Nosotros nos encargamos de la ejecución.",
+      "name": "Nombre",
       "email": "Correo Electrónico",
-      "phone": "Número de Teléfono",
-      "industry": "Industria",
-      "roles": "Roles Necesarios",
-      "urgency": "Urgencia",
-      "urgencyOptions": {
-        "immediate": "Inmediata",
-        "soon": "En 2 semanas",
-        "planning": "Fase de planificación"
+      "phone": "Teléfono",
+      "company": "Empresa",
+      "projectType": "Tipo de Proyecto",
+      "scope": "Alcance / Detalles del Proyecto",
+      "timeline": "Cronograma / Fecha Límite",
+      "projectTypeOptions": {
+        "construction": "Construcción / Renovación",
+        "installation": "Instalación / Montaje",
+        "maintenance": "Mantenimiento / Reparación",
+        "logistics": "Logística / Mudanza",
+        "other": "Otro"
       }
-    },
-    "jobSeekers": {
-      "title": "Aplicar a Empleos",
-      "name": "Nombre Completo",
-      "email": "Correo Electrónico",
-      "phone": "Número de Teléfono",
-      "preferredIndustry": "Industria Preferida",
-      "role": "Puesto Deseado",
-      "experience": "Nivel de Experiencia",
-      "experienceOptions": {
-        "entry": "Nivel Inicial",
-        "mid": "Nivel Medio",
-        "senior": "Nivel Senior"
-      },
-      "resume": "Enlace al Currículum (Opcional)"
     }
   },
   "footer": {

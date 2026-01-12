@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { useTranslations } from '../../utils/i18n';
+
+const t = useTranslations('es');
+---
+
+<Layout title="Cómo Funciona">
+  <div class="bg-blue-900 py-16 text-white text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">{t('howItWorks.title')}</h1>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+        Un proceso simple y transparente para ejecutar sus proyectos.
+      </p>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <div class="space-y-12">
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+          <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">1</div>
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">{t('howItWorks.step1.title')}</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">{t('howItWorks.step1.desc')}</p>
+            <p class="mt-4 text-gray-600">Nos reunimos con usted para comprender los requisitos específicos del trabajo. Ya sea una instalación única o mantenimiento continuo, definimos los entregables claramente.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+           <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">2</div>
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">{t('howItWorks.step2.title')}</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">{t('howItWorks.step2.desc')}</p>
+            <p class="mt-4 text-gray-600">No necesita entrevistar candidatos ni preocuparse por los turnos. Desplegamos nuestra propia fuerza laboral verificada, gestionada por nuestros supervisores en el sitio, para asegurar que el trabajo se haga bien.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+           <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">3</div>
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">{t('howItWorks.step3.title')}</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">{t('howItWorks.step3.desc')}</p>
+            <p class="mt-4 text-gray-600">Inspeccionamos el trabajo y se lo entregamos. Usted paga por el proyecto o servicio completado, no por horas de "intentos". Simplicidad y responsabilidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CTASection 
+    title="¿Listo para Comenzar?"
+    subtitle="Cuéntenos sobre su proyecto hoy."
+    primaryText="Solicitar Cotización"
+    primaryHref="/es/contacto"
+  />
+</Layout>

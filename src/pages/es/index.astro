@@ -2,7 +2,6 @@
 import Layout from '../../layouts/Layout.astro';
 import HeroSplit from '../../components/HeroSplit.astro';
 import ServicesGrid from '../../components/ServicesGrid.astro';
-import IndustryCards from '../../components/IndustryCards.astro';
 import ProofBar from '../../components/ProofBar.astro';
 import TestimonialGrid from '../../components/TestimonialGrid.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -15,8 +14,8 @@ const t = useTranslations('es');
   <HeroSplit
     title={t('home.hero.title')}
     subtitle={t('home.hero.subtitle')}
-    primaryCta={{ text: t('home.hero.ctaPrimary'), href: '/es/empleadores' }}
-    secondaryCta={{ text: t('home.hero.ctaSecondary'), href: '/es/candidatos' }}
+    primaryCta={{ text: t('home.hero.ctaPrimary'), href: '/es/contacto' }}
+    secondaryCta={{ text: t('home.hero.ctaSecondary'), href: '/es/como-funciona' }}
     imageSrc="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
   />
   
@@ -24,14 +23,12 @@ const t = useTranslations('es');
   
   <ServicesGrid />
   
-  <IndustryCards />
-  
   <TestimonialGrid />
   
   <CTASection 
-    title="¿Listo para empezar?"
-    subtitle="Ya sea que necesite trabajadores o esté buscando trabajo, tenemos la solución."
-    primaryText="Contáctenos Hoy"
+    title="¿Listo para delegar su proyecto?"
+    subtitle="Permítanos encargarnos de la ejecución para que pueda concentrarse en su negocio."
+    primaryText="Iniciar Proyecto"
     primaryHref="/es/contacto"
   />
 </Layout>

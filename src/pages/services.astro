@@ -7,14 +7,12 @@ import { icons } from '../utils/icons';
 const t = useTranslations('en');
 
 const servicesList = [
-  { key: 'recruiting', icon: 'magnifying-glass' },
-  { key: 'skilledTrades', icon: 'tools' },
-  { key: 'construction', icon: 'building-office' },
-  { key: 'healthcare', icon: 'heart' },
-  { key: 'technology', icon: 'computer-desktop' },
-  { key: 'generalLabor', icon: 'cube' },
-  { key: 'sales', icon: 'chart-bar' },
-  { key: 'socialMedia', icon: 'device-phone-mobile' },
+  { key: 'projectExecution', icon: 'clipboard-document-check' },
+  { key: 'fieldOps', icon: 'truck' },
+  { key: 'installation', icon: 'tools' },
+  { key: 'maintenance', icon: 'cog-6-tooth' },
+  { key: 'workforce', icon: 'chart-bar' },
+  { key: 'specialProjects', icon: 'sparkles' },
 ];
 ---
 
@@ -23,13 +21,13 @@ const servicesList = [
     <div class="container mx-auto px-4">
       <h1 class="text-4xl font-bold mb-4">{t('services.title')}</h1>
       <p class="text-xl text-blue-100 max-w-2xl mx-auto">
-        Comprehensive workforce solutions tailored to your industry needs.
+        Done-For-You execution services. We manage the process, the people, and the outcome.
       </p>
     </div>
   </div>
 
   <div class="container mx-auto px-4 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
       {servicesList.map(service => (
         <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100 flex flex-col h-full">
           <div class="mb-6" set:html={icons[service.icon as keyof typeof icons]}></div>
@@ -37,11 +35,8 @@ const servicesList = [
           <p class="text-gray-600 mb-6 flex-grow text-lg">{t(`services.${service.key}.desc`)}</p>
           
           <div class="mt-4 pt-6 border-t border-gray-100">
-            <h3 class="font-bold text-gray-900 mb-2">Who is this for?</h3>
-            <p class="text-gray-600 mb-4">Businesses looking to scale their workforce efficiently and candidates seeking {t(`services.${service.key}.title`).toLowerCase()} roles.</p>
-            
-            <h3 class="font-bold text-gray-900 mb-2">How we deliver</h3>
-            <p class="text-gray-600">We use a combination of local networking, digital recruiting, and rigorous vetting to ensure high-quality matches.</p>
+            <h3 class="font-bold text-gray-900 mb-2">How we help</h3>
+            <p class="text-gray-600">We deploy a managed team to execute this function, taking the burden of supervision and logistics off your plate.</p>
           </div>
         </div>
       ))}

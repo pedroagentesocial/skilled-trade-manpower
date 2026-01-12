@@ -61,14 +61,8 @@ export function useTranslations(lang: Lang) {
 // This maps internal route names to their paths in each language
 export const routes = {
   home: { en: '/', es: '/es' },
-  employers: { en: '/employers', es: '/es/empleadores' },
-  jobSeekers: { en: '/job-seekers', es: '/es/candidatos' },
   services: { en: '/services', es: '/es/servicios' },
-  industries: { en: '/industries', es: '/es/industrias' },
-  'industries/healthcare': { en: '/industries/healthcare', es: '/es/industrias/salud' },
-  'industries/construction': { en: '/industries/construction', es: '/es/industrias/construccion' },
-  'industries/technology': { en: '/industries/technology', es: '/es/industrias/tecnologia' },
-  'industries/general-labor': { en: '/industries/general-labor', es: '/es/industrias/labor-general' },
+  howItWorks: { en: '/how-it-works', es: '/es/como-funciona' },
   about: { en: '/about', es: '/es/nosotros' },
   contact: { en: '/contact', es: '/es/contacto' },
   privacy: { en: '/privacy', es: '/es/privacidad' },

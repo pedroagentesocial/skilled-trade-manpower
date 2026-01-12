@@ -7,14 +7,12 @@ import { icons } from '../../utils/icons';
 const t = useTranslations('es');
 
 const servicesList = [
-  { key: 'recruiting', icon: 'magnifying-glass' },
-  { key: 'skilledTrades', icon: 'tools' },
-  { key: 'construction', icon: 'building-office' },
-  { key: 'healthcare', icon: 'heart' },
-  { key: 'technology', icon: 'computer-desktop' },
-  { key: 'generalLabor', icon: 'cube' },
-  { key: 'sales', icon: 'chart-bar' },
-  { key: 'socialMedia', icon: 'device-phone-mobile' },
+  { key: 'projectExecution', icon: 'clipboard-document-check' },
+  { key: 'fieldOps', icon: 'truck' },
+  { key: 'installation', icon: 'tools' },
+  { key: 'maintenance', icon: 'cog-6-tooth' },
+  { key: 'workforce', icon: 'chart-bar' },
+  { key: 'specialProjects', icon: 'sparkles' },
 ];
 ---
 
@@ -23,13 +21,13 @@ const servicesList = [
     <div class="container mx-auto px-4">
       <h1 class="text-4xl font-bold mb-4">{t('services.title')}</h1>
       <p class="text-xl text-blue-100 max-w-2xl mx-auto">
-        Soluciones integrales de fuerza laboral adaptadas a las necesidades de su industria.
+        Servicios de ejecución llave en mano. Gestionamos el proceso, las personas y el resultado.
       </p>
     </div>
   </div>
 
   <div class="container mx-auto px-4 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
       {servicesList.map(service => (
         <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100 flex flex-col h-full">
           <div class="mb-6" set:html={icons[service.icon as keyof typeof icons]}></div>
@@ -37,11 +35,8 @@ const servicesList = [
           <p class="text-gray-600 mb-6 flex-grow text-lg">{t(`services.${service.key}.desc`)}</p>
           
           <div class="mt-4 pt-6 border-t border-gray-100">
-            <h3 class="font-bold text-gray-900 mb-2">¿Para quién es esto?</h3>
-            <p class="text-gray-600 mb-4">Empresas que buscan escalar su fuerza laboral de manera eficiente y candidatos que buscan roles de {t(`services.${service.key}.title`).toLowerCase()}.</p>
-            
-            <h3 class="font-bold text-gray-900 mb-2">Cómo lo entregamos</h3>
-            <p class="text-gray-600">Utilizamos una combinación de redes locales, reclutamiento digital y una evaluación rigurosa para garantizar coincidencias de alta calidad.</p>
+            <h3 class="font-bold text-gray-900 mb-2">Cómo ayudamos</h3>
+            <p class="text-gray-600">Desplegamos un equipo gestionado para ejecutar esta función, quitándole la carga de supervisión y logística.</p>
           </div>
         </div>
       ))}

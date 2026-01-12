@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import LeadForm from '../../components/LeadForm.astro';
 import { useTranslations } from '../../utils/i18n';
+import { icons } from '../../utils/icons';
 
 const t = useTranslations('es');
 ---
@@ -22,9 +23,7 @@ const t = useTranslations('es');
         <h2 class="text-2xl font-bold text-gray-900 mb-6">Póngase en Contacto</h2>
         <div class="space-y-6">
           <div class="flex items-start">
-            <div class="flex-shrink-0 mt-1">
-              <span class="text-2xl">📍</span>
-            </div>
+            <div class="flex-shrink-0 mt-1 w-6 h-6 text-blue-600" set:html={icons['map-pin']}></div>
             <div class="ml-4">
               <h3 class="text-lg font-bold text-gray-900">Dirección</h3>
               <p class="text-gray-600">
@@ -35,9 +34,7 @@ const t = useTranslations('es');
           </div>
 
           <div class="flex items-start">
-            <div class="flex-shrink-0 mt-1">
-              <span class="text-2xl">📞</span>
-            </div>
+            <div class="flex-shrink-0 mt-1 w-6 h-6 text-blue-600" set:html={icons.phone}></div>
             <div class="ml-4">
               <h3 class="text-lg font-bold text-gray-900">Teléfono</h3>
               <p class="text-gray-600">
@@ -47,9 +44,7 @@ const t = useTranslations('es');
           </div>
 
           <div class="flex items-start">
-            <div class="flex-shrink-0 mt-1">
-              <span class="text-2xl">✉️</span>
-            </div>
+            <div class="flex-shrink-0 mt-1 w-6 h-6 text-blue-600" set:html={icons.envelope}></div>
             <div class="ml-4">
               <h3 class="text-lg font-bold text-gray-900">Correo Electrónico</h3>
               <p class="text-gray-600">
@@ -59,9 +54,7 @@ const t = useTranslations('es');
           </div>
           
           <div class="flex items-start">
-             <div class="flex-shrink-0 mt-1">
-              <span class="text-2xl">⏰</span>
-            </div>
+             <div class="flex-shrink-0 mt-1 w-6 h-6 text-blue-600" set:html={icons.clock}></div>
             <div class="ml-4">
               <h3 class="text-lg font-bold text-gray-900">Horario</h3>
               <p class="text-gray-600">

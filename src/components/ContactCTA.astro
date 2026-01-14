@@ -54,7 +54,7 @@ const {
         <div class="space-y-6">
           <div class="flex items-start gap-4">
             <div class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center flex-shrink-0 text-blue-200">
-                <span class="w-5 h-5" set:html={icons.phone}></span>
+                <span class="w-5 h-5 flex justify-center items-center [&>svg]:w-full [&>svg]:h-full" set:html={icons.phone}></span>
             </div>
             <div>
               <p class="text-sm text-blue-300 uppercase font-semibold tracking-wider mb-1">{t('forms.contact.phone')}</p>
@@ -64,7 +64,7 @@ const {
 
           <div class="flex items-start gap-4">
             <div class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center flex-shrink-0 text-blue-200">
-                <span class="w-5 h-5" set:html={icons['map-pin']}></span>
+                <span class="w-5 h-5 flex justify-center items-center [&>svg]:w-full [&>svg]:h-full" set:html={icons['map-pin']}></span>
             </div>
             <div>
               <p class="text-sm text-blue-300 uppercase font-semibold tracking-wider mb-1">{t('nav.contact')}</p>
@@ -76,7 +76,7 @@ const {
           
           <div class="flex items-start gap-4">
              <div class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center flex-shrink-0 text-blue-200">
-                <span class="w-5 h-5" set:html={icons.envelope}></span>
+                <span class="w-5 h-5 flex justify-center items-center [&>svg]:w-full [&>svg]:h-full" set:html={icons.envelope}></span>
             </div>
              <div>
                <p class="text-sm text-blue-300 uppercase font-semibold tracking-wider mb-1">{t('forms.contact.email')}</p>

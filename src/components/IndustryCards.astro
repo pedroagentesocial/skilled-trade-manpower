@@ -7,25 +7,22 @@ const t = useTranslations(lang);
 const industries = [
   { 
     key: 'healthcare', 
-    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=Healthcare',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     link: getTranslatedPath('industries/healthcare', lang)
   },
   { 
-    id: 'construction',
     key: 'construction', 
-    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=Construction',
+    image: import.meta.env.BASE_URL === '/' ? '/images/construction.jpg' : `${import.meta.env.BASE_URL}/images/construction.jpg`,
     link: getTranslatedPath('industries/construction', lang)
   },
   { 
-    id: 'technology',
     key: 'technology', 
-    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=Technology',
+    image: import.meta.env.BASE_URL === '/' ? '/images/Technology.jpg' : `${import.meta.env.BASE_URL}/images/Technology.jpg`,
     link: getTranslatedPath('industries/technology', lang)
   },
   { 
-    id: 'generalLabor',
     key: 'generalLabor', 
-    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=General+Labor',
+    image: import.meta.env.BASE_URL === '/' ? '/images/general.jpg' : `${import.meta.env.BASE_URL}/images/general.jpg`,
     link: getTranslatedPath('industries/general-labor', lang)
   },
 ];
@@ -34,23 +31,32 @@ const industries = [
 <section class="py-16 bg-gray-50">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('industries.title')}</h2>
-      <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('home.industries.title')}</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">{t('home.industries.subtitle')}</p>
+      <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {industries.map(ind => (
         <a href={ind.link} class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1">
-          <div class="h-48 overflow-hidden">
-            <img src={ind.image} alt={t(`industries.${ind.key}`)} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <div class="h-48 overflow-hidden relative">
+            <div class="absolute inset-0 bg-blue-900/10 group-hover:bg-blue-900/0 transition-colors z-10"></div>
+            <img src={ind.image} alt={t(`industries.${ind.key}.title`)} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
           </div>
           <div class="p-6">
             <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-              {t(`industries.${ind.key}`)}
+              {t(`industries.${ind.key}.title`)}
             </h3>
+            <p class="text-gray-500 mt-2 text-sm">{t(`industries.${ind.key}.desc`)}</p>
           </div>
         </a>
       ))}
+    </div>
+    
+    <div class="text-center mt-12">
+      <a href={getTranslatedPath('contact', lang)} class="inline-block px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors">
+        {t('buttons.requestTalent')}
+      </a>
     </div>
   </div>
 </section>

@@ -62,10 +62,15 @@ export function useTranslations(lang: Lang) {
 export const routes = {
   home: { en: '/', es: '/es' },
   services: { en: '/services', es: '/es/servicios' },
-  howItWorks: { en: '/how-it-works', es: '/es/como-funciona' },
+  employers: { en: '/employers', es: '/es/empleadores' },
+  ourProcess: { en: '/our-process', es: '/es/nuestro-proceso' },
   about: { en: '/about', es: '/es/nosotros' },
   contact: { en: '/contact', es: '/es/contacto' },
   privacy: { en: '/privacy', es: '/es/privacidad' },
+  'industries/healthcare': { en: '/industries/healthcare', es: '/es/industrias/salud' },
+  'industries/construction': { en: '/industries/construction', es: '/es/industrias/construccion' },
+  'industries/technology': { en: '/industries/technology', es: '/es/industrias/tecnologia' },
+  'industries/general-labor': { en: '/industries/general-labor', es: '/es/industrias/mano-de-obra-general' },
 };
 
 export function getRouteFromUrl(url: URL): string | undefined {

@@ -1,64 +1,109 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import CTASection from '../../components/CTASection.astro';
-import { useTranslations } from '../../utils/i18n';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { useTranslations, getLangFromUrl, getTranslatedPath } from '../../utils/i18n';
+import { icons } from '../../utils/icons';
 
-const t = useTranslations('es');
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const values = [
+  {
+    title: "Responsabilidad",
+    desc: "Somos dueños del resultado. Si el trabajo no se hace bien, lo arreglamos. Usted no gestiona a los trabajadores; nosotros lo hacemos.",
+    icon: icons['clipboard-document-check']
+  },
+  {
+    title: "Eficiencia",
+    desc: "Nuestros equipos gestionados comienzan a trabajar de inmediato. No se pierde tiempo de capacitación por su parte.",
+    icon: icons['bolt']
+  },
+  {
+    title: "Seguridad",
+    desc: "Hacemos cumplir estrictos protocolos de seguridad. Nuestros supervisores aseguran que cada sitio de trabajo cumpla con las normas y sea seguro.",
+    icon: icons['shield-check']
+  },
+  {
+    title: "Calidad",
+    desc: "No solo enviamos cuerpos; entregamos trabajo terminado que cumple con sus estándares.",
+    icon: icons['check-badge']
+  }
+];
 ---
 
 <Layout title="Nosotros">
-  <div class="bg-blue-900 py-16 text-white text-center">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl font-bold mb-4">Sobre Skilled Trade Manpower</h1>
-      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+  <div class="bg-blue-900 py-24 text-white text-center relative overflow-hidden">
+     <!-- Background Elements -->
+     <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 0 L100 100 L0 100 Z" fill="white" />
+        </svg>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Sobre Skilled Trade Manpower</h1>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
         Somos su socio de ejecución. Nos hacemos cargo del trabajo para que usted no tenga que hacerlo.
       </p>
     </div>
   </div>
 
-  <div class="container mx-auto px-4 py-16">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Nuestra Misión</h2>
-      <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-        En Skilled Trade Manpower, nuestra misión es entregar resultados. Notamos un vacío en el mercado: los dueños de negocios estaban cansados del modelo de "agencia de empleo" donde pagan por cabezas pero aún tienen que gestionar las manos.
-        Cambiamos el modelo. Brindamos servicios "llave en mano" donde contratamos, capacitamos, gestionamos y supervisamos la fuerza laboral. Usted simplemente define el proyecto y nosotros lo ejecutamos.
-      </p>
-
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Nuestros Valores</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Responsabilidad</h3>
-          <p class="text-gray-600">Somos dueños del resultado. Si el trabajo no se hace bien, lo arreglamos. Usted no gestiona a los trabajadores; nosotros lo hacemos.</p>
+  <div class="container mx-auto px-4 py-20">
+    <div class="max-w-5xl mx-auto">
+      
+      <!-- Mission Section -->
+      <div class="mb-20 flex flex-col md:flex-row gap-12 items-center">
+        <div class="md:w-1/2">
+             <div class="bg-blue-50 rounded-2xl p-8 relative">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-4">Nuestra Misión</h2>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    En Skilled Trade Manpower, nuestra misión es entregar resultados. Notamos un vacío en el mercado: los dueños de negocios estaban cansados del modelo de "agencia de empleo" donde pagan por cabezas pero aún tienen que gestionar las manos.
+                </p>
+             </div>
         </div>
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Eficiencia</h3>
-          <p class="text-gray-600">Nuestros equipos gestionados comienzan a trabajar de inmediato. No se pierde tiempo de capacitación por su parte.</p>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Seguridad</h3>
-          <p class="text-gray-600">Hacemos cumplir estrictos protocolos de seguridad. Nuestros supervisores aseguran que cada sitio de trabajo cumpla con las normas y sea seguro.</p>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Calidad</h3>
-          <p class="text-gray-600">No solo enviamos cuerpos; entregamos trabajo terminado que cumple con sus estándares.</p>
+        <div class="md:w-1/2">
+            <p class="text-lg text-gray-600 leading-relaxed border-l-4 border-blue-600 pl-6 italic">
+                "Cambiamos el modelo. Brindamos servicios 'llave en mano' donde contratamos, capacitamos, gestionamos y supervisamos la fuerza laboral. Usted simplemente define el proyecto y nosotros lo ejecutamos."
+            </p>
         </div>
       </div>
+
+      <!-- Values Grid -->
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Nuestros Valores</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        {values.map((val) => (
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 flex flex-col items-center text-center">
+                <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors flex-shrink-0">
+                    <div class="w-8 h-8 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full" set:html={val.icon}></div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">{val.title}</h3>
+                <p class="text-gray-600 leading-relaxed">{val.desc}</p>
+            </div>
+        ))}
+      </div>
       
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Nuestra Historia</h2>
-      <p class="text-lg text-gray-600 mb-4 leading-relaxed">
-        Fundada en Salt Lake City, Skilled Trade Manpower evolucionó de un proveedor de mano de obra tradicional a un socio de ejecución de servicio completo.
-        Nos dimos cuenta de que nuestros clientes necesitaban más que solo personas: necesitaban proyectos completados.
-      </p>
-      <p class="text-lg text-gray-600 leading-relaxed">
-        Hoy, servimos a empresas en construcción, logística y gestión de instalaciones, proporcionando el músculo operativo que necesitan para escalar sin la carga de RR.HH.
-      </p>
+      <!-- Story Section -->
+      <div class="bg-gray-50 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+            <span class="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3 block">Desde el Primer Día</span>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Nuestra Historia</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                Fundada en Salt Lake City, Skilled Trade Manpower evolucionó de un proveedor de mano de obra tradicional a un socio de ejecución de servicio completo.
+                Nos dimos cuenta de que nuestros clientes necesitaban más que solo personas: necesitaban proyectos completados.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Hoy, servimos a empresas en construcción, logística y gestión de instalaciones, proporcionando el músculo operativo que necesitan para escalar sin la carga de RR.HH.
+            </p>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <CTASection 
-    title="Trabaje con un Socio, no con un Proveedor"
-    subtitle="Vea la diferencia que hace la ejecución gestionada."
-    primaryText="Contáctenos"
-    primaryHref="/es/contacto"
+  <ContactCTA 
+    title={t('home.hero.ctaPrimary')}
+    subtitle={t('forms.contact.subtitle')}
+    primaryText={t('buttons.getQuote')}
+    primaryHref={getTranslatedPath('contact', lang)}
   />
 </Layout>

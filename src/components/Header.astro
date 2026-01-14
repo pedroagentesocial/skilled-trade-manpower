@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations, getRouteFromUrl, getTranslatedPath, languages } from '../utils/i18n';
+import { getLangFromUrl, useTranslations, getRouteFromUrl, getTranslatedPath } from '../utils/i18n';
 import { icons } from '../utils/icons';
 
 const lang = getLangFromUrl(Astro.url);
@@ -10,10 +10,18 @@ const currentRoute = getRouteFromUrl(Astro.url);
 const otherLang = lang === 'en' ? 'es' : 'en';
 const togglePath = currentRoute ? getTranslatedPath(currentRoute, otherLang) : (lang === 'en' ? '/es' : '/');
 
+const servicesLinks = [
+  { href: `${getTranslatedPath('services', lang)}#recruiting`, label: t('nav.servicesDropdown.recruiting') },
+  { href: `${getTranslatedPath('services', lang)}#socialHiring`, label: t('nav.servicesDropdown.socialHiring') },
+  { href: `${getTranslatedPath('services', lang)}#salesTeams`, label: t('nav.servicesDropdown.salesTeams') },
+  { href: `${getTranslatedPath('services', lang)}#skilledLabor`, label: t('nav.servicesDropdown.skilledLabor') },
+];
+
 const navItems = [
   { href: getTranslatedPath('home', lang), label: t('nav.home') },
-  { href: getTranslatedPath('services', lang), label: t('nav.services') },
-  { href: getTranslatedPath('howItWorks', lang), label: t('nav.howItWorks') },
+  // Services is handled separately for dropdown
+  { href: getTranslatedPath('employers', lang), label: t('nav.employers') },
+  { href: getTranslatedPath('ourProcess', lang), label: t('nav.ourProcess') },
   { href: getTranslatedPath('about', lang), label: t('nav.about') },
   { href: getTranslatedPath('contact', lang), label: t('nav.contact') },
 ];
@@ -21,48 +29,111 @@ const navItems = [
 
 <header class="bg-white shadow-md sticky top-0 z-50">
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <a href={getTranslatedPath('home', lang)} class="text-2xl font-bold text-blue-900">
-      Skilled Trade Manpower
+    <a href={getTranslatedPath('home', lang)} class="text-2xl font-bold text-blue-900 z-50 relative flex items-center gap-3">
+      <img src={import.meta.env.BASE_URL === '/' ? '/images/logo.png' : `${import.meta.env.BASE_URL}/images/logo.png`} alt="Skilled Trade Manpower Logo" class="h-10 w-auto" />
     </a>
 
     <!-- Desktop Nav -->
     <nav class="hidden md:flex space-x-6 items-center">
-      {navItems.map(item => (
-        <a href={item.href} class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-          {item.label}
-        </a>
-      ))}
+      <a href={getTranslatedPath('home', lang)} class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+        {t('nav.home')}
+      </a>
+
+      <!-- Services Dropdown -->
+      <div class="relative group">
+        <button class="flex items-center gap-1 text-gray-700 hover:text-blue-600 font-medium transition-colors py-2 focus:outline-none">
+          {t('nav.services')}
+          <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="absolute left-0 top-full pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+          <div class="bg-white shadow-xl rounded-lg border border-gray-100 overflow-hidden">
+             {servicesLinks.map(link => (
+               <a href={link.href} class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50 last:border-0 transition-colors">
+                 {link.label}
+               </a>
+             ))}
+             <a href={getTranslatedPath('services', lang)} class="block px-4 py-3 bg-gray-50 text-blue-600 font-semibold hover:bg-blue-100 text-center text-sm">
+                View All Services
+             </a>
+          </div>
+        </div>
+      </div>
+
+      <a href={getTranslatedPath('ourProcess', lang)} class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+        {t('nav.ourProcess')}
+      </a>
+      <a href={getTranslatedPath('about', lang)} class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+        {t('nav.about')}
+      </a>
+      <a href={getTranslatedPath('contact', lang)} class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+        {t('nav.contact')}
+      </a>
+
       <a href={togglePath} class="ml-4 px-3 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 transition-colors">
         {lang === 'en' ? 'ES' : 'EN'}
       </a>
-      <a href="tel:5551234567" class="ml-4 px-4 py-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700 transition-colors flex items-center gap-2">
+      <a href="tel:5551234567" class="ml-4 px-4 py-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700 transition-colors flex items-center gap-2 transform hover:scale-105 duration-200">
         <span set:html={icons.phone}></span>
         {t('nav.call')}
       </a>
     </nav>
 
-    <!-- Mobile Menu Button (Simple implementation) -->
-    <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none p-2">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-      </svg>
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none p-2 z-50 relative">
+      <div id="hamburger-icon">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </div>
+      <div id="close-icon" class="hidden">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </div>
     </button>
   </div>
 
-  <!-- Mobile Nav -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full left-0 top-full shadow-lg z-50">
-    <nav class="flex flex-col px-4 py-4 space-y-4">
-      {navItems.map(item => (
-        <a href={item.href} class="block py-2 text-lg text-gray-700 hover:text-blue-600 font-medium border-b border-gray-100 last:border-0">
-          {item.label}
+  <!-- Mobile Nav Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col pt-24 px-6 overflow-y-auto">
+    <nav class="flex flex-col space-y-6">
+      <a href={getTranslatedPath('home', lang)} class="text-2xl text-gray-800 font-semibold border-b border-gray-100 pb-2">
+        {t('nav.home')}
+      </a>
+      
+      <!-- Mobile Services Accordion -->
+      <div class="border-b border-gray-100 pb-2">
+        <button id="mobile-services-btn" class="flex justify-between items-center w-full text-2xl text-gray-800 font-semibold focus:outline-none">
+          {t('nav.services')}
+          <svg id="mobile-services-arrow" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div id="mobile-services-list" class="hidden flex-col mt-4 space-y-3 pl-4">
+          {servicesLinks.map(link => (
+            <a href={link.href} class="block text-lg text-gray-600 py-1">
+              {link.label}
+            </a>
+          ))}
+           <a href={getTranslatedPath('services', lang)} class="block text-lg text-blue-600 font-medium py-1">
+              View All Services
+           </a>
+        </div>
+      </div>
+
+      <a href={getTranslatedPath('ourProcess', lang)} class="text-2xl text-gray-800 font-semibold border-b border-gray-100 pb-2">
+        {t('nav.ourProcess')}
+      </a>
+      <a href={getTranslatedPath('about', lang)} class="text-2xl text-gray-800 font-semibold border-b border-gray-100 pb-2">
+        {t('nav.about')}
+      </a>
+      <a href={getTranslatedPath('contact', lang)} class="text-2xl text-gray-800 font-semibold border-b border-gray-100 pb-2">
+        {t('nav.contact')}
+      </a>
+
+      <div class="flex flex-col gap-4 mt-8">
+        <a href={togglePath} class="inline-flex items-center justify-center py-3 px-4 border-2 border-blue-600 text-blue-600 rounded-lg text-lg font-bold">
+          {lang === 'en' ? 'Cambiar a Español' : 'Switch to English'}
         </a>
-      ))}
-      <div class="flex flex-col gap-4 mt-4 pt-4 border-t border-gray-100">
-        <a href={togglePath} class="inline-flex items-center justify-center py-2 px-4 border border-blue-600 text-blue-600 rounded-md font-bold hover:bg-blue-50">
-          {lang === 'en' ? 'Español' : 'English'}
-        </a>
-        <a href="tel:5551234567" class="inline-flex items-center justify-center py-2 px-4 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 gap-2">
-           <span class="w-5 h-5" set:html={icons.phone}></span>
+        <a href="tel:3854012255" class="inline-flex items-center justify-center py-3 px-4 bg-blue-600 text-white rounded-lg text-lg font-bold shadow-lg hover:bg-blue-700">
+           <span class="w-6 h-6 mr-2" set:html={icons.phone}></span>
            {t('nav.call')}
         </a>
       </div>
@@ -73,10 +144,28 @@ const navItems = [
 <script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  
+  // Mobile Services Toggle
+  const servicesBtn = document.getElementById('mobile-services-btn');
+  const servicesList = document.getElementById('mobile-services-list');
+  const servicesArrow = document.getElementById('mobile-services-arrow');
 
-  if (btn && menu) {
+  if (btn && menu && hamburger && closeIcon) {
     btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+      menu.classList.toggle('translate-x-full');
+      hamburger.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+    });
+  }
+
+  if (servicesBtn && servicesList && servicesArrow) {
+    servicesBtn.addEventListener('click', () => {
+      servicesList.classList.toggle('hidden');
+      servicesList.classList.toggle('flex');
+      servicesArrow.classList.toggle('rotate-180');
     });
   }
 </script>

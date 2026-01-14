@@ -1,95 +1,249 @@
 {
   "site": {
     "title": "Skilled Trade Manpower",
-    "description": "Su socio de servicios de ejecución. Proporcionamos la mano de obra, gestionamos el personal y entregamos proyectos terminados en construcción, instalación y mantenimiento."
+    "description": "Socio de crecimiento laboral que combina Reclutamiento, Marketing en Redes Sociales para Contratación, Personal de Ventas y Personal de Oficios Calificados."
   },
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
-    "howItWorks": "Cómo Funciona",
+    "employers": "Para Empleadores",
+    "ourProcess": "Nuestro Proceso",
     "about": "Nosotros",
     "contact": "Contacto",
-    "call": "Llamar"
+    "call": "Llamar",
+    "servicesDropdown": {
+        "recruiting": "Reclutamiento de Empleo",
+        "socialHiring": "Contratación por Redes Sociales",
+        "salesTeams": "Personal de Ventas",
+        "skilledLabor": "Personal de Oficios Calificados"
+    }
   },
   "buttons": {
     "contactUs": "Contáctenos",
     "getQuote": "Solicitar Cotización",
     "startProject": "Iniciar Proyecto",
+    "requestTalent": "Solicitar Personal",
+    "findWork": "Encontrar Trabajo",
     "learnMore": "Más Información",
-    "submit": "Enviar Solicitud"
+    "submit": "Enviar Solicitud",
+    "viewIndustries": "Ver Industrias"
   },
   "home": {
     "hero": {
-      "title": "Usted No Gestiona Personal. Nosotros Entregamos Resultados.",
-      "subtitle": "No somos una agencia de empleo. Somos una empresa de servicios de ejecución. Contratamos, gestionamos y supervisamos la fuerza laboral para ejecutar sus proyectos de principio a fin.",
-      "ctaPrimary": "Iniciar Proyecto",
-      "ctaSecondary": "Cómo Funciona"
+      "title": "Reclutamiento, Contratación en Redes Sociales, Equipos de Ventas y Personal Calificado",
+      "subtitle": "Somos un socio de crecimiento laboral. Combinamos reclutamiento, marketing digital y entrega de fuerza laboral para proporcionar mejor personal, más rápido.",
+      "ctaPrimary": "Solicitar Personal",
+      "ctaSecondary": "Encontrar Trabajo"
+    },
+    "servicesOverview": {
+      "title": "Soluciones Laborales Integrales",
+      "subtitle": "Cuatro pilares para resolver sus desafíos de personal."
+    },
+    "processPreview": {
+      "title": "Cómo Trabajamos",
+      "subtitle": "Un proceso simplificado para conseguirle el talento que necesita."
+    },
+    "industries": {
+      "title": "Industrias que Atendemos",
+      "subtitle": "Personal especializado para sectores críticos."
     }
   },
   "services": {
     "title": "Nuestros Servicios de Ejecución",
-    "projectExecution": {
-      "title": "Ejecución de Proyectos",
-      "desc": "Asumimos la responsabilidad total de proyectos intensivos en mano de obra, asegurando que se completen a tiempo y según las especificaciones."
+    "recruiting": {
+      "title": "Reclutamiento de Empleo",
+      "desc": "Reclutamiento de ciclo completo para encontrar el mejor talento permanente para su organización.",
+      "problem": "Encontrar candidatos calificados toma tiempo y recursos que usted no tiene.",
+      "solution": "Manejamos la búsqueda, selección y entrevistas para presentarle candidatos de primer nivel.",
+      "features": ["Búsqueda de Candidatos", "Selección Rigurosa", "Coordinación de Entrevistas", "Apoyo en Colocación"]
     },
-    "fieldOps": {
-      "title": "Operaciones de Campo",
-      "desc": "Despliegue de equipos gestionados para manejar operaciones en sitio, logística y tareas manuales."
+    "socialHiring": {
+      "title": "Marketing en Redes Sociales para Contratación",
+      "desc": "Campañas digitales dirigidas para atraer candidatos activos y pasivos.",
+      "problem": "Las bolsas de trabajo tradicionales a menudo no son suficientes para llegar al mejor talento.",
+      "solution": "Utilizamos plataformas sociales y alcance digital para construir una cartera de candidatos calificados.",
+      "features": ["Campañas Publicitarias Dirigidas", "Marca Empleadora", "Alcance a Candidatos Pasivos", "Generación de Leads de Alto Volumen"]
     },
-    "installation": {
-      "title": "Instalación y Montaje",
-      "desc": "Servicios completos de instalación para equipos, mobiliario y sistemas. Manejamos todo el proceso."
+    "salesTeams": {
+      "title": "Personal de Equipos de Ventas",
+      "desc": "Reclutamiento y dotación de profesionales de ventas de alto rendimiento para impulsar los ingresos.",
+      "problem": "Escalar un equipo de ventas requiere encontrar individuos con el impulso y las habilidades adecuadas.",
+      "solution": "Evaluamos y colocamos SDRs, BDRs, Ejecutivos de Cuenta y representantes de Ventas Internas.",
+      "features": ["SDRs y BDRs", "Ejecutivos de Cuenta", "Ventas Internas", "Liderazgo de Ventas"]
     },
-    "maintenance": {
-      "title": "Mantenimiento y Soporte",
-      "desc": "Cuadrillas de mantenimiento continuo para mantener sus instalaciones y activos en óptimas condiciones."
+    "skilledLabor": {
+      "title": "Personal de Oficios Calificados",
+      "desc": "Fuerza laboral calificada bajo demanda para Salud, Construcción, Tecnología y Mano de Obra General.",
+      "problem": "Los plazos de los proyectos requieren manos expertas y confiables de inmediato.",
+      "solution": "Desplegamos equipos verificados y listos para trabajar en su sitio.",
+      "verticals": {
+        "healthcare": "Salud",
+        "construction": "Construcción",
+        "technology": "Tecnología",
+        "generalLabor": "Mano de Obra General"
+      },
+      "features": ["Trabajadores Verificados", "Despliegue Rápido", "Cumplimiento de Seguridad", "Gestión en Sitio"]
     },
-    "workforce": {
-      "title": "Ejecución de Fuerza Laboral",
-      "desc": "¿Necesita realizar un trabajo? Proporcionamos la fuerza laboral gestionada para ejecutarlo de inmediato."
+    "projectManagement": {
+      "title": "Gestión de Proyectos y Supervisión",
+      "desc": "Proporcionamos supervisores en sitio para gestionar el flujo de trabajo, la asistencia y el rendimiento de la fuerza laboral desplegada.",
+      "problem": "Gestionar una fuerza laboral temporal desvía el enfoque de sus operaciones principales.",
+      "solution": "Nuestros supervisores experimentados manejan la logística diaria y la gestión del rendimiento.",
+      "features": ["Supervisión en Sitio", "Seguimiento de Asistencia", "Revisiones de Rendimiento", "Resolución de Conflictos"]
     },
-    "specialProjects": {
-      "title": "Proyectos Especiales",
-      "desc": "Soluciones laborales personalizadas para desafíos operativos únicos, complejos o a gran escala."
+    "safetyCompliance": {
+      "title": "Capacitación en Seguridad y Cumplimiento",
+      "desc": "Asegurando que cada trabajador esté listo para el trabajo y cumpla con los estándares de la industria.",
+      "problem": "Trabajadores no calificados o inseguros crean responsabilidad y retrasos en el proyecto.",
+      "solution": "Manejamos certificaciones, sesiones informativas de seguridad y verificaciones de cumplimiento antes del despliegue.",
+      "features": ["Capacitación OSHA", "Sesiones de Seguridad", "Verificación de Certificación", "Mitigación de Riesgos"]
     }
   },
-  "howItWorks": {
-    "title": "Cómo Trabajamos",
+  "industries": {
+    "common": {
+        "valuePropTitle": "Dotación de Personal Acelerada mediante Reclutamiento Digital",
+        "valuePropDesc": "No esperamos a que lleguen las solicitudes. Reclutamos activamente y utilizamos marketing en redes sociales para construir una cartera masiva de candidatos calificados para esta industria específica. Esto asegura que obtenga personas listas para trabajar ahora.",
+        "screeningTitle": "Confiabilidad en la que Puede Confiar",
+        "screeningDesc": "Cada candidato se somete a un proceso de selección adaptado a la industria. Aunque no podemos garantizar legalmente las acciones futuras de cada individuo, nuestra rigurosa verificación reduce significativamente la rotación y el riesgo."
+    },
+    "healthcare": {
+      "title": "Personal de Salud",
+      "desc": "Personal médico y de apoyo confiable para hospitales, clínicas e instalaciones de cuidado.",
+      "roles": ["Asistentes Médicos", "Apoyo de Enfermería", "Personal Administrativo", "Mantenimiento de Instalaciones"]
+    },
+    "construction": {
+      "title": "Personal de Construcción",
+      "desc": "Trabajadores calificados para proyectos comerciales y residenciales.",
+      "roles": ["Electricistas", "Plomeros", "Carpinteros", "Obreros Generales"]
+    },
+    "technology": {
+      "title": "Personal de Tecnología",
+      "desc": "Talento tecnológico para soporte de TI, instalación e infraestructura.",
+      "roles": ["Técnicos de Soporte TI", "Instaladores de Cable", "Administradores de Sistemas", "Mesa de Ayuda"]
+    },
+    "generalLabor": {
+      "title": "Mano de Obra General",
+      "desc": "Equipos trabajadores para almacenamiento, logística y apoyo en sitio.",
+      "roles": ["Asociados de Almacén", "Mudanzas", "Equipos de Limpieza", "Personal de Eventos"]
+    }
+  },
+  "employers": {
+    "title": "Asóciese con Skilled Trade Manpower",
+    "subtitle": "Su motor para reclutamiento, marketing de contratación y entrega de fuerza laboral.",
+    "whyUs": "No solo publicamos trabajos. Los comercializamos. No solo enviamos currículums. Verificamos candidatos. Proporcionamos una solución laboral completa.",
+    "benefits": {
+      "title": "La Ventaja para el Empleador",
+      "items": [
+        {
+          "title": "Tiempo de Contratación Reducido",
+          "desc": "Cubrimos puestos 3 veces más rápido que los métodos tradicionales de reclutamiento interno."
+        },
+        {
+          "title": "Menor Rotación",
+          "desc": "Nuestro riguroso proceso de selección asegura un mejor ajuste y mayor retención."
+        },
+        {
+          "title": "Eficiencia de Costos",
+          "desc": "Ahorre en publicidad, selección e incorporación. Pague solo por resultados."
+        },
+        {
+          "title": "Escalabilidad",
+          "desc": "Escale su fuerza laboral hacia arriba o abajo instantáneamente según la demanda del proyecto."
+        }
+      ]
+    },
+    "features": {
+        "recruiting": "Reclutamiento Experto",
+        "digital": "Motor de Contratación Digital",
+        "workforce": "Equipos Listos para Trabajar"
+    }
+  },
+  "ourProcess": {
+    "title": "Nuestro Proceso",
+    "subtitle": "Simple, transparente y efectivo.",
     "step1": {
-      "title": "Defina el Alcance",
-      "desc": "Díganos qué necesita hacer, el cronograma y el resultado esperado."
+      "title": "Consulta",
+      "desc": "Entendemos sus necesidades específicas y cultura."
     },
     "step2": {
-      "title": "Desplegamos y Gestionamos",
-      "desc": "Asignamos un equipo dedicado y un supervisor. Manejamos toda la programación, gestión y control de calidad."
+      "title": "Búsqueda y Estrategia",
+      "desc": "Lanzamos campañas de reclutamiento o marketing."
     },
     "step3": {
-      "title": "Trabajo Terminado",
-      "desc": "Usted recibe el trabajo terminado. Sin dolores de cabeza de RR.HH., sin nómina, sin necesidad de supervisión."
+      "title": "Selección y Verificación",
+      "desc": "Chequeos rigurosos para asegurar calidad (donde aplique)."
+    },
+    "step4": {
+      "title": "Despliegue / Contratación",
+      "desc": "Las personas adecuadas comienzan a trabajar para usted."
+    },
+    "tabs": {
+        "employers": "Para Empleadores",
+        "jobSeekers": "Para Buscadores de Empleo",
+        "employerSteps": [
+            { "title": "Consulta", "desc": "Definimos sus necesidades laborales." },
+            { "title": "Búsqueda", "desc": "Lanzamos campañas dirigidas." },
+            { "title": "Selección", "desc": "Evaluamos y presentamos candidatos." },
+            { "title": "Incorporación", "desc": "Manejamos papeleo y nómina." }
+        ],
+        "seekerSteps": [
+            { "title": "Aplicación", "desc": "Envíe su perfil o currículum." },
+            { "title": "Entrevista", "desc": "Entrevista con nuestros reclutadores." },
+            { "title": "Colocación", "desc": "Conecte con los mejores empleadores." },
+            { "title": "Comenzar", "desc": "Inicie su nueva asignación." }
+        ]
+    },
+    "faq": {
+        "title": "Preguntas Frecuentes",
+        "items": [
+            { "q": "¿Qué tan rápido pueden proveer personal?", "a": "Para mano de obra general, a menudo en 24-48 horas. Roles especializados pueden tomar 3-5 días." },
+            { "q": "¿Manejan seguros?", "a": "Sí, cubrimos compensación laboral y seguro de responsabilidad para todo nuestro personal." },
+            { "q": "¿Hay garantía?", "a": "Ofrecemos garantía de satisfacción. Si un trabajador no encaja en las primeras horas, lo reemplazamos." }
+        ]
+    },
+    "qualityStandard": {
+      "title": "El Estándar de Calidad",
+      "subtitle": "No tomamos atajos. Nuestro riguroso proceso asegura que obtenga profesionales confiables, cumplidores y calificados.",
+      "cards": [
+        {
+          "title": "Verificación y Cumplimiento",
+          "desc": "Cada candidato se somete a verificación de antecedentes, pruebas de drogas (donde aplique) y verificación de certificaciones."
+        },
+        {
+          "title": "Supervisión en Sitio",
+          "desc": "Para grandes despliegues, proporcionamos gerentes en sitio para manejar la asistencia, el rendimiento y la seguridad."
+        },
+        {
+          "title": "Garantía de Satisfacción",
+          "desc": "Si un trabajador no cumple con sus estándares dentro de las primeras 4 horas, lo reemplazamos sin costo para usted."
+        }
+      ]
     }
   },
   "forms": {
     "contact": {
-      "title": "Hablemos de su Proyecto",
-      "subtitle": "Cuéntenos sobre el trabajo que necesita realizar. Nosotros nos encargamos de la ejecución.",
+      "title": "Contáctenos",
+      "subtitle": "Hablemos de sus necesidades laborales.",
       "name": "Nombre",
       "email": "Correo Electrónico",
       "phone": "Teléfono",
       "company": "Empresa",
-      "projectType": "Tipo de Proyecto",
-      "scope": "Alcance / Detalles del Proyecto",
-      "timeline": "Cronograma / Fecha Límite",
+      "projectType": "Interés del Servicio",
+      "scope": "Detalles / Requisitos",
+      "timeline": "Cronograma",
       "projectTypeOptions": {
-        "construction": "Construcción / Renovación",
-        "installation": "Instalación / Montaje",
-        "maintenance": "Mantenimiento / Reparación",
-        "logistics": "Logística / Mudanza",
+        "recruiting": "Reclutamiento de Empleo",
+        "socialHiring": "Contratación por Redes Sociales",
+        "salesTeams": "Personal de Ventas",
+        "skilledLabor": "Personal de Oficios Calificados",
         "other": "Otro"
       }
     }
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
-    "privacy": "Política de Privacidad"
+    "privacy": "Política de Privacidad",
+    "quickLinks": "Enlaces Rápidos",
+    "socials": "Redes Sociales"
   }
 }

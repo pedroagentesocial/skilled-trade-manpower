@@ -2,10 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import HeroSplit from '../../components/HeroSplit.astro';
 import ServicesGrid from '../../components/ServicesGrid.astro';
+import IndustryCards from '../../components/IndustryCards.astro';
 import ProofBar from '../../components/ProofBar.astro';
 import TestimonialGrid from '../../components/TestimonialGrid.astro';
-import CTASection from '../../components/CTASection.astro';
-import { useTranslations } from '../../utils/i18n';
+import ProcessPreview from '../../components/ProcessPreview.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { useTranslations, getTranslatedPath } from '../../utils/i18n';
 import { icons } from '../../utils/icons';
 
 const t = useTranslations('es');
@@ -15,62 +17,66 @@ const t = useTranslations('es');
   <HeroSplit
     slides={[
       {
-        title: "Una Llamada. Proyecto Listo.",
-        subtitle: "Definimos el alcance, desplegamos el equipo y gestionamos la ejecución. Vea lo simple que es.",
-        primaryCta: { text: "Llámenos Ahora", href: "tel:5551234567" },
-         secondaryCta: { text: "Cómo Funciona", href: "/es/como-funciona" },
-         videoSrc: "/videos/Hero1-1.mp4"
-       },
-       {
-         title: "Instalación y Mantenimiento Especializado",
-         subtitle: "Desde HVAC hasta montaje industrial, nuestros equipos gestionados ejecutan con precisión.",
-         primaryCta: { text: "Ver Servicios", href: "/es/servicios" },
-         secondaryCta: { text: "Cotizar", href: "/es/contacto" },
-         videoSrc: "/videos/Hero2.mp4"
-       },
-       {
-         title: "Somos su Socio de Ejecución",
-         subtitle: "Escale su fuerza laboral sin los dolores de cabeza de RR.HH. Asumimos la responsabilidad total.",
-         primaryCta: { text: "Explorar Servicios", href: "/es/servicios" },
-         secondaryCta: { text: "Nosotros", href: "/es/nosotros" },
-         videoSrc: "/videos/Hero3.mp4"
-       }
+        title: "Reclutamiento, Contratación en Redes Sociales, Equipos de Ventas y Personal Calificado",
+        subtitle: "Somos un socio de crecimiento laboral. Combinamos reclutamiento, marketing digital y entrega de fuerza laboral para proporcionar mejor personal, más rápido.",
+        primaryCta: { text: "Solicitar Personal", href: "/es/contacto" },
+        secondaryCta: { text: "Encontrar Trabajo", href: "/es/contacto" },
+        videoSrc: "/videos/Hero1-1.mp4"
+      },
+      {
+        title: "Instalación y Mantenimiento Especializado",
+        subtitle: "Desde HVAC hasta montaje industrial, nuestros equipos gestionados ejecutan con precisión.",
+        primaryCta: { text: "Ver Servicios", href: "/es/servicios" },
+        secondaryCta: { text: "Solicitar Cotización", href: "/es/contacto" },
+        videoSrc: "/videos/Hero2.mp4"
+      },
+      {
+        title: "Somos Su Socio de Ejecución",
+        subtitle: "Escale su fuerza laboral sin los dolores de cabeza de RR.HH. Asumimos la responsabilidad total.",
+        primaryCta: { text: "Explorar Servicios", href: "/es/servicios" },
+        secondaryCta: { text: "Nosotros", href: "/es/nosotros" },
+        videoSrc: "/videos/Hero3.mp4"
+      }
     ]}
   />
   
   <ProofBar />
 
-  <section class="py-16 bg-gray-50">
+  <section class="py-16 bg-white">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8">¿Por Qué Elegirnos?</h2>
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">¿Por qué elegirnos?</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="flex justify-center mb-4" set:html={icons.bolt}></div>
+        <div class="bg-blue-50 p-6 rounded-lg shadow-sm border border-blue-100">
+          <div class="flex justify-center mb-4 text-blue-600" set:html={icons.bolt}></div>
           <h3 class="text-xl font-bold mb-2">Despliegue Rápido</h3>
           <p class="text-gray-600">Podemos movilizar equipos en 24-48 horas para proyectos urgentes.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="flex justify-center mb-4" set:html={icons['shield-check']}></div>
+        <div class="bg-blue-50 p-6 rounded-lg shadow-sm border border-blue-100">
+          <div class="flex justify-center mb-4 text-blue-600" set:html={icons['shield-check']}></div>
           <h3 class="text-xl font-bold mb-2">Cero Responsabilidad</h3>
           <p class="text-gray-600">Manejamos todos los seguros, compensación laboral e impuestos de nómina.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="flex justify-center mb-4" set:html={icons['check-badge']}></div>
+        <div class="bg-blue-50 p-6 rounded-lg shadow-sm border border-blue-100">
+          <div class="flex justify-center mb-4 text-blue-600" set:html={icons['check-badge']}></div>
           <h3 class="text-xl font-bold mb-2">Calidad Garantizada</h3>
-          <p class="text-gray-600">Nuestros supervisores en el sitio aseguran que el trabajo cumpla con sus estándares.</p>
+          <p class="text-gray-600">Nuestros supervisores en sitio aseguran que el trabajo cumpla con sus estándares.</p>
         </div>
       </div>
     </div>
   </section>
   
   <ServicesGrid />
+
+  <IndustryCards />
+
+  <ProcessPreview />
   
   <TestimonialGrid />
   
-  <CTASection 
-    title="¿Listo para delegar su proyecto?"
-    subtitle="Permítanos encargarnos de la ejecución para que pueda concentrarse en su negocio."
-    primaryText="Iniciar Proyecto"
+  <ContactCTA 
+    title="¿Listo para Delegar su Proyecto?"
+    subtitle="Déjenos manejar la ejecución para que pueda concentrarse en su negocio."
+    primaryText="Solicitar Personal"
     primaryHref="/es/contacto"
   />
 </Layout>

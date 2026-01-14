@@ -1,95 +1,249 @@
 {
   "site": {
     "title": "Skilled Trade Manpower",
-    "description": "Your Done-For-You services partner. We provide the labor, manage the workforce, and deliver completed projects in construction, installation, and maintenance."
+    "description": "Workforce growth partner combining Employment Recruiting, Social Media Marketing for Hiring, Sales Team Staffing, and Skilled Labor Staffing."
   },
   "nav": {
     "home": "Home",
     "services": "Services",
-    "howItWorks": "How It Works",
+    "employers": "For Employers",
+    "ourProcess": "Our Process",
     "about": "About Us",
     "contact": "Contact",
-    "call": "Call Us"
+    "call": "Call Us",
+    "servicesDropdown": {
+        "recruiting": "Employment Recruiting",
+        "socialHiring": "Social Media Hiring",
+        "salesTeams": "Sales Team Staffing",
+        "skilledLabor": "Skilled Labor Staffing"
+    }
   },
   "buttons": {
     "contactUs": "Contact Us",
     "getQuote": "Get a Quote",
     "startProject": "Start Your Project",
+    "requestTalent": "Request Talent",
+    "findWork": "Find Work",
     "learnMore": "Learn More",
-    "submit": "Submit Request"
+    "submit": "Submit Request",
+    "viewIndustries": "View Industries"
   },
   "home": {
     "hero": {
-      "title": "You Don't Manage People. We Deliver Results.",
-      "subtitle": "We are not a staffing agency. We are a Done-For-You services company. We hire, manage, and supervise the workforce to execute your projects from start to finish.",
-      "ctaPrimary": "Start Your Project",
-      "ctaSecondary": "How It Works"
+      "title": "Recruiting, Social Media Hiring, Sales Teams, and Skilled Trade Staffing",
+      "subtitle": "We are a workforce growth partner. We combine recruiting, digital marketing, and workforce delivery to provide better people, faster.",
+      "ctaPrimary": "Request Talent",
+      "ctaSecondary": "Find Work"
+    },
+    "servicesOverview": {
+      "title": "Comprehensive Workforce Solutions",
+      "subtitle": "Four pillars to solve your staffing challenges."
+    },
+    "processPreview": {
+      "title": "How We Work",
+      "subtitle": "A streamlined process to get you the talent you need."
+    },
+    "industries": {
+      "title": "Industries We Serve",
+      "subtitle": "Specialized staffing for critical sectors."
     }
   },
   "services": {
     "title": "Our Execution Services",
-    "projectExecution": {
-      "title": "Project Execution",
-      "desc": "We take full responsibility for labor-intensive projects, ensuring they are completed on time and to spec."
+    "recruiting": {
+      "title": "Employment Recruiting",
+      "desc": "Full-cycle recruiting to find the best permanent talent for your organization.",
+      "problem": "Finding qualified candidates takes time and resources you don't have.",
+      "solution": "We handle sourcing, screening, and interviewing to present you with top-tier candidates.",
+      "features": ["Candidate Sourcing", " rigorous Screening", "Interview Coordination", "Placement Support"]
     },
-    "fieldOps": {
-      "title": "Field Operations",
-      "desc": "Deploying managed teams to handle on-site operations, logistics, and manual tasks."
+    "socialHiring": {
+      "title": "Social Media Marketing for Hiring",
+      "desc": "Targeted digital campaigns to attract active and passive candidates.",
+      "problem": "Traditional job boards are often not enough to reach the best talent.",
+      "solution": "We use social platforms and digital outreach to build a pipeline of qualified candidates.",
+      "features": ["Targeted Ad Campaigns", "Employer Branding", "Passive Candidate Outreach", "High-Volume Lead Gen"]
     },
-    "installation": {
-      "title": "Installation & Setup",
-      "desc": "Complete installation services for equipment, fixtures, and systems. We handle the entire process."
+    "salesTeams": {
+      "title": "Sales Team Staffing",
+      "desc": "Recruiting and staffing high-performing sales professionals to drive revenue.",
+      "problem": "Scaling a sales team requires finding individuals with the right drive and skills.",
+      "solution": "We vet and place SDRs, BDRs, Account Executives, and Inside Sales reps.",
+      "features": ["SDRs & BDRs", "Account Executives", "Inside Sales", "Sales Leadership"]
     },
-    "maintenance": {
-      "title": "Maintenance & Support",
-      "desc": "Ongoing maintenance crews to keep your facilities and assets in top condition."
+    "skilledLabor": {
+      "title": "Skilled Labor Staffing",
+      "desc": "On-demand skilled workforce for Healthcare, Construction, Technology, and General Labor.",
+      "problem": "Project deadlines require reliable, skilled hands on deck immediately.",
+      "solution": "We deploy vetted, ready-to-work teams to your site.",
+      "verticals": {
+        "healthcare": "Healthcare",
+        "construction": "Construction",
+        "technology": "Technology",
+        "generalLabor": "General Labor"
+      },
+      "features": ["Vetted Tradesmen", "Rapid Deployment", "Safety Compliance", "On-Site Management"]
     },
-    "workforce": {
-      "title": "On-Demand Workforce Execution",
-      "desc": "Need a job done? We provide the managed labor force to execute it immediately."
+    "projectManagement": {
+      "title": "Project Management & Supervision",
+      "desc": "We provide on-site supervisors to manage the workflow, attendance, and performance of the deployed workforce.",
+      "problem": "Managing a temporary workforce takes focus away from your core operations.",
+      "solution": "Our experienced supervisors handle daily logistics and performance management.",
+      "features": ["On-Site Supervision", "Attendance Tracking", "Performance Reviews", "Conflict Resolution"]
     },
-    "specialProjects": {
-      "title": "Special Projects",
-      "desc": "Custom labor solutions for one-off, complex, or large-scale operational challenges."
+    "safetyCompliance": {
+      "title": "Safety & Compliance Training",
+      "desc": "Ensuring every worker is job-ready and compliant with industry standards.",
+      "problem": "Unqualified or unsafe workers create liability and project delays.",
+      "solution": "We handle certifications, safety briefings, and compliance checks before deployment.",
+      "features": ["OSHA Training", "Safety Briefings", "Certification Verification", "Risk Mitigation"]
     }
   },
-  "howItWorks": {
-    "title": "How We Work",
+  "industries": {
+    "common": {
+        "valuePropTitle": "Accelerated Staffing through Digital Recruiting",
+        "valuePropDesc": "We don't just wait for applications. We actively recruit and use social media marketing to build a massive pipeline of qualified candidates for this specific industry. This ensures you get people who are ready to work now.",
+        "screeningTitle": "Reliability You Can Trust",
+        "screeningDesc": "Every candidate undergoes a screening process tailored to the industry. While we cannot legally guarantee every individual's future actions, our rigorous vetting significantly reduces turnover and risk."
+    },
+    "healthcare": {
+      "title": "Healthcare Staffing",
+      "desc": "Reliable medical and support staff for hospitals, clinics, and care facilities.",
+      "roles": ["Medical Assistants", "Nursing Support", "Admin Staff", "Facility Maintenance"]
+    },
+    "construction": {
+      "title": "Construction Staffing",
+      "desc": "Skilled tradespeople for commercial and residential projects.",
+      "roles": ["Electricians", "Plumbers", "Carpenters", "General Laborers"]
+    },
+    "technology": {
+      "title": "Technology Staffing",
+      "desc": "Tech talent for IT support, installation, and infrastructure.",
+      "roles": ["IT Support Techs", "Cable Installers", "System Admins", "Help Desk"]
+    },
+    "generalLabor": {
+      "title": "General Labor",
+      "desc": "Hardworking teams for warehousing, logistics, and site support.",
+      "roles": ["Warehouse Associates", "Movers", "Cleanup Crews", "Event Staff"]
+    }
+  },
+  "employers": {
+    "title": "Partner with Skilled Trade Manpower",
+    "subtitle": "Your engine for recruiting, hiring marketing, and workforce delivery.",
+    "whyUs": "We don't just post jobs. We market them. We don't just send resumes. We vet candidates. We provide a complete workforce solution.",
+    "benefits": {
+      "title": "The Employer Advantage",
+      "items": [
+        {
+          "title": "Reduced Hiring Time",
+          "desc": "We fill positions 3x faster than traditional internal recruiting methods."
+        },
+        {
+          "title": "Lower Turnover",
+          "desc": "Our rigorous vetting process ensures better fit and longer retention."
+        },
+        {
+          "title": "Cost Efficiency",
+          "desc": "Save on advertising, screening, and onboarding costs. Pay only for performance."
+        },
+        {
+          "title": "Scalability",
+          "desc": "Scale your workforce up or down instantly based on project demands."
+        }
+      ]
+    },
+    "features": {
+        "recruiting": "Expert Recruiting",
+        "digital": "Digital Hiring Engine",
+        "workforce": "Ready-to-Work Teams"
+    }
+  },
+  "ourProcess": {
+    "title": "Our Process",
+    "subtitle": "Simple, transparent, and effective.",
     "step1": {
-      "title": "Define the Scope",
-      "desc": "Tell us what needs to be done, the timeline, and the expected outcome."
+      "title": "Consultation",
+      "desc": "We understand your specific needs and culture."
     },
     "step2": {
-      "title": "We Deploy & Manage",
-      "desc": "We assign a dedicated team and supervisor. We handle all scheduling, management, and QC."
+      "title": "Sourcing & Strategy",
+      "desc": "We launch recruiting or marketing campaigns."
     },
     "step3": {
-      "title": "Job Completed",
-      "desc": "You receive the finished work. No HR headaches, no payroll issues, no supervision required."
+      "title": "Screening & Vetting",
+      "desc": "Rigorous checks to ensure quality (where applicable)."
+    },
+    "step4": {
+      "title": "Deployment / Hired",
+      "desc": "The right people start working for you."
+    },
+    "tabs": {
+        "employers": "For Employers",
+        "jobSeekers": "For Job Seekers",
+        "employerSteps": [
+            { "title": "Consultation", "desc": "We define your workforce needs." },
+            { "title": "Sourcing", "desc": "We launch targeted campaigns." },
+            { "title": "Selection", "desc": "We vet and present candidates." },
+            { "title": "Onboarding", "desc": "We handle paperwork and payroll." }
+        ],
+        "seekerSteps": [
+            { "title": "Application", "desc": "Submit your profile or resume." },
+            { "title": "Screening", "desc": "Interview with our recruiters." },
+            { "title": "Placement", "desc": "Get matched with top employers." },
+            { "title": "Start Work", "desc": "Begin your new assignment." }
+        ]
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+            { "q": "How fast can you provide staff?", "a": "For general labor, often within 24-48 hours. Specialized roles may take 3-5 days." },
+            { "q": "Do you handle insurance?", "a": "Yes, we cover workers' compensation and liability insurance for all our staff." },
+            { "q": "Is there a guarantee?", "a": "We offer a satisfaction guarantee. If a worker isn't a fit in the first few hours, we replace them." }
+        ]
+    },
+    "qualityStandard": {
+      "title": "The Quality Standard",
+      "subtitle": "We don't cut corners. Our rigorous process ensures you get reliable, compliant, and skilled professionals.",
+      "cards": [
+        {
+          "title": "Vetting & Compliance",
+          "desc": "Every candidate undergoes background checks, drug screening (where applicable), and certification verification."
+        },
+        {
+          "title": "On-Site Supervision",
+          "desc": "For large deployments, we provide on-site managers to handle attendance, performance, and safety."
+        },
+        {
+          "title": "Satisfaction Guarantee",
+          "desc": "If a worker doesn't meet your standards within the first 4 hours, we replace them at no cost to you."
+        }
+      ]
     }
   },
   "forms": {
     "contact": {
-      "title": "Discuss Your Project",
-      "subtitle": "Tell us about the work you need done. We'll handle the execution.",
+      "title": "Contact Us",
+      "subtitle": "Let's discuss your workforce needs.",
       "name": "Name",
       "email": "Email",
       "phone": "Phone",
       "company": "Company",
-      "projectType": "Project Type",
-      "scope": "Project Scope / Details",
-      "timeline": "Timeline / Deadline",
+      "projectType": "Service Interest",
+      "scope": "Details / Requirements",
+      "timeline": "Timeline",
       "projectTypeOptions": {
-        "construction": "Construction / Renovation",
-        "installation": "Installation / Assembly",
-        "maintenance": "Maintenance / Repair",
-        "logistics": "Logistics / Moving",
+        "recruiting": "Employment Recruiting",
+        "socialHiring": "Social Media Hiring",
+        "salesTeams": "Sales Team Staffing",
+        "skilledLabor": "Skilled Labor Staffing",
         "other": "Other"
       }
     }
   },
   "footer": {
     "rights": "All rights reserved.",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "quickLinks": "Quick Links",
+    "socials": "Socials"
   }
 }

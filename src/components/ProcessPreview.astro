@@ -1,0 +1,44 @@
+---
+import { getLangFromUrl, useTranslations, getTranslatedPath } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="bg-blue-900 rounded-3xl p-8 md:p-16 relative overflow-hidden shadow-2xl">
+      <!-- Background Elements -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-blue-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+      
+      <div class="relative z-10 text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">{t('home.processPreview.title')}</h2>
+        <p class="text-blue-100 max-w-2xl mx-auto text-lg">{t('home.processPreview.subtitle')}</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+        <!-- Connecting Line (Desktop) -->
+        <div class="hidden md:block absolute top-12 left-1/2 -translate-x-1/2 w-[80%] h-0.5 bg-blue-700/50 -z-10"></div>
+
+        {[1, 2, 3, 4].map((step) => (
+          <div class="flex flex-col items-center text-center group">
+            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center text-2xl font-bold text-blue-900 mb-6 shadow-lg border-4 border-blue-800 group-hover:scale-110 transition-transform duration-300 relative z-10">
+              {step}
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">{t(`ourProcess.step${step}.title` as any)}</h3>
+            <p class="text-blue-200 text-sm leading-relaxed max-w-[200px]">
+              {t(`ourProcess.step${step}.desc` as any)}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-16 relative z-10">
+        <a href={getTranslatedPath('ourProcess', lang)} class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-900 font-bold rounded-lg hover:bg-blue-50 transition-all transform hover:-translate-y-1 shadow-lg">
+          {lang === 'en' ? 'View Full Process' : 'Ver Proceso Completo'}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

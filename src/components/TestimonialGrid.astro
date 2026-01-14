@@ -19,25 +19,65 @@ const testimonials = [
     author: "Sarah J.",
     role: "HR Director, Tech Solutions Inc.",
     image: "https://randomuser.me/api/portraits/women/68.jpg"
+  },
+  {
+    quote: "The best staffing agency I've worked with. They truly care about safety and compliance.",
+    author: "Michael R.",
+    role: "Logistics Coordinator",
+    image: "https://randomuser.me/api/portraits/men/45.jpg"
+  },
+  {
+    quote: "Found me a long-term position with great benefits. Highly recommended!",
+    author: "Emily W.",
+    role: "Site Supervisor",
+    image: "https://randomuser.me/api/portraits/women/22.jpg"
+  },
+  {
+    quote: "Their turnaround time is incredible. We filled 10 positions in 48 hours.",
+    author: "David K.",
+    role: "General Contractor",
+    image: "https://randomuser.me/api/portraits/men/11.jpg"
+  },
+  {
+    quote: "Seamless onboarding process and excellent communication throughout.",
+    author: "Jessica L.",
+    role: "HR Manager",
+    image: "https://randomuser.me/api/portraits/women/90.jpg"
+  },
+  {
+    quote: "Reliable pay and consistent work. I've been with them for 2 years now.",
+    author: "Robert P.",
+    role: "Industrial Electrician",
+    image: "https://randomuser.me/api/portraits/men/76.jpg"
   }
 ];
+
+// Duplicate testimonials to create a seamless infinite loop
+const allTestimonials = [...testimonials, ...testimonials];
 ---
 
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-12">
+<section class="py-16 bg-gray-50 overflow-hidden">
+  <div class="container mx-auto px-4 mb-12">
+    <div class="text-center">
       <h2 class="text-3xl font-bold text-gray-900 mb-4">What People Say</h2>
       <div class="flex items-center justify-center gap-2 text-gray-600">
         <span class="w-5 h-5" set:html={icons.google}></span>
         <span class="font-medium">Rated 4.9/5 on Google Reviews</span>
       </div>
     </div>
+  </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {testimonials.map(t => (
-        <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100 flex flex-col h-full">
+  <!-- Carousel Track -->
+  <div class="relative w-full">
+    <!-- Gradients for fade effect at edges -->
+    <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none"></div>
+
+    <div class="flex animate-scroll hover:pause gap-6 w-max px-4">
+      {allTestimonials.map(t => (
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col w-[300px] md:w-[400px] flex-shrink-0 transition-transform hover:scale-[1.02] duration-300">
           <div class="flex items-center gap-4 mb-4">
-            <img src={t.image} alt={t.author} class="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm" />
+            <img src={t.image} alt={t.author} class="w-12 h-12 rounded-full object-cover border-2 border-blue-50 shadow-sm" />
             <div>
               <div class="font-bold text-gray-900">{t.author}</div>
               <div class="text-sm text-gray-500">{t.role}</div>
@@ -45,13 +85,13 @@ const testimonials = [
           </div>
           <div class="flex mb-4">
             {[1, 2, 3, 4, 5].map(() => (
-              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
             ))}
           </div>
-          <p class="text-gray-600 italic flex-grow">"{t.quote}"</p>
-          <div class="mt-4 flex items-center gap-1 text-xs text-gray-400">
+          <p class="text-gray-600 italic text-sm md:text-base flex-grow leading-relaxed">"{t.quote}"</p>
+          <div class="mt-4 flex items-center gap-1 text-xs text-gray-400 border-t border-gray-50 pt-3">
             <span class="w-4 h-4 grayscale opacity-60" set:html={icons.google}></span>
             <span>Posted on Google</span>
           </div>
@@ -60,3 +100,22 @@ const testimonials = [
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  .hover\:pause:hover {
+    animation-play-state: paused;
+  }
+</style>

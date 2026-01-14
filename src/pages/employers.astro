@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import { useTranslations, getLangFromUrl, getTranslatedPath } from '../utils/i18n';
+import { icons } from '../utils/icons';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const features = [
+  {
+    key: 'recruiting',
+    icon: icons['magnifying-glass'],
+    color: 'bg-blue-50 text-blue-600'
+  },
+  {
+    key: 'digital',
+    icon: icons['computer-desktop'],
+    color: 'bg-purple-50 text-purple-600'
+  },
+  {
+    key: 'workforce',
+    icon: icons['tools'],
+    color: 'bg-orange-50 text-orange-600'
+  }
+];
+---
+
+<Layout title={t('nav.employers')}>
+  <div class="bg-blue-900 py-24 text-white text-center relative overflow-hidden">
+     <!-- Background Elements -->
+     <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 0 L100 100 L0 100 Z" fill="white" />
+        </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">{t('employers.title')}</h1>
+      <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+        {t('employers.subtitle')}
+      </p>
+      <div class="mt-8">
+        <a href={getTranslatedPath('contact', lang)} class="inline-block px-8 py-3 bg-white text-blue-900 font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
+          {t('buttons.requestTalent')}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Why Choose Us?</h2>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          {t('employers.whyUs')}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        {features.map(feature => (
+          <div class="p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div class={`w-16 h-16 rounded-full flex items-center justify-center mb-6 ${feature.color}`}>
+              <span class="w-8 h-8 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full" set:html={feature.icon}></span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{t(`employers.features.${feature.key}`)}</h3>
+            <p class="text-gray-600">
+              {feature.key === 'recruiting' && t('services.recruiting.desc')}
+              {feature.key === 'digital' && t('services.socialHiring.desc')}
+              {feature.key === 'workforce' && t('services.skilledLabor.desc')}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- New Benefits Section -->
+      <div class="bg-blue-50 rounded-3xl p-8 md:p-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">{t('employers.benefits.title')}</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[0, 1, 2, 3].map(i => (
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="text-blue-600 mb-4">
+                        {i === 0 && <span class="w-10 h-10 block" set:html={icons.clock}></span>}
+                        {i === 1 && <span class="w-10 h-10 block" set:html={icons['user-group']}></span>}
+                        {i === 2 && <span class="w-10 h-10 block" set:html={icons['currency-dollar']}></span>}
+                        {i === 3 && <span class="w-10 h-10 block" set:html={icons['chart-bar']}></span>}
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-lg">{t(`employers.benefits.items.${i}.title`)}</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">{t(`employers.benefits.items.${i}.desc`)}</p>
+                </div>
+            ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ContactCTA 
+    title="Ready to build your team?"
+    subtitle={t('forms.contact.subtitle')}
+    primaryText={t('buttons.requestTalent')}
+    primaryHref={getTranslatedPath('contact', lang)}
+  />
+</Layout>

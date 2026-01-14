@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TestimonialGrid from '../components/TestimonialGrid.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import { useTranslations, getLangFromUrl, getTranslatedPath } from '../utils/i18n';
+import { icons } from '../utils/icons';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const employerSteps = [0, 1, 2, 3];
+const seekerSteps = [0, 1, 2, 3];
+const faqItems = [0, 1, 2];
+---
+
+<Layout title={t('ourProcess.title')}>
+  <!-- Hero Section -->
+  <div class="bg-blue-900 py-24 text-white text-center relative overflow-hidden">
+     <!-- Background Elements -->
+     <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 0 L100 100 L0 100 Z" fill="white" />
+        </svg>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">{t('ourProcess.title')}</h1>
+      <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+        {t('ourProcess.subtitle')}
+      </p>
+    </div>
+  </div>
+
+  <!-- Tabs Section -->
+  <div class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      
+      <!-- Tab Controls -->
+      <div class="flex justify-center mb-12">
+        <div class="inline-flex bg-gray-100 rounded-lg p-1">
+          <button id="tab-employers" class="px-8 py-3 rounded-md text-sm font-bold transition-all bg-white text-blue-600 shadow-sm">
+            {t('ourProcess.tabs.employers')}
+          </button>
+          <button id="tab-seekers" class="px-8 py-3 rounded-md text-sm font-bold text-gray-500 hover:text-gray-700 transition-all">
+            {t('ourProcess.tabs.jobSeekers')}
+          </button>
+        </div>
+      </div>
+
+      <!-- Employers Content -->
+      <div id="content-employers" class="max-w-4xl mx-auto fade-in-section is-visible">
+        <div class="space-y-12">
+          {employerSteps.map((i) => (
+            <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+              <div class="flex-shrink-0 w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-2xl">
+                {i + 1}
+              </div>
+              <div class="text-center md:text-left">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">{t(`ourProcess.tabs.employerSteps.${i}.title`)}</h3>
+                <p class="text-xl text-gray-600 leading-relaxed">{t(`ourProcess.tabs.employerSteps.${i}.desc`)}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="mt-16 text-center">
+            <a href={getTranslatedPath('contact', lang)} class="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                {t('buttons.requestTalent')}
+            </a>
+        </div>
+      </div>
+
+      <!-- Job Seekers Content (Hidden by default) -->
+      <div id="content-seekers" class="hidden max-w-4xl mx-auto fade-in-section">
+        <div class="space-y-12">
+          {seekerSteps.map((i) => (
+            <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+              <div class="flex-shrink-0 w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold text-2xl">
+                {i + 1}
+              </div>
+              <div class="text-center md:text-left">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">{t(`ourProcess.tabs.seekerSteps.${i}.title`)}</h3>
+                <p class="text-xl text-gray-600 leading-relaxed">{t(`ourProcess.tabs.seekerSteps.${i}.desc`)}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="mt-16 text-center">
+            <a href={getTranslatedPath('contact', lang)} class="inline-block px-8 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                {t('buttons.findWork')}
+            </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Quality Standard Section -->
+  <div class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="bg-blue-900 rounded-3xl p-8 md:p-16 relative overflow-hidden shadow-2xl">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+
+        <div class="relative z-10 text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-4">{t('ourProcess.qualityStandard.title')}</h2>
+          <p class="text-blue-100 max-w-2xl mx-auto text-lg">{t('ourProcess.qualityStandard.subtitle')}</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+          {[0, 1, 2].map((i) => (
+            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 group">
+              <div class="mb-6 text-white group-hover:scale-110 transition-transform duration-300">
+                {i === 0 && <span class="w-12 h-12 block" set:html={icons['shield-check']}></span>}
+                {i === 1 && <span class="w-12 h-12 block" set:html={icons['user-group']}></span>}
+                {i === 2 && <span class="w-12 h-12 block" set:html={icons['check-badge']}></span>}
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">{t(`ourProcess.qualityStandard.cards.${i}.title`)}</h3>
+              <p class="text-blue-100 leading-relaxed group-hover:text-white transition-colors">
+                {t(`ourProcess.qualityStandard.cards.${i}.desc`)}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="py-16 bg-gray-50 border-t border-gray-200">
+      <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">{t('ourProcess.faq.title')}</h2>
+          <div class="max-w-3xl mx-auto space-y-6">
+              {faqItems.map(i => (
+                  <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                      <h3 class="text-lg font-bold text-blue-900 mb-2">{t(`ourProcess.faq.items.${i}.q`)}</h3>
+                      <p class="text-gray-600">{t(`ourProcess.faq.items.${i}.a`)}</p>
+                  </div>
+              ))}
+          </div>
+      </div>
+  </div>
+
+  <TestimonialGrid />
+
+  <!-- CTA Section -->
+  <ContactCTA 
+    title={t('home.hero.ctaPrimary')}
+    subtitle={t('forms.contact.subtitle')}
+    primaryText={t('buttons.getQuote')}
+    primaryHref={getTranslatedPath('contact', lang)}
+  />
+</Layout>
+
+<script>
+  const tabEmployers = document.getElementById('tab-employers');
+  const tabSeekers = document.getElementById('tab-seekers');
+  const contentEmployers = document.getElementById('content-employers');
+  const contentSeekers = document.getElementById('content-seekers');
+
+  if (tabEmployers && tabSeekers && contentEmployers && contentSeekers) {
+    tabEmployers.addEventListener('click', () => {
+      // Styles
+      tabEmployers.classList.add('bg-white', 'text-blue-600', 'shadow-sm');
+      tabEmployers.classList.remove('text-gray-500');
+      tabSeekers.classList.remove('bg-white', 'text-blue-600', 'shadow-sm');
+      tabSeekers.classList.add('text-gray-500');
+      
+      // Content
+      contentEmployers.classList.remove('hidden');
+      contentSeekers.classList.add('hidden');
+      
+      // Trigger fade in
+      setTimeout(() => {
+          contentEmployers.classList.add('is-visible');
+          contentSeekers.classList.remove('is-visible');
+      }, 10);
+    });
+
+    tabSeekers.addEventListener('click', () => {
+      // Styles
+      tabSeekers.classList.add('bg-white', 'text-blue-600', 'shadow-sm');
+      tabSeekers.classList.remove('text-gray-500');
+      tabEmployers.classList.remove('bg-white', 'text-blue-600', 'shadow-sm');
+      tabEmployers.classList.add('text-gray-500');
+      
+      // Content
+      contentSeekers.classList.remove('hidden');
+      contentEmployers.classList.add('hidden');
+      
+       // Trigger fade in
+       setTimeout(() => {
+          contentSeekers.classList.add('is-visible');
+          contentEmployers.classList.remove('is-visible');
+      }, 10);
+    });
+  }
+</script>

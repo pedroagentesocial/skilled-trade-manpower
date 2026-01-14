@@ -1,52 +1,140 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import CTASection from '../../components/CTASection.astro';
-import { useTranslations } from '../../utils/i18n';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { useTranslations, getLangFromUrl, getTranslatedPath } from '../../utils/i18n';
 import { icons } from '../../utils/icons';
 
-const t = useTranslations('es');
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
-const servicesList = [
-  { key: 'projectExecution', icon: 'clipboard-document-check' },
-  { key: 'fieldOps', icon: 'truck' },
-  { key: 'installation', icon: 'tools' },
-  { key: 'maintenance', icon: 'cog-6-tooth' },
-  { key: 'workforce', icon: 'chart-bar' },
-  { key: 'specialProjects', icon: 'sparkles' },
+const pillars = [
+  { 
+    key: 'recruiting', 
+    icon: icons['magnifying-glass'],
+    color: 'bg-blue-50 text-blue-600'
+  },
+  { 
+    key: 'socialHiring', 
+    icon: icons['computer-desktop'],
+    color: 'bg-purple-50 text-purple-600'
+  },
+  { 
+    key: 'salesTeams', 
+    icon: icons['chart-bar'],
+    color: 'bg-green-50 text-green-600'
+  },
+  { 
+    key: 'skilledLabor', 
+    icon: icons['tools'],
+    color: 'bg-orange-50 text-orange-600',
+    hasVerticals: true
+  },
+  { 
+    key: 'projectManagement', 
+    icon: icons['user-group'],
+    color: 'bg-blue-50 text-blue-600'
+  },
+  { 
+    key: 'safetyCompliance', 
+    icon: icons['shield-exclamation'],
+    color: 'bg-red-50 text-red-600'
+  }
+];
+
+const verticals = [
+    { key: 'healthcare', label: t('services.skilledLabor.verticals.healthcare') },
+    { key: 'construction', label: t('services.skilledLabor.verticals.construction') },
+    { key: 'technology', label: t('services.skilledLabor.verticals.technology') },
+    { key: 'generalLabor', label: t('services.skilledLabor.verticals.generalLabor') }
 ];
 ---
 
-<Layout title="Servicios">
-  <div class="bg-blue-900 py-16 text-white text-center">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl font-bold mb-4">{t('services.title')}</h1>
+<Layout title={t('nav.services')}>
+  <div class="bg-blue-900 py-24 text-white text-center relative overflow-hidden">
+     <!-- Background Elements -->
+     <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 0 L100 100 L0 100 Z" fill="white" />
+        </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">{t('services.title')}</h1>
       <p class="text-xl text-blue-100 max-w-2xl mx-auto">
-        Servicios de ejecución llave en mano. Gestionamos el proceso, las personas y el resultado.
+        {t('home.hero.subtitle')}
       </p>
     </div>
   </div>
 
-  <div class="container mx-auto px-4 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-      {servicesList.map(service => (
-        <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100 flex flex-col h-full">
-          <div class="mb-6" set:html={icons[service.icon as keyof typeof icons]}></div>
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">{t(`services.${service.key}.title`)}</h2>
-          <p class="text-gray-600 mb-6 flex-grow text-lg">{t(`services.${service.key}.desc`)}</p>
-          
-          <div class="mt-4 pt-6 border-t border-gray-100">
-            <h3 class="font-bold text-gray-900 mb-2">Cómo ayudamos</h3>
-            <p class="text-gray-600">Desplegamos un equipo gestionado para ejecutar esta función, quitándole la carga de supervisión y logística.</p>
+  <div class="flex flex-col">
+    {pillars.map((pillar, index) => (
+      <section id={pillar.key} class={`py-20 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col lg:flex-row gap-16 items-start max-w-7xl mx-auto">
+            
+            <!-- Icon/Visual -->
+            <div class="w-full lg:w-1/3 flex justify-center lg:justify-center lg:sticky lg:top-24">
+              <div class={`w-48 h-48 lg:w-80 lg:h-80 rounded-2xl flex items-center justify-center shadow-lg ${pillar.color}`}>
+                <span class="w-24 h-24 lg:w-48 lg:h-48 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full" set:html={pillar.icon}></span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="w-full lg:w-2/3">
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">{t(`services.${pillar.key}.title`)}</h2>
+              <p class="text-xl text-gray-600 mb-8 leading-relaxed font-medium">
+                {t(`services.${pillar.key}.desc`)}
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h3 class="font-bold text-red-600 mb-2 uppercase text-sm tracking-wide">El Problema</h3>
+                    <p class="text-gray-700">{t(`services.${pillar.key}.problem`)}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h3 class="font-bold text-green-600 mb-2 uppercase text-sm tracking-wide">Nuestra Solución</h3>
+                    <p class="text-gray-700">{t(`services.${pillar.key}.solution`)}</p>
+                </div>
+              </div>
+
+              <div class="mb-8">
+                <h3 class="font-bold text-gray-900 mb-4 text-lg">Características Clave</h3>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {[0, 1, 2, 3].map(i => (
+                    <li class="flex flex-col items-center justify-center text-center gap-4 text-gray-700 bg-white p-6 rounded-lg shadow-sm border border-gray-100 h-full hover:shadow-md transition-shadow">
+                        <span class="text-blue-500 flex-shrink-0 bg-blue-50 p-4 rounded-full">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </span>
+                        <span class="text-lg font-medium">{t(`services.${pillar.key}.features.${i}`)}</span>
+                    </li>
+                    ))}
+                </ul>
+              </div>
+
+              {pillar.hasVerticals && (
+                  <div class="mt-12 pt-8 border-t border-gray-200">
+                      <h3 class="font-bold text-gray-900 mb-6 text-xl">Industrias que Atendemos</h3>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          {verticals.map(v => (
+                              <a href={getTranslatedPath(`industries/${v.key === 'generalLabor' ? 'general-labor' : v.key}`, lang)} class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition-all group">
+                                  <span class="font-semibold text-gray-800 group-hover:text-blue-600">{v.label}</span>
+                                  <span class="text-gray-400 group-hover:text-blue-500">→</span>
+                              </a>
+                          ))}
+                      </div>
+                  </div>
+              )}
+            </div>
           </div>
         </div>
-      ))}
-    </div>
+      </section>
+    ))}
   </div>
 
-  <CTASection 
-    title="¿Necesita una solución personalizada?"
-    subtitle="Podemos adaptar nuestros servicios para satisfacer sus requisitos únicos."
-    primaryText="Contáctenos"
-    primaryHref="/es/contacto"
+  <ContactCTA 
+    title={t('home.hero.ctaPrimary')}
+    subtitle={t('forms.contact.subtitle')}
+    primaryText={t('buttons.getQuote')}
+    primaryHref={getTranslatedPath('contact', lang)}
   />
 </Layout>

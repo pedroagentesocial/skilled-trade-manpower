@@ -1,64 +1,109 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CTASection from '../components/CTASection.astro';
-import { useTranslations } from '../utils/i18n';
+import ContactCTA from '../components/ContactCTA.astro';
+import { useTranslations, getLangFromUrl, getTranslatedPath } from '../utils/i18n';
+import { icons } from '../utils/icons';
 
-const t = useTranslations('en');
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const values = [
+  {
+    title: "Accountability",
+    desc: "We own the outcome. If the work isn't done right, we fix it. You don't manage the workers; we do.",
+    icon: icons['clipboard-document-check']
+  },
+  {
+    title: "Efficiency",
+    desc: "Our managed teams hit the ground running. No training time wasted on your end.",
+    icon: icons['bolt']
+  },
+  {
+    title: "Safety",
+    desc: "We enforce strict safety protocols. Our supervisors ensure every job site is compliant and safe.",
+    icon: icons['shield-check']
+  },
+  {
+    title: "Quality",
+    desc: "We don't just send bodies; we deliver finished work that meets your standards.",
+    icon: icons['check-badge']
+  }
+];
 ---
 
 <Layout title="About Us">
-  <div class="bg-blue-900 py-16 text-white text-center">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl font-bold mb-4">About Skilled Trade Manpower</h1>
-      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+  <div class="bg-blue-900 py-24 text-white text-center relative overflow-hidden">
+     <!-- Background Elements -->
+     <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 0 L100 100 L0 100 Z" fill="white" />
+        </svg>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">About Skilled Trade Manpower</h1>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
         We are your execution partner. We take ownership of the work so you don't have to.
       </p>
     </div>
   </div>
 
-  <div class="container mx-auto px-4 py-16">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
-      <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-        At Skilled Trade Manpower, our mission is to deliver results. We noticed a gap in the market: business owners were tired of the "staffing agency" model where they pay for heads but still have to manage the hands. 
-        We flipped the model. We provide "Done-For-You" services where we hire, train, manage, and supervise the workforce. You simply define the project, and we execute it.
-      </p>
-
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Values</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Accountability</h3>
-          <p class="text-gray-600">We own the outcome. If the work isn't done right, we fix it. You don't manage the workers; we do.</p>
+  <div class="container mx-auto px-4 py-20">
+    <div class="max-w-5xl mx-auto">
+      
+      <!-- Mission Section -->
+      <div class="mb-20 flex flex-col md:flex-row gap-12 items-center">
+        <div class="md:w-1/2">
+             <div class="bg-blue-50 rounded-2xl p-8 relative">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-4">Our Mission</h2>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    At Skilled Trade Manpower, our mission is to deliver results. We noticed a gap in the market: business owners were tired of the "staffing agency" model where they pay for heads but still have to manage the hands. 
+                </p>
+             </div>
         </div>
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Efficiency</h3>
-          <p class="text-gray-600">Our managed teams hit the ground running. No training time wasted on your end.</p>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Safety</h3>
-          <p class="text-gray-600">We enforce strict safety protocols. Our supervisors ensure every job site is compliant and safe.</p>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Quality</h3>
-          <p class="text-gray-600">We don't just send bodies; we deliver finished work that meets your standards.</p>
+        <div class="md:w-1/2">
+            <p class="text-lg text-gray-600 leading-relaxed border-l-4 border-blue-600 pl-6 italic">
+                "We flipped the model. We provide 'Done-For-You' services where we hire, train, manage, and supervise the workforce. You simply define the project, and we execute it."
+            </p>
         </div>
       </div>
+
+      <!-- Values Grid -->
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Our Core Values</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        {values.map((val) => (
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 flex flex-col items-center text-center">
+                <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors flex-shrink-0">
+                    <div class="w-8 h-8 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full" set:html={val.icon}></div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">{val.title}</h3>
+                <p class="text-gray-600 leading-relaxed">{val.desc}</p>
+            </div>
+        ))}
+      </div>
       
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
-      <p class="text-lg text-gray-600 mb-4 leading-relaxed">
-        Founded in Salt Lake City, Skilled Trade Manpower evolved from a traditional labor provider into a full-service execution partner. 
-        We realized our clients needed more than just people—they needed projects completed.
-      </p>
-      <p class="text-lg text-gray-600 leading-relaxed">
-        Today, we serve businesses across construction, logistics, and facility management, providing the operational muscle they need to scale without the HR burden.
-      </p>
+      <!-- Story Section -->
+      <div class="bg-gray-50 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+            <span class="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3 block">Since Day One</span>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                Founded in Salt Lake City, Skilled Trade Manpower evolved from a traditional labor provider into a full-service execution partner. 
+                We realized our clients needed more than just people—they needed projects completed.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Today, we serve businesses across construction, logistics, and facility management, providing the operational muscle they need to scale without the HR burden.
+            </p>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <CTASection 
-    title="Work With a Partner, Not a Vendor"
-    subtitle="See the difference managed execution makes."
-    primaryText="Contact Us"
-    primaryHref="/contact"
+  <ContactCTA 
+    title={t('home.hero.ctaPrimary')}
+    subtitle={t('forms.contact.subtitle')}
+    primaryText={t('buttons.getQuote')}
+    primaryHref={getTranslatedPath('contact', lang)}
   />
 </Layout>

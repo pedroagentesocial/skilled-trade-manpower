@@ -2,10 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import HeroSplit from '../components/HeroSplit.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
+import IndustryCards from '../components/IndustryCards.astro';
 import ProofBar from '../components/ProofBar.astro';
 import TestimonialGrid from '../components/TestimonialGrid.astro';
-import CTASection from '../components/CTASection.astro';
-import { useTranslations } from '../utils/i18n';
+import ProcessPreview from '../components/ProcessPreview.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import { useTranslations, getTranslatedPath } from '../utils/i18n';
 import { icons } from '../utils/icons';
 
 const t = useTranslations('en');
@@ -15,47 +17,47 @@ const t = useTranslations('en');
   <HeroSplit
     slides={[
       {
-        title: "One Call. Project Done.",
-        subtitle: "We define the scope, deploy the team, and manage the execution. See how simple it is.",
-        primaryCta: { text: "Call Us Now", href: "tel:5551234567" },
-         secondaryCta: { text: "How It Works", href: "/how-it-works" },
-         videoSrc: "/videos/Hero1-1.mp4"
-       },
-       {
-         title: "Specialized Installation & Maintenance",
-         subtitle: "From HVAC to industrial assembly, our managed teams execute with precision.",
-         primaryCta: { text: "View Services", href: "/services" },
-         secondaryCta: { text: "Get Quote", href: "/contact" },
-         videoSrc: "/videos/Hero2.mp4"
-       },
-       {
-         title: "We Are Your Execution Partner",
-         subtitle: "Scale your workforce without the HR headaches. We take full responsibility.",
-         primaryCta: { text: "Explore Services", href: "/services" },
-         secondaryCta: { text: "About Us", href: "/about" },
-         videoSrc: "/videos/Hero3.mp4"
-       }
+        title: "Recruiting, Social Media Hiring, Sales Teams, and Skilled Trade Staffing",
+        subtitle: "We are a workforce growth partner. We combine recruiting, digital marketing, and workforce delivery to provide better people, faster.",
+        primaryCta: { text: "Request Talent", href: "/employers" },
+        secondaryCta: { text: "Find Work", href: "/contact" },
+        videoSrc: "/videos/Hero1-1.mp4"
+      },
+      {
+        title: "Specialized Installation & Maintenance",
+        subtitle: "From HVAC to industrial assembly, our managed teams execute with precision.",
+        primaryCta: { text: "View Services", href: "/services" },
+        secondaryCta: { text: "Get Quote", href: "/contact" },
+        videoSrc: "/videos/Hero2.mp4"
+      },
+      {
+        title: "We Are Your Execution Partner",
+        subtitle: "Scale your workforce without the HR headaches. We take full responsibility.",
+        primaryCta: { text: "Explore Services", href: "/services" },
+        secondaryCta: { text: "About Us", href: "/about" },
+        videoSrc: "/videos/Hero3.mp4"
+      }
     ]}
   />
   
   <ProofBar />
 
-  <section class="py-16 bg-gray-50">
+  <section class="py-16 bg-white">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl font-bold text-gray-900 mb-8">Why Choose Us?</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="flex justify-center mb-4" set:html={icons.bolt}></div>
+        <div class="bg-blue-50 p-6 rounded-lg shadow-sm border border-blue-100">
+          <div class="flex justify-center mb-4 text-blue-600" set:html={icons.bolt}></div>
           <h3 class="text-xl font-bold mb-2">Fast Deployment</h3>
           <p class="text-gray-600">We can mobilize teams within 24-48 hours for urgent projects.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="flex justify-center mb-4" set:html={icons['shield-check']}></div>
+        <div class="bg-blue-50 p-6 rounded-lg shadow-sm border border-blue-100">
+          <div class="flex justify-center mb-4 text-blue-600" set:html={icons['shield-check']}></div>
           <h3 class="text-xl font-bold mb-2">Zero Liability</h3>
           <p class="text-gray-600">We handle all insurance, workers' comp, and payroll taxes.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <div class="flex justify-center mb-4" set:html={icons['check-badge']}></div>
+        <div class="bg-blue-50 p-6 rounded-lg shadow-sm border border-blue-100">
+          <div class="flex justify-center mb-4 text-blue-600" set:html={icons['check-badge']}></div>
           <h3 class="text-xl font-bold mb-2">Quality Guaranteed</h3>
           <p class="text-gray-600">Our on-site supervisors ensure work meets your standards.</p>
         </div>
@@ -64,13 +66,17 @@ const t = useTranslations('en');
   </section>
   
   <ServicesGrid />
+
+  <IndustryCards />
+
+  <ProcessPreview />
   
   <TestimonialGrid />
   
-  <CTASection 
+  <ContactCTA 
     title="Ready to Delegate Your Project?"
     subtitle="Let us handle the execution so you can focus on your business."
-    primaryText="Start Your Project"
+    primaryText="Request Talent"
     primaryHref="/contact"
   />
 </Layout>

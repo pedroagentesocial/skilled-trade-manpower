@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations, getTranslatedPath } from '../utils/i18n';
+import { icons } from '../utils/icons';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -7,49 +8,75 @@ const t = useTranslations(lang);
 
 <footer class="bg-gray-900 text-white py-12">
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="col-span-1 sm:col-span-2 lg:col-span-1">
-        <h3 class="text-xl font-bold mb-4">Skilled Trade Manpower</h3>
-        <p class="text-gray-400 mb-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Brand -->
+      <div class="col-span-1 md:col-span-2 lg:col-span-1">
+        <a href={getTranslatedPath('home', lang)} class="block mb-4">
+          <img src={import.meta.env.BASE_URL === '/' ? '/images/logo.png' : `${import.meta.env.BASE_URL}/images/logo.png`} alt="Skilled Trade Manpower Logo" class="h-12 w-auto bg-white rounded-lg p-1" />
+        </a>
+        <p class="text-gray-400 mb-6 leading-relaxed">
           {t('home.hero.subtitle')}
         </p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+            <span class="w-6 h-6" set:html={icons.linkedin}></span>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+            <span class="w-6 h-6" set:html={icons.facebook}></span>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+            <span class="w-6 h-6" set:html={icons.instagram}></span>
+          </a>
+        </div>
       </div>
       
+      <!-- Quick Links -->
       <div>
-        <h4 class="text-lg font-semibold mb-4">{t('nav.services')}</h4>
-        <ul class="space-y-2">
-          <li><a href={getTranslatedPath('services', lang)} class="text-gray-400 hover:text-white transition-colors">{t('services.projectExecution.title')}</a></li>
-          <li><a href={getTranslatedPath('services', lang)} class="text-gray-400 hover:text-white transition-colors">{t('services.fieldOps.title')}</a></li>
-          <li><a href={getTranslatedPath('services', lang)} class="text-gray-400 hover:text-white transition-colors">{t('services.installation.title')}</a></li>
-          <li><a href={getTranslatedPath('services', lang)} class="text-gray-400 hover:text-white transition-colors">{t('services.maintenance.title')}</a></li>
+        <h4 class="text-lg font-semibold mb-6 border-b border-gray-700 pb-2 inline-block">{t('footer.quickLinks')}</h4>
+        <ul class="space-y-3">
+          <li><a href={getTranslatedPath('home', lang)} class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span class="text-blue-500">›</span> {t('nav.home')}</a></li>
+          <li><a href={getTranslatedPath('ourProcess', lang)} class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span class="text-blue-500">›</span> {t('nav.ourProcess')}</a></li>
+          <li><a href={getTranslatedPath('services', lang)} class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span class="text-blue-500">›</span> {t('nav.services')}</a></li>
+          <li><a href={getTranslatedPath('contact', lang)} class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span class="text-blue-500">›</span> {t('nav.contact')}</a></li>
         </ul>
       </div>
 
+      <!-- Services -->
       <div>
-        <h4 class="text-lg font-semibold mb-4">{t('nav.howItWorks')}</h4>
-        <ul class="space-y-2">
-          <li><a href={getTranslatedPath('howItWorks', lang)} class="text-gray-400 hover:text-white transition-colors">{t('howItWorks.step1.title')}</a></li>
-          <li><a href={getTranslatedPath('howItWorks', lang)} class="text-gray-400 hover:text-white transition-colors">{t('howItWorks.step2.title')}</a></li>
-          <li><a href={getTranslatedPath('howItWorks', lang)} class="text-gray-400 hover:text-white transition-colors">{t('howItWorks.step3.title')}</a></li>
+        <h4 class="text-lg font-semibold mb-6 border-b border-gray-700 pb-2 inline-block">{t('nav.services')}</h4>
+        <ul class="space-y-3">
+          <li><a href={`${getTranslatedPath('services', lang)}#recruiting`} class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span class="text-blue-500">›</span> {t('nav.servicesDropdown.recruiting')}</a></li>
+          <li><a href={`${getTranslatedPath('services', lang)}#socialHiring`} class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span class="text-blue-500">›</span> {t('nav.servicesDropdown.socialHiring')}</a></li>
+          <li><a href={`${getTranslatedPath('services', lang)}#salesTeams`} class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span class="text-blue-500">›</span> {t('nav.servicesDropdown.salesTeams')}</a></li>
+          <li><a href={`${getTranslatedPath('services', lang)}#skilledLabor`} class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span class="text-blue-500">›</span> {t('nav.servicesDropdown.skilledLabor')}</a></li>
         </ul>
       </div>
 
+      <!-- Contact -->
       <div>
-        <h4 class="text-lg font-semibold mb-4">{t('nav.contact')}</h4>
-        <address class="text-gray-400 not-italic">
-          <p>123 Main Street</p>
-          <p>Salt Lake City, UT 84101</p>
-          <p class="mt-2"><a href="tel:5551234567" class="hover:text-white">(555) 123-4567</a></p>
-          <p><a href="mailto:info@skilledtrademanpower.com" class="hover:text-white">info@skilledtrademanpower.com</a></p>
+        <h4 class="text-lg font-semibold mb-6 border-b border-gray-700 pb-2 inline-block">{t('nav.contact')}</h4>
+        <address class="text-gray-400 not-italic space-y-3">
+          <p class="flex items-start gap-3">
+            <span class="text-blue-500 mt-1"><span class="w-5 h-5 block" set:html={icons['map-pin']}></span></span>
+            <span>271 Cottonwood Drive<br/>Centerville, Utah 84014</span>
+          </p>
+          <p class="flex items-center gap-3">
+            <span class="text-blue-500"><span class="w-5 h-5 block" set:html={icons.phone}></span></span>
+            <a href="tel:3854012255" class="hover:text-white transition-colors">385 401 22 55</a>
+          </p>
+          <p class="flex items-center gap-3">
+            <span class="text-blue-500"><span class="w-5 h-5 block" set:html={icons.envelope}></span></span>
+            <a href="mailto:info@skilledtrademanpower.com" class="hover:text-white transition-colors">info@skilledtrademanpower.com</a>
+          </p>
         </address>
       </div>
     </div>
     
-    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} Skilled Trade Manpower. {t('footer.rights')}
+    <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+      <p class="text-gray-500 text-sm mb-4 md:mb-0">
+        &copy; {new Date().getFullYear()} Manpower Agency. {t('footer.rights')}
       </p>
-      <div class="mt-4 md:mt-0">
+      <div class="flex gap-6">
         <a href={getTranslatedPath('privacy', lang)} class="text-gray-500 hover:text-white text-sm transition-colors">
           {t('footer.privacy')}
         </a>

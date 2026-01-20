@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Skilled Trade Manpower",
-    "description": "Workforce growth partner combining Employment Recruiting, Social Media Marketing for Hiring, Sales Team Staffing, and Skilled Labor Staffing."
+    "description": "Workforce growth partner combining Employment Recruiting, Social Media Marketing for Hiring, Managed Sales Teams, and Skilled Labor Subcontracting."
   },
   "nav": {
     "home": "Home",
@@ -14,15 +14,15 @@
     "servicesDropdown": {
         "recruiting": "Employment Recruiting",
         "socialHiring": "Social Media Hiring",
-        "salesTeams": "Sales Team Staffing",
-        "skilledLabor": "Skilled Labor Staffing"
+        "salesTeams": "Managed Sales Teams",
+        "skilledLabor": "Skilled Labor Subcontracting"
     }
   },
   "buttons": {
     "contactUs": "Contact Us",
     "getQuote": "Get a Quote",
     "startProject": "Start Your Project",
-    "requestTalent": "Request Talent",
+    "requestTalent": "Request Crews",
     "findWork": "Find Work",
     "learnMore": "Learn More",
     "submit": "Submit Request",
@@ -30,14 +30,14 @@
   },
   "home": {
     "hero": {
-      "title": "Recruiting, Social Media Hiring, Sales Teams, and Skilled Trade Staffing",
+      "title": "Recruiting, Social Media Hiring, Managed Sales Teams, and Skilled Trade Subcontracting",
       "subtitle": "We are a workforce growth partner. We combine recruiting, digital marketing, and workforce delivery to provide better people, faster.",
-      "ctaPrimary": "Request Talent",
+      "ctaPrimary": "Request Crews",
       "ctaSecondary": "Find Work"
     },
     "servicesOverview": {
       "title": "Comprehensive Workforce Solutions",
-      "subtitle": "Four pillars to solve your staffing challenges."
+      "subtitle": "Four pillars to solve your workforce challenges."
     },
     "processPreview": {
       "title": "How We Work",
@@ -45,7 +45,7 @@
     },
     "industries": {
       "title": "Industries We Serve",
-      "subtitle": "Specialized staffing for critical sectors."
+      "subtitle": "Specialized crews for critical sectors."
     }
   },
   "services": {
@@ -65,14 +65,14 @@
       "features": ["Targeted Ad Campaigns", "Employer Branding", "Passive Candidate Outreach", "High-Volume Lead Gen"]
     },
     "salesTeams": {
-      "title": "Sales Team Staffing",
-      "desc": "Recruiting and staffing high-performing sales professionals to drive revenue.",
+      "title": "Managed Sales Teams",
+      "desc": "Recruiting and deploying high-performing sales professionals to drive revenue.",
       "problem": "Scaling a sales team requires finding individuals with the right drive and skills.",
       "solution": "We vet and place SDRs, BDRs, Account Executives, and Inside Sales reps.",
       "features": ["SDRs & BDRs", "Account Executives", "Inside Sales", "Sales Leadership"]
     },
     "skilledLabor": {
-      "title": "Skilled Labor Staffing",
+      "title": "Skilled Labor Subcontracting",
       "desc": "On-demand skilled workforce for Healthcare, Construction, Technology, and General Labor.",
       "problem": "Project deadlines require reliable, skilled hands on deck immediately.",
       "solution": "We deploy vetted, ready-to-work teams to your site.",
@@ -101,23 +101,23 @@
   },
   "industries": {
     "common": {
-        "valuePropTitle": "Accelerated Staffing through Digital Recruiting",
+        "valuePropTitle": "Accelerated Workforce Deployment through Digital Recruiting",
         "valuePropDesc": "We don't just wait for applications. We actively recruit and use social media marketing to build a massive pipeline of qualified candidates for this specific industry. This ensures you get people who are ready to work now.",
         "screeningTitle": "Reliability You Can Trust",
         "screeningDesc": "Every candidate undergoes a screening process tailored to the industry. While we cannot legally guarantee every individual's future actions, our rigorous vetting significantly reduces turnover and risk."
     },
     "healthcare": {
-      "title": "Healthcare Staffing",
+      "title": "Healthcare Crews",
       "desc": "Reliable medical and support staff for hospitals, clinics, and care facilities.",
       "roles": ["Medical Assistants", "Nursing Support", "Admin Staff", "Facility Maintenance"]
     },
     "construction": {
-      "title": "Construction Staffing",
+      "title": "Construction Crews",
       "desc": "Skilled tradespeople for commercial and residential projects.",
       "roles": ["Electricians", "Plumbers", "Carpenters", "General Laborers"]
     },
     "technology": {
-      "title": "Technology Staffing",
+      "title": "Technology Crews",
       "desc": "Tech talent for IT support, installation, and infrastructure.",
       "roles": ["IT Support Techs", "Cable Installers", "System Admins", "Help Desk"]
     },
@@ -234,8 +234,8 @@
       "projectTypeOptions": {
         "recruiting": "Employment Recruiting",
         "socialHiring": "Social Media Hiring",
-        "salesTeams": "Sales Team Staffing",
-        "skilledLabor": "Skilled Labor Staffing",
+        "salesTeams": "Managed Sales Teams",
+        "skilledLabor": "Skilled Labor Subcontracting",
         "other": "Other"
       }
     }

@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Skilled Trade Manpower",
-    "description": "Socio de crecimiento laboral que combina Reclutamiento, Marketing en Redes Sociales para Contratación, Personal de Ventas y Personal de Oficios Calificados."
+    "description": "Socio de crecimiento laboral que combina Reclutamiento, Marketing en Redes Sociales para Contratación, Equipos de Ventas Gestionados y Subcontratación de Oficios Calificados."
   },
   "nav": {
     "home": "Inicio",
@@ -14,8 +14,8 @@
     "servicesDropdown": {
         "recruiting": "Reclutamiento de Empleo",
         "socialHiring": "Contratación por Redes Sociales",
-        "salesTeams": "Personal de Ventas",
-        "skilledLabor": "Personal de Oficios Calificados"
+        "salesTeams": "Equipos de Ventas Gestionados",
+        "skilledLabor": "Subcontratación de Oficios"
     }
   },
   "buttons": {
@@ -30,14 +30,14 @@
   },
   "home": {
     "hero": {
-      "title": "Reclutamiento, Contratación en Redes Sociales, Equipos de Ventas y Personal Calificado",
+      "title": "Reclutamiento, Contratación en Redes Sociales, Equipos de Ventas y Subcontratación Calificada",
       "subtitle": "Somos un socio de crecimiento laboral. Combinamos reclutamiento, marketing digital y entrega de fuerza laboral para proporcionar mejor personal, más rápido.",
-      "ctaPrimary": "Solicitar Personal",
+      "ctaPrimary": "Solicitar Equipos",
       "ctaSecondary": "Encontrar Trabajo"
     },
     "servicesOverview": {
       "title": "Soluciones Laborales Integrales",
-      "subtitle": "Cuatro pilares para resolver sus desafíos de personal."
+      "subtitle": "Cuatro pilares para resolver sus desafíos de mano de obra."
     },
     "processPreview": {
       "title": "Cómo Trabajamos",
@@ -45,7 +45,7 @@
     },
     "industries": {
       "title": "Industrias que Atendemos",
-      "subtitle": "Personal especializado para sectores críticos."
+      "subtitle": "Cuadrillas especializadas para sectores críticos."
     }
   },
   "services": {
@@ -234,8 +234,8 @@
       "projectTypeOptions": {
         "recruiting": "Reclutamiento de Empleo",
         "socialHiring": "Contratación por Redes Sociales",
-        "salesTeams": "Personal de Ventas",
-        "skilledLabor": "Personal de Oficios Calificados",
+        "salesTeams": "Equipos de Ventas Gestionados",
+        "skilledLabor": "Subcontratación de Oficios Calificados",
         "other": "Otro"
       }
     }

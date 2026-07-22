@@ -15,23 +15,16 @@ export const ui = {
 
 export type Lang = keyof typeof languages;
 
-// Explicitly define base URL logic to be robust in both dev and prod
-const REPO_NAME = '/skilled-trade-manpower';
-const BASE_URL = import.meta.env.PROD ? REPO_NAME : (import.meta.env.BASE_URL === '/' ? '/' : import.meta.env.BASE_URL);
+// Derive the base path from Astro's build-time `base` config so links work on
+// every host: '/skilled-trade-manpower/' on GitHub Pages, '/' on Vercel/root.
+// `BASE` is the base with any trailing slash removed ('' when served at root).
+const BASE = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '');
 
 function removeBase(path: string): string {
-  // If we are in prod and path starts with repo name, strip it
-  if (import.meta.env.PROD && path.startsWith(REPO_NAME)) {
-    const stripped = path.slice(REPO_NAME.length);
-    // Ensure we return a path starting with /
-    return stripped.startsWith('/') ? stripped : (stripped === '' ? '/' : '/' + stripped);
+  if (BASE && (path === BASE || path.startsWith(BASE + '/'))) {
+    const stripped = path.slice(BASE.length);
+    return stripped === '' ? '/' : stripped;
   }
-  
-  if (path.startsWith(BASE_URL) && BASE_URL !== '/') {
-    const stripped = path.slice(BASE_URL.length);
-    return stripped.startsWith('/') ? stripped : (stripped === '' ? '/' : '/' + stripped);
-  }
-  
   return path;
 }
 
@@ -91,17 +84,9 @@ export function getRouteFromUrl(url: URL): string | undefined {
 export function getTranslatedPath(routeName: string, lang: Lang): string {
     const route = routes[routeName as keyof typeof routes];
     const path = route ? route[lang] : routes.home[lang];
-    
-    // In production, always prepend the repo name if not present
-    if (import.meta.env.PROD) {
-       // Avoid double slash issues
-       const prefix = REPO_NAME;
-       const cleanPath = path === '/' ? '' : path;
-       return `${prefix}${cleanPath}`;
-    }
-    
-    if (BASE_URL === '/') return path;
-    
-    const fullPath = `${BASE_URL}${path === '/' ? '' : path}`;
-    return fullPath.endsWith('/') && fullPath.length > 1 ? fullPath.slice(0, -1) : fullPath;
+
+    // Prepend the current base ('' at root). For the home route ('/') this
+    // yields the bare base ('/skilled-trade-manpower' or '/').
+    const cleanPath = path === '/' ? '' : path;
+    return `${BASE}${cleanPath}` || '/';
 }

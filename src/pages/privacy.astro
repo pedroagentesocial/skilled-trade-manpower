@@ -1,51 +1,117 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
+import { icons } from '../utils/icons';
 ---
 
 <Layout title="Privacy Policy">
-  <div class="container mx-auto px-4 py-16 max-w-3xl">
-    <h1 class="text-3xl font-bold mb-8">Privacy Policy</h1>
-    
-    <div class="prose prose-blue max-w-none">
-      <p>Last updated: January 10, 2026</p>
-
-      <h2>Introduction</h2>
-      <p>
-        Skilled Trade Manpower respects your privacy and is committed to protecting your personal data. 
-        This privacy policy will inform you as to how we look after your personal data when you visit our website 
-        and tell you about your privacy rights and how the law protects you.
+  <div class="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-900 to-blue-950 py-20 md:py-24 text-white text-center">
+    <div class="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-24 left-0 h-72 w-72 rounded-full bg-blue-600/20 blur-3xl"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">Legal</p>
+      <h1 class="mt-3 text-4xl md:text-5xl font-bold">Privacy Policy</h1>
+      <div class="mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"></div>
+      <p class="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/20 px-4 py-1.5 text-sm text-blue-100">
+        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+        Last updated: January 10, 2026
       </p>
+    </div>
+  </div>
 
-      <h2>Data We Collect</h2>
-      <p>
-        We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows:
-      </p>
-      <ul>
-        <li><strong>Identity Data:</strong> includes first name, last name, username or similar identifier.</li>
-        <li><strong>Contact Data:</strong> includes billing address, delivery address, email address and telephone numbers.</li>
-        <li><strong>Business Data:</strong> includes project details, company information, and service history.</li>
-      </ul>
+  <div class="bg-slate-50 py-16 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl ring-1 ring-gray-100 p-8 md:p-12">
+        <div class="reveal-stagger space-y-12">
 
-      <h2>How We Use Your Data</h2>
-      <p>
-        We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
-      </p>
-      <ul>
-        <li>To register you as a new client.</li>
-        <li>To execute the services and projects you requested.</li>
-        <li>To manage our relationship with you.</li>
-      </ul>
+          <section>
+            <div class="flex items-center gap-4 mb-4">
+              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-md shadow-blue-600/25 flex items-center justify-center [&>svg]:w-6 [&>svg]:h-6 [&>svg]:text-white" set:html={icons['shield-check']}></span>
+              <h2 class="text-2xl font-bold text-gray-900">Introduction</h2>
+            </div>
+            <p class="text-gray-600 leading-relaxed">
+              Skilled Trade Manpower respects your privacy and is committed to protecting your personal data.
+              This privacy policy will inform you as to how we look after your personal data when you visit our website
+              and tell you about your privacy rights and how the law protects you.
+            </p>
+          </section>
 
-      <h2>Data Security</h2>
-      <p>
-        We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed.
-      </p>
+          <section>
+            <div class="flex items-center gap-4 mb-4">
+              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-md shadow-blue-600/25 flex items-center justify-center [&>svg]:w-6 [&>svg]:h-6 [&>svg]:text-white" set:html={icons['clipboard-list']}></span>
+              <h2 class="text-2xl font-bold text-gray-900">Data We Collect</h2>
+            </div>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:
+            </p>
+            <ul class="space-y-3">
+              <li class="flex gap-3 rounded-2xl bg-slate-50 ring-1 ring-gray-100 p-4">
+                <span class="flex-shrink-0 mt-1.5 w-2 h-2 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500"></span>
+                <span class="text-gray-600 leading-relaxed"><strong class="text-gray-900 font-semibold">Identity Data:</strong> includes first name, last name, username or similar identifier.</span>
+              </li>
+              <li class="flex gap-3 rounded-2xl bg-slate-50 ring-1 ring-gray-100 p-4">
+                <span class="flex-shrink-0 mt-1.5 w-2 h-2 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500"></span>
+                <span class="text-gray-600 leading-relaxed"><strong class="text-gray-900 font-semibold">Contact Data:</strong> includes billing address, delivery address, email address and telephone numbers.</span>
+              </li>
+              <li class="flex gap-3 rounded-2xl bg-slate-50 ring-1 ring-gray-100 p-4">
+                <span class="flex-shrink-0 mt-1.5 w-2 h-2 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500"></span>
+                <span class="text-gray-600 leading-relaxed"><strong class="text-gray-900 font-semibold">Business Data:</strong> includes project details, company information, and service history.</span>
+              </li>
+            </ul>
+          </section>
 
-      <h2>Contact Us</h2>
-      <p>
-        If you have any questions about this privacy policy, please contact us at info@skilledtrademanpower.com.
-      </p>
+          <section>
+            <div class="flex items-center gap-4 mb-4">
+              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-md shadow-blue-600/25 flex items-center justify-center [&>svg]:w-6 [&>svg]:h-6 [&>svg]:text-white" set:html={icons['cog-6-tooth']}></span>
+              <h2 class="text-2xl font-bold text-gray-900">How We Use Your Data</h2>
+            </div>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-md bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4"></path></svg>
+                </span>
+                <span class="text-gray-600 leading-relaxed">To register you as a new client.</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-md bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4"></path></svg>
+                </span>
+                <span class="text-gray-600 leading-relaxed">To execute the services and projects you requested.</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-md bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4"></path></svg>
+                </span>
+                <span class="text-gray-600 leading-relaxed">To manage our relationship with you.</span>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <div class="flex items-center gap-4 mb-4">
+              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-md shadow-blue-600/25 flex items-center justify-center [&>svg]:w-6 [&>svg]:h-6 [&>svg]:text-white" set:html={icons['shield-exclamation']}></span>
+              <h2 class="text-2xl font-bold text-gray-900">Data Security</h2>
+            </div>
+            <p class="text-gray-600 leading-relaxed">
+              We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed.
+            </p>
+          </section>
+
+          <section class="rounded-2xl bg-blue-50 ring-1 ring-blue-100 p-6 md:p-8">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-md shadow-blue-600/25 flex items-center justify-center [&>svg]:w-6 [&>svg]:h-6 [&>svg]:text-white" set:html={icons['envelope']}></span>
+              <h2 class="text-2xl font-bold text-gray-900">Contact Us</h2>
+            </div>
+            <p class="text-gray-600 leading-relaxed">
+              If you have any questions about this privacy policy, please contact us at
+              <a href="mailto:info@skilledtrademanpower.com" class="font-semibold text-blue-600 hover:text-blue-700 transition-colors break-all">info@skilledtrademanpower.com</a>.
+            </p>
+          </section>
+
+        </div>
+      </div>
     </div>
   </div>
 </Layout>

@@ -1,5 +1,11 @@
 ---
 import { icons } from '../utils/icons';
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+// Precomputado: dentro del .map() el parámetro `t` hace shadow de esta función.
+const postedOnLabel = t('home.testimonials.postedOn');
 
 const testimonials = [
   {
@@ -59,11 +65,13 @@ const allTestimonials = [...testimonials, ...testimonials];
 <section class="py-16 bg-gray-50 overflow-hidden">
   <div class="container mx-auto px-4 mb-12">
     <div class="text-center">
-      <h2 class="text-3xl font-bold text-gray-900 mb-4">What People Say</h2>
-      <div class="flex items-center justify-center gap-2 text-gray-600">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">{t('home.testimonials.eyebrow')}</p>
+      <h2 class="mt-3 text-3xl md:text-4xl font-bold text-gray-900">{t('home.testimonials.title')}</h2>
+      <div class="mt-4 flex items-center justify-center gap-2 text-gray-600">
         <span class="w-5 h-5" set:html={icons.google}></span>
-        <span class="font-medium">Rated 4.9/5 on Google Reviews</span>
+        <span class="font-medium">{t('home.testimonials.rating')}</span>
       </div>
+      <div class="mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500"></div>
     </div>
   </div>
     
@@ -75,7 +83,7 @@ const allTestimonials = [...testimonials, ...testimonials];
 
     <div class="flex animate-scroll hover:pause gap-6 w-max px-4">
       {allTestimonials.map(t => (
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col w-[300px] md:w-[400px] flex-shrink-0 transition-transform hover:scale-[1.02] duration-300">
+        <div class="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-gray-100 flex flex-col w-[300px] md:w-[400px] flex-shrink-0 transition-all hover:-translate-y-1 hover:shadow-lg hover:ring-blue-100 duration-300">
           <div class="flex items-center gap-4 mb-4">
             <img src={t.image} alt={t.author} class="w-12 h-12 rounded-full object-cover border-2 border-blue-50 shadow-sm" />
             <div>
@@ -93,7 +101,7 @@ const allTestimonials = [...testimonials, ...testimonials];
           <p class="text-gray-600 italic text-sm md:text-base flex-grow leading-relaxed">"{t.quote}"</p>
           <div class="mt-4 flex items-center gap-1 text-xs text-gray-400 border-t border-gray-50 pt-3">
             <span class="w-4 h-4 grayscale opacity-60" set:html={icons.google}></span>
-            <span>Posted on Google</span>
+            <span>{postedOnLabel}</span>
           </div>
         </div>
       ))}

@@ -15,46 +15,61 @@ const faqItems = [0, 1, 2];
 
 <Layout title={t('ourProcess.title')}>
   <!-- Hero Section -->
-  <div class="bg-blue-900 py-24 text-white text-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-black/50 z-0"></div>
-    <!-- Background Image Placeholder -->
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-gray-900 z-[-1]"></div>
-    
+  <div class="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-900 to-blue-950 py-24 text-white text-center">
+    <div class="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-24 left-0 h-72 w-72 rounded-full bg-blue-600/20 blur-3xl"></div>
     <div class="container mx-auto px-4 relative z-10">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">{t('ourProcess.title')}</h1>
-      <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">{lang === 'en' ? 'How It Works' : 'Cómo Funciona'}</p>
+      <h1 class="mt-3 text-4xl md:text-5xl font-bold">{t('ourProcess.title')}</h1>
+      <p class="mt-5 text-xl text-blue-100 max-w-3xl mx-auto">
         {t('ourProcess.subtitle')}
       </p>
+      <div class="mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"></div>
     </div>
   </div>
 
   <!-- Tabs Section -->
-  <div class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      
+  <div class="py-16 bg-white relative overflow-hidden">
+    <div class="pointer-events-none absolute -left-40 top-16 h-96 w-96 rounded-full bg-blue-500/5 blur-3xl"></div>
+    <div class="pointer-events-none absolute -right-40 bottom-16 h-96 w-96 rounded-full bg-cyan-500/5 blur-3xl"></div>
+    <div class="container mx-auto px-4 relative">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <!-- Left: workforce image -->
+        <div class="lg:sticky lg:top-28">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200">
+            <img src={import.meta.env.BASE_URL === '/' ? '/images/general.jpg' : `${import.meta.env.BASE_URL}/images/general.jpg`} alt={t('ourProcess.title')} class="w-full h-[420px] lg:h-[540px] object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-900/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+              <p class="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">{lang === 'en' ? 'Managed Workforce' : 'Fuerza Laboral Gestionada'}</p>
+              <p class="mt-1.5 text-xl md:text-2xl font-bold leading-snug">{lang === 'en' ? 'From your request to on-site, fully handled.' : 'De tu solicitud al sitio, todo gestionado.'}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Right: tabs + steps -->
+        <div>
       <!-- Tab Controls -->
-      <div class="flex justify-center mb-12">
-        <div class="inline-flex bg-gray-100 rounded-lg p-1">
-          <button id="tab-employers" class="px-8 py-3 rounded-md text-sm font-bold transition-all bg-white text-blue-600 shadow-sm">
+      <div class="flex justify-center lg:justify-start mb-10">
+        <div class="inline-flex bg-gray-100 rounded-full p-1.5 ring-1 ring-gray-200">
+          <button id="tab-employers" class="px-8 py-3 rounded-full text-sm font-bold transition-all bg-white text-blue-600 shadow-sm">
             {t('ourProcess.tabs.employers')}
           </button>
-          <button id="tab-seekers" class="px-8 py-3 rounded-md text-sm font-bold text-gray-500 hover:text-gray-700 transition-all">
+          <button id="tab-seekers" class="px-8 py-3 rounded-full text-sm font-bold text-gray-500 hover:text-gray-700 transition-all">
             {t('ourProcess.tabs.jobSeekers')}
           </button>
         </div>
       </div>
 
       <!-- Employers Content -->
-      <div id="content-employers" class="max-w-4xl mx-auto fade-in-section is-visible">
-        <div class="space-y-12">
+      <div id="content-employers" class="fade-in-section is-visible">
+        <div class="reveal-stagger space-y-6">
           {employerSteps.map((i) => (
-            <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
-              <div class="flex-shrink-0 w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-2xl">
+            <div class="group flex flex-col md:flex-row gap-6 items-center md:items-start rounded-2xl bg-white p-6 ring-1 ring-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-blue-100">
+              <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-600/25 flex items-center justify-center font-bold text-2xl transition-transform duration-300 group-hover:scale-110">
                 {i + 1}
               </div>
               <div class="text-center md:text-left">
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">{t(`ourProcess.tabs.employerSteps.${i}.title`)}</h3>
-                <p class="text-xl text-gray-600 leading-relaxed">{t(`ourProcess.tabs.employerSteps.${i}.desc`)}</p>
+                <p class="text-lg text-gray-600 leading-relaxed">{t(`ourProcess.tabs.employerSteps.${i}.desc`)}</p>
               </div>
             </div>
           ))}
@@ -68,16 +83,16 @@ const faqItems = [0, 1, 2];
       </div>
 
       <!-- Job Seekers Content (Hidden by default) -->
-      <div id="content-seekers" class="hidden max-w-4xl mx-auto fade-in-section">
-        <div class="space-y-12">
+      <div id="content-seekers" class="hidden fade-in-section">
+        <div class="reveal-stagger space-y-6">
           {seekerSteps.map((i) => (
-            <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
-              <div class="flex-shrink-0 w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold text-2xl">
+            <div class="group flex flex-col md:flex-row gap-6 items-center md:items-start rounded-2xl bg-white p-6 ring-1 ring-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-emerald-100">
+              <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-600/25 flex items-center justify-center font-bold text-2xl transition-transform duration-300 group-hover:scale-110">
                 {i + 1}
               </div>
               <div class="text-center md:text-left">
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">{t(`ourProcess.tabs.seekerSteps.${i}.title`)}</h3>
-                <p class="text-xl text-gray-600 leading-relaxed">{t(`ourProcess.tabs.seekerSteps.${i}.desc`)}</p>
+                <p class="text-lg text-gray-600 leading-relaxed">{t(`ourProcess.tabs.seekerSteps.${i}.desc`)}</p>
               </div>
             </div>
           ))}
@@ -89,6 +104,8 @@ const faqItems = [0, 1, 2];
             </a>
         </div>
       </div>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -96,7 +113,7 @@ const faqItems = [0, 1, 2];
   <!-- Quality Standard Section -->
   <div class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="bg-blue-900 rounded-3xl p-8 md:p-16 relative overflow-hidden shadow-2xl">
+      <div class="bg-gradient-to-br from-blue-900 via-blue-900 to-blue-950 rounded-3xl p-8 md:p-16 relative overflow-hidden shadow-2xl ring-1 ring-white/10">
         <!-- Background Elements -->
         <div class="absolute top-0 right-0 w-64 h-64 bg-blue-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -128,10 +145,14 @@ const faqItems = [0, 1, 2];
   <!-- FAQ Section -->
   <div class="py-16 bg-gray-50 border-t border-gray-200">
       <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">{t('ourProcess.faq.title')}</h2>
-          <div class="max-w-3xl mx-auto space-y-6">
+          <div class="text-center mb-12">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">{lang === 'en' ? 'Questions' : 'Preguntas'}</p>
+            <h2 class="mt-3 text-3xl md:text-4xl font-bold text-gray-900">{t('ourProcess.faq.title')}</h2>
+            <div class="mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500"></div>
+          </div>
+          <div class="reveal-stagger max-w-3xl mx-auto space-y-4">
               {faqItems.map(i => (
-                  <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                  <div class="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-gray-100 transition-all duration-300 hover:shadow-md hover:ring-blue-100">
                       <h3 class="text-lg font-bold text-blue-900 mb-2">{t(`ourProcess.faq.items.${i}.q`)}</h3>
                       <p class="text-gray-600">{t(`ourProcess.faq.items.${i}.a`)}</p>
                   </div>

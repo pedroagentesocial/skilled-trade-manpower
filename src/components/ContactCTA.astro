@@ -22,7 +22,7 @@ const {
 
 <section class="py-16 bg-white">
   <div class="container mx-auto px-4">
-    <div class="bg-blue-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row relative">
+    <div class="bg-gradient-to-br from-blue-900 via-blue-900 to-blue-950 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10 flex flex-col lg:flex-row relative">
       <!-- Background Pattern (Optional) -->
       <div class="absolute inset-0 opacity-10 pointer-events-none">
         <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -56,9 +56,9 @@ const {
             <div class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center flex-shrink-0 text-blue-200">
                 <span class="w-5 h-5 flex justify-center items-center [&>svg]:w-full [&>svg]:h-full" set:html={icons.phone}></span>
             </div>
-            <div>
+            <div class="min-w-0">
               <p class="text-sm text-blue-300 uppercase font-semibold tracking-wider mb-1">{t('forms.contact.phone')}</p>
-              <a href="tel:3854012255" class="text-lg font-medium hover:text-white transition-colors">385 401 22 55</a>
+              <a href="tel:3854012255" class="text-base md:text-lg font-medium hover:text-white transition-colors">385 401 22 55</a>
             </div>
           </div>
 
@@ -66,9 +66,9 @@ const {
             <div class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center flex-shrink-0 text-blue-200">
                 <span class="w-5 h-5 flex justify-center items-center [&>svg]:w-full [&>svg]:h-full" set:html={icons['map-pin']}></span>
             </div>
-            <div>
+            <div class="min-w-0">
               <p class="text-sm text-blue-300 uppercase font-semibold tracking-wider mb-1">{t('nav.contact')}</p>
-              <address class="text-lg font-medium not-italic">
+              <address class="text-base md:text-lg font-medium not-italic">
                 271 Cottonwood Drive<br/>Centerville, Utah 84014
               </address>
             </div>
@@ -78,9 +78,9 @@ const {
              <div class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center flex-shrink-0 text-blue-200">
                 <span class="w-5 h-5 flex justify-center items-center [&>svg]:w-full [&>svg]:h-full" set:html={icons.envelope}></span>
             </div>
-             <div>
+             <div class="min-w-0">
                <p class="text-sm text-blue-300 uppercase font-semibold tracking-wider mb-1">{t('forms.contact.email')}</p>
-               <a href="mailto:info@skilledtrademanpower.com" class="text-lg font-medium hover:text-white transition-colors">info@skilledtrademanpower.com</a>
+               <a href="mailto:info@skilledtrademanpower.com" class="text-base md:text-lg font-medium hover:text-white transition-colors break-all">info@skilledtrademanpower.com</a>
              </div>
           </div>
         </div>

@@ -1,13 +1,103 @@
 @import "tailwindcss";
 
+/* Iconos de features: los SVG outline (w-12 h-12) se renderizan como tiles
+   de marca con glifo blanco, en vez de trazos finos flotando. Un solo lugar
+   controla el estilo en todo el sitio. */
+/* Icon tiles (opt-in): envuelve el icono con .icon-tile (o .icon-tile-lg) y el
+   SVG interior se renderiza como un tile de marca con glifo blanco. Es opt-in
+   para no afectar iconos cuyo tamaño lo controla su contenedor. */
+.icon-tile > svg,
+.icon-tile-lg > svg {
+  color: #fff;
+  background-image: linear-gradient(140deg, #3b82f6 0%, #2563eb 55%, #1d4ed8 100%);
+  box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-tile > svg {
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.85rem;
+  border-radius: 1rem;
+}
+
+.icon-tile-lg > svg {
+  width: 7rem;
+  height: 7rem;
+  padding: 1.6rem;
+  border-radius: 1.75rem;
+}
+
+.icon-tile > svg path,
+.icon-tile-lg > svg path {
+  stroke-width: 1.75;
+}
+
+/* Hero: entrada escalonada del contenido del slide activo (eyebrow, título,
+   subtítulo y CTAs entran en secuencia cuando el slide se vuelve activo). */
+.slide-text .hero-anim {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-text.opacity-100 .hero-anim {
+  opacity: 1;
+  transform: none;
+}
+
+.slide-text.opacity-100 .hero-anim:nth-child(1) { transition-delay: 0.15s; }
+.slide-text.opacity-100 .hero-anim:nth-child(2) { transition-delay: 0.30s; }
+.slide-text.opacity-100 .hero-anim:nth-child(3) { transition-delay: 0.45s; }
+.slide-text.opacity-100 .hero-anim:nth-child(4) { transition-delay: 0.60s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-text .hero-anim {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .fade-in-section {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
 .fade-in-section.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+
+/* Stagger: las tarjetas de un grid entran en secuencia cuando la sección
+   se vuelve visible. Solo se ocultan cuando el JS marcó la sección
+   (.fade-in-section), así sin JS quedan visibles. */
+.fade-in-section .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible .reveal-stagger > * {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-stagger > *:nth-child(1) { transition-delay: 0.06s; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 0.14s; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 0.22s; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 0.30s; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 0.38s; }
+.reveal-stagger > *:nth-child(6) { transition-delay: 0.46s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section,
+  .fade-in-section .reveal-stagger > * {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }

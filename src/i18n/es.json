@@ -45,7 +45,14 @@
     },
     "industries": {
       "title": "Industrias que Atendemos",
-      "subtitle": "Cuadrillas especializadas para sectores críticos."
+      "subtitle": "Cuadrillas especializadas para sectores críticos.",
+      "eyebrow": "Sectores Especializados"
+    },
+    "testimonials": {
+      "eyebrow": "Testimonios",
+      "title": "Lo Que Dicen",
+      "rating": "Calificados 4.9/5 en Google Reviews",
+      "postedOn": "Publicado en Google"
     }
   },
   "services": {

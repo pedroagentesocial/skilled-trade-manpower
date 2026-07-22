@@ -27,7 +27,7 @@ const navItems = [
 ];
 ---
 
-<header class="bg-white shadow-md sticky top-0 z-50">
+<header class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-gray-200/70 shadow-[0_4px_20px_rgba(2,6,23,0.05)]">
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
     <a href={getTranslatedPath('home', lang)} class="text-2xl font-bold text-blue-900 z-50 relative flex items-center gap-3">
       <img src={import.meta.env.BASE_URL === '/' ? '/images/logo.png' : `${import.meta.env.BASE_URL}/images/logo.png`} alt="Skilled Trade Manpower Logo" class="h-10 w-auto" />
@@ -35,7 +35,7 @@ const navItems = [
 
     <!-- Desktop Nav -->
     <nav class="hidden md:flex space-x-6 items-center">
-      <a href={getTranslatedPath('home', lang)} class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+      <a href={getTranslatedPath('home', lang)} class="relative text-gray-700 hover:text-blue-600 font-medium transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-gradient-to-r after:from-blue-600 after:to-cyan-500 after:transition-all after:duration-300 hover:after:w-full">
         {t('nav.home')}
       </a>
 
@@ -59,20 +59,20 @@ const navItems = [
         </div>
       </div>
 
-      <a href={getTranslatedPath('ourProcess', lang)} class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+      <a href={getTranslatedPath('ourProcess', lang)} class="relative text-gray-700 hover:text-blue-600 font-medium transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-gradient-to-r after:from-blue-600 after:to-cyan-500 after:transition-all after:duration-300 hover:after:w-full">
         {t('nav.ourProcess')}
       </a>
-      <a href={getTranslatedPath('about', lang)} class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+      <a href={getTranslatedPath('about', lang)} class="relative text-gray-700 hover:text-blue-600 font-medium transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-gradient-to-r after:from-blue-600 after:to-cyan-500 after:transition-all after:duration-300 hover:after:w-full">
         {t('nav.about')}
       </a>
-      <a href={getTranslatedPath('contact', lang)} class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+      <a href={getTranslatedPath('contact', lang)} class="relative text-gray-700 hover:text-blue-600 font-medium transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-gradient-to-r after:from-blue-600 after:to-cyan-500 after:transition-all after:duration-300 hover:after:w-full">
         {t('nav.contact')}
       </a>
 
-      <a href={togglePath} class="ml-4 px-3 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 transition-colors">
+      <a href={togglePath} class="ml-2 px-3 py-1.5 border border-blue-200 text-blue-700 rounded-full text-sm font-semibold hover:bg-blue-50 hover:border-blue-300 transition-colors">
         {lang === 'en' ? 'ES' : 'EN'}
       </a>
-      <a href="tel:5551234567" class="ml-4 px-4 py-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700 transition-colors flex items-center gap-2 transform hover:scale-105 duration-200">
+      <a href="tel:5551234567" class="ml-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2">
         <span set:html={icons.phone}></span>
         {t('nav.call')}
       </a>

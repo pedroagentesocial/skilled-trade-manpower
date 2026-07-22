@@ -56,27 +56,35 @@ const hasVideo = slides || (videoSrcs && videoSrcs.length > 0);
     ) : (
       <img src={imageSrc} alt="Hero" class="absolute top-0 left-0 w-full h-full object-cover" />
     )}
-    <!-- Dark Overlay for Contrast -->
-    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <!-- Gradient overlays for depth + contrast -->
+    <div class="absolute inset-0 z-10 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/40"></div>
+    <div class="absolute inset-0 z-10 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
   </div>
 
   <!-- Content Layer -->
   <div class="container mx-auto px-4 relative z-20 h-full flex flex-col justify-center">
-    <div class="max-w-3xl mx-auto grid grid-cols-1 items-center w-full">
+    <div class="max-w-3xl grid grid-cols-1 items-center w-full">
       {activeSlides.map((slide, index) => (
-        <div class={`col-start-1 row-start-1 transition-all duration-1000 flex flex-col justify-center ${index === 0 ? 'opacity-100 z-10 translate-y-0 pointer-events-auto' : 'opacity-0 z-0 translate-y-4 pointer-events-none'} slide-text`} data-index={index}>
+        <div class={`col-start-1 row-start-1 transition-opacity duration-1000 flex flex-col justify-center ${index === 0 ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'} slide-text`} data-index={index}>
           <div class="w-full">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg text-left">
+            <div class="hero-anim mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-md">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-cyan-400"></span>
+              </span>
+              {lang === 'en' ? 'Workforce Growth Partner' : 'Socio de Crecimiento Laboral'}
+            </div>
+            <h1 class="hero-anim text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-5 drop-shadow-lg text-left text-balance">
               {slide.title}
             </h1>
-            <p class="text-xl text-gray-200 mb-8 leading-relaxed drop-shadow-md max-w-2xl text-left">
+            <p class="hero-anim text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed drop-shadow-md max-w-xl text-left">
               {slide.subtitle}
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-start">
-              <a href={import.meta.env.BASE_URL === '/' ? slide.primaryCta.href : `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${slide.primaryCta.href.startsWith('/') ? slide.primaryCta.href.slice(1) : slide.primaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-bold rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg transition-colors w-full sm:w-auto shadow-lg">
+            <div class="hero-anim flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-start">
+              <a href={import.meta.env.BASE_URL === '/' ? slide.primaryCta.href : `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${slide.primaryCta.href.startsWith('/') ? slide.primaryCta.href.slice(1) : slide.primaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3.5 text-base font-bold rounded-full text-white bg-gradient-to-r from-blue-600 to-cyan-500 shadow-lg shadow-blue-600/30 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/40 md:text-lg transition-all duration-300 w-full sm:w-auto">
                 {slide.primaryCta.text}
               </a>
-              <a href={import.meta.env.BASE_URL === '/' ? slide.secondaryCta.href : `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${slide.secondaryCta.href.startsWith('/') ? slide.secondaryCta.href.slice(1) : slide.secondaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3 border-2 border-white text-base font-bold rounded-md text-white hover:bg-white hover:text-blue-900 md:text-lg transition-colors w-full sm:w-auto shadow-lg backdrop-blur-sm bg-white/10">
+              <a href={import.meta.env.BASE_URL === '/' ? slide.secondaryCta.href : `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${slide.secondaryCta.href.startsWith('/') ? slide.secondaryCta.href.slice(1) : slide.secondaryCta.href}`} class="inline-flex justify-center items-center px-8 py-3.5 border-2 border-white/70 text-base font-bold rounded-full text-white hover:bg-white hover:text-blue-900 md:text-lg transition-all duration-300 w-full sm:w-auto backdrop-blur-sm bg-white/10 hover:-translate-y-0.5">
                 {slide.secondaryCta.text}
               </a>
             </div>

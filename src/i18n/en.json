@@ -45,7 +45,14 @@
     },
     "industries": {
       "title": "Industries We Serve",
-      "subtitle": "Specialized crews for critical sectors."
+      "subtitle": "Specialized crews for critical sectors.",
+      "eyebrow": "Specialized Sectors"
+    },
+    "testimonials": {
+      "eyebrow": "Testimonials",
+      "title": "What People Say",
+      "rating": "Rated 4.9/5 on Google Reviews",
+      "postedOn": "Posted on Google"
     }
   },
   "services": {

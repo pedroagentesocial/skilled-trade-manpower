@@ -12,10 +12,10 @@
     "contact": "Contacto",
     "call": "Llamar",
     "servicesDropdown": {
-        "recruiting": "Reclutamiento de Empleo",
-        "socialHiring": "Contratación por Redes Sociales",
-        "salesTeams": "Equipos de Ventas Gestionados",
-        "skilledLabor": "Subcontratación de Oficios"
+      "recruiting": "Reclutamiento de Empleo",
+      "socialHiring": "Contratación por Redes Sociales",
+      "salesTeams": "Equipos de Ventas Gestionados",
+      "skilledLabor": "Subcontratación de Oficios"
     }
   },
   "buttons": {
@@ -62,21 +62,36 @@
       "desc": "Reclutamiento de ciclo completo para encontrar el mejor talento permanente para su organización.",
       "problem": "Encontrar candidatos calificados toma tiempo y recursos que usted no tiene.",
       "solution": "Manejamos la búsqueda, selección y entrevistas para presentarle candidatos de primer nivel.",
-      "features": ["Búsqueda de Candidatos", "Selección Rigurosa", "Coordinación de Entrevistas", "Apoyo en Colocación"]
+      "features": [
+        "Búsqueda de Candidatos",
+        "Selección Rigurosa",
+        "Coordinación de Entrevistas",
+        "Apoyo en Colocación"
+      ]
     },
     "socialHiring": {
       "title": "Marketing en Redes Sociales para Contratación",
       "desc": "Campañas digitales dirigidas para atraer candidatos activos y pasivos.",
       "problem": "Las bolsas de trabajo tradicionales a menudo no son suficientes para llegar al mejor talento.",
       "solution": "Utilizamos plataformas sociales y alcance digital para construir una cartera de candidatos calificados.",
-      "features": ["Campañas Publicitarias Dirigidas", "Marca Empleadora", "Alcance a Candidatos Pasivos", "Generación de Leads de Alto Volumen"]
+      "features": [
+        "Campañas Publicitarias Dirigidas",
+        "Marca Empleadora",
+        "Alcance a Candidatos Pasivos",
+        "Generación de Leads de Alto Volumen"
+      ]
     },
     "salesTeams": {
       "title": "Personal de Equipos de Ventas",
       "desc": "Reclutamiento y dotación de profesionales de ventas de alto rendimiento para impulsar los ingresos.",
       "problem": "Escalar un equipo de ventas requiere encontrar individuos con el impulso y las habilidades adecuadas.",
       "solution": "Evaluamos y colocamos SDRs, BDRs, Ejecutivos de Cuenta y representantes de Ventas Internas.",
-      "features": ["SDRs y BDRs", "Ejecutivos de Cuenta", "Ventas Internas", "Liderazgo de Ventas"]
+      "features": [
+        "SDRs y BDRs",
+        "Ejecutivos de Cuenta",
+        "Ventas Internas",
+        "Liderazgo de Ventas"
+      ]
     },
     "skilledLabor": {
       "title": "Personal de Oficios Calificados",
@@ -89,49 +104,84 @@
         "technology": "Tecnología",
         "generalLabor": "Mano de Obra General"
       },
-      "features": ["Trabajadores Verificados", "Despliegue Rápido", "Cumplimiento de Seguridad", "Gestión en Sitio"]
+      "features": [
+        "Trabajadores Verificados",
+        "Despliegue Rápido",
+        "Cumplimiento de Seguridad",
+        "Gestión en Sitio"
+      ]
     },
     "projectManagement": {
       "title": "Gestión de Proyectos y Supervisión",
       "desc": "Proporcionamos supervisores en sitio para gestionar el flujo de trabajo, la asistencia y el rendimiento de la fuerza laboral desplegada.",
       "problem": "Gestionar una fuerza laboral temporal desvía el enfoque de sus operaciones principales.",
       "solution": "Nuestros supervisores experimentados manejan la logística diaria y la gestión del rendimiento.",
-      "features": ["Supervisión en Sitio", "Seguimiento de Asistencia", "Revisiones de Rendimiento", "Resolución de Conflictos"]
+      "features": [
+        "Supervisión en Sitio",
+        "Seguimiento de Asistencia",
+        "Revisiones de Rendimiento",
+        "Resolución de Conflictos"
+      ]
     },
     "safetyCompliance": {
       "title": "Capacitación en Seguridad y Cumplimiento",
       "desc": "Asegurando que cada trabajador esté listo para el trabajo y cumpla con los estándares de la industria.",
       "problem": "Trabajadores no calificados o inseguros crean responsabilidad y retrasos en el proyecto.",
       "solution": "Manejamos certificaciones, sesiones informativas de seguridad y verificaciones de cumplimiento antes del despliegue.",
-      "features": ["Capacitación OSHA", "Sesiones de Seguridad", "Verificación de Certificación", "Mitigación de Riesgos"]
+      "features": [
+        "Capacitación OSHA",
+        "Sesiones de Seguridad",
+        "Verificación de Certificación",
+        "Mitigación de Riesgos"
+      ]
     }
   },
   "industries": {
     "common": {
-        "valuePropTitle": "Dotación de Personal Acelerada mediante Reclutamiento Digital",
-        "valuePropDesc": "No esperamos a que lleguen las solicitudes. Reclutamos activamente y utilizamos marketing en redes sociales para construir una cartera masiva de candidatos calificados para esta industria específica. Esto asegura que obtenga personas listas para trabajar ahora.",
-        "screeningTitle": "Confiabilidad en la que Puede Confiar",
-        "screeningDesc": "Cada candidato se somete a un proceso de selección adaptado a la industria. Aunque no podemos garantizar legalmente las acciones futuras de cada individuo, nuestra rigurosa verificación reduce significativamente la rotación y el riesgo."
+      "valuePropTitle": "Dotación de Personal Acelerada mediante Reclutamiento Digital",
+      "valuePropDesc": "No esperamos a que lleguen las solicitudes. Reclutamos activamente y utilizamos marketing en redes sociales para construir una cartera masiva de candidatos calificados para esta industria específica. Esto asegura que obtenga personas listas para trabajar ahora.",
+      "screeningTitle": "Confiabilidad en la que Puede Confiar",
+      "screeningDesc": "Cada candidato se somete a un proceso de selección adaptado a la industria. Aunque no podemos garantizar legalmente las acciones futuras de cada individuo, nuestra rigurosa verificación reduce significativamente la rotación y el riesgo."
     },
     "healthcare": {
       "title": "Personal de Salud",
       "desc": "Personal médico y de apoyo confiable para hospitales, clínicas e instalaciones de cuidado.",
-      "roles": ["Asistentes Médicos", "Apoyo de Enfermería", "Personal Administrativo", "Mantenimiento de Instalaciones"]
+      "roles": [
+        "Asistentes Médicos",
+        "Apoyo de Enfermería",
+        "Personal Administrativo",
+        "Mantenimiento de Instalaciones"
+      ]
     },
     "construction": {
       "title": "Personal de Construcción",
       "desc": "Trabajadores calificados para proyectos comerciales y residenciales.",
-      "roles": ["Electricistas", "Plomeros", "Carpinteros", "Obreros Generales"]
+      "roles": [
+        "Electricistas",
+        "Plomeros",
+        "Carpinteros",
+        "Obreros Generales"
+      ]
     },
     "technology": {
       "title": "Personal de Tecnología",
       "desc": "Talento tecnológico para soporte de TI, instalación e infraestructura.",
-      "roles": ["Técnicos de Soporte TI", "Instaladores de Cable", "Administradores de Sistemas", "Mesa de Ayuda"]
+      "roles": [
+        "Técnicos de Soporte TI",
+        "Instaladores de Cable",
+        "Administradores de Sistemas",
+        "Mesa de Ayuda"
+      ]
     },
     "generalLabor": {
       "title": "Mano de Obra General",
       "desc": "Equipos trabajadores para almacenamiento, logística y apoyo en sitio.",
-      "roles": ["Asociados de Almacén", "Mudanzas", "Equipos de Limpieza", "Personal de Eventos"]
+      "roles": [
+        "Asociados de Almacén",
+        "Mudanzas",
+        "Equipos de Limpieza",
+        "Personal de Eventos"
+      ]
     }
   },
   "employers": {
@@ -160,9 +210,9 @@
       ]
     },
     "features": {
-        "recruiting": "Reclutamiento Experto",
-        "digital": "Motor de Contratación Digital",
-        "workforce": "Equipos Listos para Trabajar"
+      "recruiting": "Reclutamiento Experto",
+      "digital": "Motor de Contratación Digital",
+      "workforce": "Equipos Listos para Trabajar"
     }
   },
   "ourProcess": {
@@ -185,28 +235,61 @@
       "desc": "Las personas adecuadas comienzan a trabajar para usted."
     },
     "tabs": {
-        "employers": "Para Empleadores",
-        "jobSeekers": "Para Buscadores de Empleo",
-        "employerSteps": [
-            { "title": "Consulta", "desc": "Definimos sus necesidades laborales." },
-            { "title": "Búsqueda", "desc": "Lanzamos campañas dirigidas." },
-            { "title": "Selección", "desc": "Evaluamos y presentamos candidatos." },
-            { "title": "Incorporación", "desc": "Manejamos papeleo y nómina." }
-        ],
-        "seekerSteps": [
-            { "title": "Aplicación", "desc": "Envíe su perfil o currículum." },
-            { "title": "Entrevista", "desc": "Entrevista con nuestros reclutadores." },
-            { "title": "Colocación", "desc": "Conecte con los mejores empleadores." },
-            { "title": "Comenzar", "desc": "Inicie su nueva asignación." }
-        ]
+      "employers": "Para Empleadores",
+      "jobSeekers": "Para Buscadores de Empleo",
+      "employerSteps": [
+        {
+          "title": "Consulta",
+          "desc": "Definimos sus necesidades laborales."
+        },
+        {
+          "title": "Búsqueda",
+          "desc": "Lanzamos campañas dirigidas."
+        },
+        {
+          "title": "Selección",
+          "desc": "Evaluamos y presentamos candidatos."
+        },
+        {
+          "title": "Incorporación",
+          "desc": "Manejamos papeleo y nómina."
+        }
+      ],
+      "seekerSteps": [
+        {
+          "title": "Aplicación",
+          "desc": "Envíe su perfil o currículum."
+        },
+        {
+          "title": "Entrevista",
+          "desc": "Entrevista con nuestros reclutadores."
+        },
+        {
+          "title": "Colocación",
+          "desc": "Conecte con los mejores empleadores."
+        },
+        {
+          "title": "Comenzar",
+          "desc": "Inicie su nueva asignación."
+        }
+      ]
     },
     "faq": {
-        "title": "Preguntas Frecuentes",
-        "items": [
-            { "q": "¿Qué tan rápido pueden proveer personal?", "a": "Para mano de obra general, a menudo en 24-48 horas. Roles especializados pueden tomar 3-5 días." },
-            { "q": "¿Manejan seguros?", "a": "Sí, cubrimos compensación laboral y seguro de responsabilidad para todo nuestro personal." },
-            { "q": "¿Hay garantía?", "a": "Ofrecemos garantía de satisfacción. Si un trabajador no encaja en las primeras horas, lo reemplazamos." }
-        ]
+      "title": "Preguntas Frecuentes",
+      "items": [
+        {
+          "q": "¿Qué tan rápido pueden proveer personal?",
+          "a": "Para mano de obra general, a menudo en 24-48 horas. Roles especializados pueden tomar 3-5 días."
+        },
+        {
+          "q": "¿Manejan seguros?",
+          "a": "Sí, cubrimos compensación laboral y seguro de responsabilidad para todo nuestro personal."
+        },
+        {
+          "q": "¿Hay garantía?",
+          "a": "Ofrecemos garantía de satisfacción. Si un trabajador no encaja en las primeras horas, lo reemplazamos."
+        }
+      ]
     },
     "qualityStandard": {
       "title": "El Estándar de Calidad",
@@ -251,6 +334,7 @@
     "rights": "Todos los derechos reservados.",
     "privacy": "Política de Privacidad",
     "quickLinks": "Enlaces Rápidos",
-    "socials": "Redes Sociales"
+    "socials": "Redes Sociales",
+    "comingSoon": "Próximamente"
   }
 }

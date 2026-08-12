@@ -4,6 +4,18 @@ import { icons } from '../utils/icons';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+/**
+ * Las CINCO redes de la marca, siempre en este orden. Sin url se muestran pero
+ * no enlazan: nunca publicamos un perfil que no existe (ni un href="#").
+ */
+const socials = [
+  { key: 'facebook', label: 'Facebook', icon: 'facebook', url: '' },
+  { key: 'instagram', label: 'Instagram', icon: 'instagram', url: '' },
+  { key: 'tiktok', label: 'TikTok', icon: 'tiktok', url: '' },
+  { key: 'youtube', label: 'YouTube', icon: 'youtube', url: '' },
+  { key: 'linkedin', label: 'LinkedIn', icon: 'linkedin', url: '' },
+];
 ---
 
 <footer class="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white py-16">
@@ -20,17 +32,22 @@ const t = useTranslations(lang);
         <p class="text-gray-400 mb-6 leading-relaxed">
           {t('home.hero.subtitle')}
         </p>
-        <div class="flex space-x-4">
-          <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
-            <span class="w-6 h-6" set:html={icons.linkedin}></span>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
-            <span class="w-6 h-6" set:html={icons.facebook}></span>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
-            <span class="w-6 h-6" set:html={icons.instagram}></span>
-          </a>
-        </div>
+        {/* The five networks the brand always shows. An empty url renders the
+            mark without linking: better than the href="#" placeholders that
+            were here, which looked live and went nowhere. */}
+        <ul role="list" class="flex flex-wrap gap-4">
+          {socials.map((s) => (
+            <li>
+              {s.url ? (
+                <a href={s.url} target="_blank" rel="noopener noreferrer me" class="text-gray-400 transition-colors hover:text-white" aria-label={s.label}>
+                  <span class="w-6 h-6" set:html={icons[s.icon]} />
+                </a>
+              ) : (
+                <span class="w-6 h-6 inline-block cursor-default text-gray-600" aria-label={`${s.label} — ${t('footer.comingSoon')}`} title={`${s.label} — ${t('footer.comingSoon')}`} set:html={icons[s.icon]} />
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
       
       <!-- Quick Links -->

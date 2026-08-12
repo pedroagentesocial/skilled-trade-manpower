@@ -12,10 +12,10 @@
     "contact": "Contact",
     "call": "Call Us",
     "servicesDropdown": {
-        "recruiting": "Employment Recruiting",
-        "socialHiring": "Social Media Hiring",
-        "salesTeams": "Managed Sales Teams",
-        "skilledLabor": "Skilled Labor Subcontracting"
+      "recruiting": "Employment Recruiting",
+      "socialHiring": "Social Media Hiring",
+      "salesTeams": "Managed Sales Teams",
+      "skilledLabor": "Skilled Labor Subcontracting"
     }
   },
   "buttons": {
@@ -62,21 +62,36 @@
       "desc": "Full-cycle recruiting to find the best permanent talent for your organization.",
       "problem": "Finding qualified candidates takes time and resources you don't have.",
       "solution": "We handle sourcing, screening, and interviewing to present you with top-tier candidates.",
-      "features": ["Candidate Sourcing", " rigorous Screening", "Interview Coordination", "Placement Support"]
+      "features": [
+        "Candidate Sourcing",
+        " rigorous Screening",
+        "Interview Coordination",
+        "Placement Support"
+      ]
     },
     "socialHiring": {
       "title": "Social Media Marketing for Hiring",
       "desc": "Targeted digital campaigns to attract active and passive candidates.",
       "problem": "Traditional job boards are often not enough to reach the best talent.",
       "solution": "We use social platforms and digital outreach to build a pipeline of qualified candidates.",
-      "features": ["Targeted Ad Campaigns", "Employer Branding", "Passive Candidate Outreach", "High-Volume Lead Gen"]
+      "features": [
+        "Targeted Ad Campaigns",
+        "Employer Branding",
+        "Passive Candidate Outreach",
+        "High-Volume Lead Gen"
+      ]
     },
     "salesTeams": {
       "title": "Managed Sales Teams",
       "desc": "Recruiting and deploying high-performing sales professionals to drive revenue.",
       "problem": "Scaling a sales team requires finding individuals with the right drive and skills.",
       "solution": "We vet and place SDRs, BDRs, Account Executives, and Inside Sales reps.",
-      "features": ["SDRs & BDRs", "Account Executives", "Inside Sales", "Sales Leadership"]
+      "features": [
+        "SDRs & BDRs",
+        "Account Executives",
+        "Inside Sales",
+        "Sales Leadership"
+      ]
     },
     "skilledLabor": {
       "title": "Skilled Labor Subcontracting",
@@ -89,49 +104,84 @@
         "technology": "Technology",
         "generalLabor": "General Labor"
       },
-      "features": ["Vetted Tradesmen", "Rapid Deployment", "Safety Compliance", "On-Site Management"]
+      "features": [
+        "Vetted Tradesmen",
+        "Rapid Deployment",
+        "Safety Compliance",
+        "On-Site Management"
+      ]
     },
     "projectManagement": {
       "title": "Project Management & Supervision",
       "desc": "We provide on-site supervisors to manage the workflow, attendance, and performance of the deployed workforce.",
       "problem": "Managing a temporary workforce takes focus away from your core operations.",
       "solution": "Our experienced supervisors handle daily logistics and performance management.",
-      "features": ["On-Site Supervision", "Attendance Tracking", "Performance Reviews", "Conflict Resolution"]
+      "features": [
+        "On-Site Supervision",
+        "Attendance Tracking",
+        "Performance Reviews",
+        "Conflict Resolution"
+      ]
     },
     "safetyCompliance": {
       "title": "Safety & Compliance Training",
       "desc": "Ensuring every worker is job-ready and compliant with industry standards.",
       "problem": "Unqualified or unsafe workers create liability and project delays.",
       "solution": "We handle certifications, safety briefings, and compliance checks before deployment.",
-      "features": ["OSHA Training", "Safety Briefings", "Certification Verification", "Risk Mitigation"]
+      "features": [
+        "OSHA Training",
+        "Safety Briefings",
+        "Certification Verification",
+        "Risk Mitigation"
+      ]
     }
   },
   "industries": {
     "common": {
-        "valuePropTitle": "Accelerated Workforce Deployment through Digital Recruiting",
-        "valuePropDesc": "We don't just wait for applications. We actively recruit and use social media marketing to build a massive pipeline of qualified candidates for this specific industry. This ensures you get people who are ready to work now.",
-        "screeningTitle": "Reliability You Can Trust",
-        "screeningDesc": "Every candidate undergoes a screening process tailored to the industry. While we cannot legally guarantee every individual's future actions, our rigorous vetting significantly reduces turnover and risk."
+      "valuePropTitle": "Accelerated Workforce Deployment through Digital Recruiting",
+      "valuePropDesc": "We don't just wait for applications. We actively recruit and use social media marketing to build a massive pipeline of qualified candidates for this specific industry. This ensures you get people who are ready to work now.",
+      "screeningTitle": "Reliability You Can Trust",
+      "screeningDesc": "Every candidate undergoes a screening process tailored to the industry. While we cannot legally guarantee every individual's future actions, our rigorous vetting significantly reduces turnover and risk."
     },
     "healthcare": {
       "title": "Healthcare Crews",
       "desc": "Reliable medical and support staff for hospitals, clinics, and care facilities.",
-      "roles": ["Medical Assistants", "Nursing Support", "Admin Staff", "Facility Maintenance"]
+      "roles": [
+        "Medical Assistants",
+        "Nursing Support",
+        "Admin Staff",
+        "Facility Maintenance"
+      ]
     },
     "construction": {
       "title": "Construction Crews",
       "desc": "Skilled tradespeople for commercial and residential projects.",
-      "roles": ["Electricians", "Plumbers", "Carpenters", "General Laborers"]
+      "roles": [
+        "Electricians",
+        "Plumbers",
+        "Carpenters",
+        "General Laborers"
+      ]
     },
     "technology": {
       "title": "Technology Crews",
       "desc": "Tech talent for IT support, installation, and infrastructure.",
-      "roles": ["IT Support Techs", "Cable Installers", "System Admins", "Help Desk"]
+      "roles": [
+        "IT Support Techs",
+        "Cable Installers",
+        "System Admins",
+        "Help Desk"
+      ]
     },
     "generalLabor": {
       "title": "General Labor",
       "desc": "Hardworking teams for warehousing, logistics, and site support.",
-      "roles": ["Warehouse Associates", "Movers", "Cleanup Crews", "Event Staff"]
+      "roles": [
+        "Warehouse Associates",
+        "Movers",
+        "Cleanup Crews",
+        "Event Staff"
+      ]
     }
   },
   "employers": {
@@ -160,9 +210,9 @@
       ]
     },
     "features": {
-        "recruiting": "Expert Recruiting",
-        "digital": "Digital Hiring Engine",
-        "workforce": "Ready-to-Work Teams"
+      "recruiting": "Expert Recruiting",
+      "digital": "Digital Hiring Engine",
+      "workforce": "Ready-to-Work Teams"
     }
   },
   "ourProcess": {
@@ -185,28 +235,61 @@
       "desc": "The right people start working for you."
     },
     "tabs": {
-        "employers": "For Employers",
-        "jobSeekers": "For Job Seekers",
-        "employerSteps": [
-            { "title": "Consultation", "desc": "We define your workforce needs." },
-            { "title": "Sourcing", "desc": "We launch targeted campaigns." },
-            { "title": "Selection", "desc": "We vet and present candidates." },
-            { "title": "Onboarding", "desc": "We handle paperwork and payroll." }
-        ],
-        "seekerSteps": [
-            { "title": "Application", "desc": "Submit your profile or resume." },
-            { "title": "Screening", "desc": "Interview with our recruiters." },
-            { "title": "Placement", "desc": "Get matched with top employers." },
-            { "title": "Start Work", "desc": "Begin your new assignment." }
-        ]
+      "employers": "For Employers",
+      "jobSeekers": "For Job Seekers",
+      "employerSteps": [
+        {
+          "title": "Consultation",
+          "desc": "We define your workforce needs."
+        },
+        {
+          "title": "Sourcing",
+          "desc": "We launch targeted campaigns."
+        },
+        {
+          "title": "Selection",
+          "desc": "We vet and present candidates."
+        },
+        {
+          "title": "Onboarding",
+          "desc": "We handle paperwork and payroll."
+        }
+      ],
+      "seekerSteps": [
+        {
+          "title": "Application",
+          "desc": "Submit your profile or resume."
+        },
+        {
+          "title": "Screening",
+          "desc": "Interview with our recruiters."
+        },
+        {
+          "title": "Placement",
+          "desc": "Get matched with top employers."
+        },
+        {
+          "title": "Start Work",
+          "desc": "Begin your new assignment."
+        }
+      ]
     },
     "faq": {
-        "title": "Frequently Asked Questions",
-        "items": [
-            { "q": "How fast can you provide staff?", "a": "For general labor, often within 24-48 hours. Specialized roles may take 3-5 days." },
-            { "q": "Do you handle insurance?", "a": "Yes, we cover workers' compensation and liability insurance for all our staff." },
-            { "q": "Is there a guarantee?", "a": "We offer a satisfaction guarantee. If a worker isn't a fit in the first few hours, we replace them." }
-        ]
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "How fast can you provide staff?",
+          "a": "For general labor, often within 24-48 hours. Specialized roles may take 3-5 days."
+        },
+        {
+          "q": "Do you handle insurance?",
+          "a": "Yes, we cover workers' compensation and liability insurance for all our staff."
+        },
+        {
+          "q": "Is there a guarantee?",
+          "a": "We offer a satisfaction guarantee. If a worker isn't a fit in the first few hours, we replace them."
+        }
+      ]
     },
     "qualityStandard": {
       "title": "The Quality Standard",
@@ -251,6 +334,7 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
     "quickLinks": "Quick Links",
-    "socials": "Socials"
+    "socials": "Socials",
+    "comingSoon": "Coming soon"
   }
 }
